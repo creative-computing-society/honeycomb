@@ -1,1 +1,12 @@
-<h1>Task in Tasks app</h1>
+{% load static %}
+
+<h1>Task {{ task.id }} in Tasks app</h1>
+
+<h2>{{ task.points }}</h2>
+
+<h2>{{ task.title }}</h2>
+
+<h2>{{ task.description }}</h2>
+
+<img src="{{ task.photo_main }}" alt="Hint image"> 
+
