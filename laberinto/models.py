@@ -1,6 +1,6 @@
 from django.db import models
 from registration.models import Team
-#from django.db.models.deletion import DO_NOTHING
+from django.db.models.deletion import DO_NOTHING
 
 class Question(models.Model):
     qID = models.IntegerField()
