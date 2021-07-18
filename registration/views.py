@@ -3,11 +3,13 @@ import string
 
 from django.conf import settings
 from django.core.mail import send_mail
+from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
 
 from .forms import TeamForm, ParticipantForm
+from .models import Participant
 
 
 class RegisterView(APIView):
@@ -51,17 +53,21 @@ class RegisterView(APIView):
                 team = form.save()
 
                 to_list=[]
+                
                 teamLeader['team'] = team.id
                 to_list.append(teamLeader['email'])
                 ParticipantForm(teamLeader).save()
+                Token.objects.create(user=Participant.objects.get(email=teamLeader['email']))
                 if member1 is not None:
                     member1['team'] = team.id
                     to_list.append(member1['email'])
                     ParticipantForm(member1).save()
+                    Token.objects.create(user=Participant.objects.get(email=member1['email']))
                 if member2 is not None:
                     member2['team'] = team.id
                     to_list.append(member2['email'])
                     ParticipantForm(member2).save()
+                    Token.objects.create(user=Participant.objects.get(email=member2['email']))
                 
 
                 def send_email(subject, message, from_email, to_list):
