@@ -1,6 +1,8 @@
 import random
 import string
 
+from django.conf import settings
+from django.core.mail import send_mail
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -56,7 +58,16 @@ class RegisterView(APIView):
                     ParticipantForm(member2).save()
                 
                 # Todo: send email to participants with password
+                
+                subject = 'CCS Laberinto'
+                message = f'Hi {teamName}, Password for the portal is {password}'
+                email_from = settings.EMAIL_HOST_USER
+                recipient_list = [teamLeader.email, member1.email, member2.email]
+                send_mail( subject, message, email_from, recipient_list )
+
                 return Response("Successfully registered!")
+
+                
 
             else:
                 return Response({'error': 'Team Leader and Member 1 or Member 2 are required'})

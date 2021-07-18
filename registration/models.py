@@ -5,6 +5,7 @@ from django.db import models
 from django.core.validators import RegexValidator
 
 EMAIL_REGEX = "^[A-Za-z0-9._~+-]+@thapar\.edu$"
+#EMAIL_REGEX = "^[A-Za-z0-9._~+-]+@gmail\.com$"
 
 class Team(models.Model):
     teamName = models.CharField(max_length=100, unique=True)
