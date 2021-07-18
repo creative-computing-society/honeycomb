@@ -3,8 +3,8 @@ from .models import Question, Submission
 
 ##Question##
 class QuestionAdmin(admin.ModelAdmin):
-    list_display = ('id', 'qID', 'q_text', 'answer', 'level', 'points', 'is_dead_end')
-    list_display_links = ('id', 'qID', 'q_text')
+    list_display = ('qID', 'q_text', 'answer', 'level', 'points', 'is_dead_end')
+    list_display_links = ('qID', 'q_text')
     list_filter = ('points', 'level')
     list_editable = ('is_dead_end',)
     search_fields = ('qID', 'q_text', 'answer', 'level', 'points')
