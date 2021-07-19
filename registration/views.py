@@ -15,6 +15,7 @@ from .models import Participant
 class RegisterView(APIView):
     def post(self, request):
         data = request.data.copy()
+        print(data)
         teamData = {
             'teamName': data.pop('teamName'),
         }
