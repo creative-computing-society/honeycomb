@@ -123,6 +123,12 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ],
 }
+
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+
+
 # Email Testing
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
