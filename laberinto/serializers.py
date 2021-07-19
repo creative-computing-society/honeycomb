@@ -9,4 +9,4 @@ class QuestionSerializer(serializers.ModelSerializer):
 class SubmissionSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Submission
-		fields ='__all__'
+		fields =('team', 'question', 'ans_submitted')

@@ -27,3 +27,59 @@ Response:
 {
     "detail": "Successfully logged out."
 }
+
+
+// Question endpoint (GET)
+[
+    {
+        "qID": 2,
+        "level": 1,
+        "q_text": "question text",
+        "q_image": null
+    },
+    {
+        "qID": 3,
+        "level": 1,
+        "q_text": "question text",
+        "q_image": null
+    },
+    {
+        "qID": 4,
+        "level": 1,
+        "q_text": "question text",
+        "q_image": null
+    }
+]
+
+
+// Answer endpoint (POST)
+{
+    "question": 1,
+    "ans_submitted: "answer text"
+}
+Response:
+
+If answer is correct but it's a dead end,
+{
+    'message': 'dead_end'
+}, status=400
+
+If answer is correct and it's not a dead end,
+{
+    'message': 'correct'
+}, status=201
+
+If answer is incorrect,
+{
+    'message': 'incorrect'
+}, status=400
+
+If request is malformed,
+{
+    "question": [
+        "This field is required."
+    ],
+    "ans_submitted": [
+        "This field is required."
+    ]
+}, status=400

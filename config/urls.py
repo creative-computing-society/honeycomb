@@ -24,11 +24,6 @@ urlpatterns = [
     path('api/register/', views.RegisterView.as_view(), name='register'),
     path('api/auth/', include('dj_rest_auth.urls')),
     
-    #path('api-auth/', include('rest_framework.urls')),
-    #path('rest-auth/', include('rest_auth.urls')),
-    
-    path('question/', QuestionView.as_view(), name='question'),
-    path('submission/', SubmissionView.as_view(), name='submission'),
-    
-    path('api/token/', obtain_auth_token, name='obtain-token')
+    path('api/question/', QuestionView.as_view(), name='question'),
+    path('api/submission/', SubmissionView.as_view(), name='submission'),
 ]
