@@ -1,8 +1,29 @@
-// Participant JSON
-
+// Participant JSON (POST)
 {
     "teamName": "teamName",
     "teamLeader": {"name": "name1", "email": "test_1@thapar.edu", "mobile": "1234567890"},
     "member1": {"name": "name2", "email": "test_2@thapar.edu", "mobile": "1234567890"},
     "member2": {"name": "name3", "email": "test_3@thapar.edu", "mobile": "1234567890"}
+}
+Response:
+{
+    'success': 'Your team has been registered successfully.'
+}
+
+
+// Login endpoint (POST)
+{
+    "email": "test_2@thapar.edu",
+    "password": "AxdTMIL9"
+}
+Response:
+{
+    "key": "token-value"
+}
+
+
+// Logout endpoint (POST)
+Response:
+{
+    "detail": "Successfully logged out."
 }

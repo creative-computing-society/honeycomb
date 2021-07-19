@@ -9,6 +9,7 @@ djangorestframework = "*"
 pillow = "*"
 django-environ = "*"
 django-cors-headers = "*"
+dj-rest-auth = "*"
 
 [dev-packages]
 autopep8 = "*"
