@@ -16,9 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from registration import views
+from rest_framework.authtoken.views import obtain_auth_token
+from laberinto.views import QuestionView, SubmissionView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/register/', views.RegisterView.as_view(), name='register'),
     path('api/auth/', include('dj_rest_auth.urls')),
+    
+    #path('api-auth/', include('rest_framework.urls')),
+    #path('rest-auth/', include('rest_auth.urls')),
+    
+    path('question/', QuestionView.as_view(), name='question'),
+    path('submission/', SubmissionView.as_view(), name='submission'),
+    
+    path('api/token/', obtain_auth_token, name='obtain-token')
 ]
