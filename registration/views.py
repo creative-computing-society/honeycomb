@@ -14,9 +14,9 @@ from .models import Participant
 
 class RegisterView(APIView):
     def post(self, request):
-        
+        data = request.data.copy()
         teamData = {
-            'teamName': request.data.pop('teamName'),
+            'teamName': data.pop('teamName'),
         }
         form = TeamForm(teamData)
         if form.is_valid():
@@ -24,9 +24,9 @@ class RegisterView(APIView):
             password = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(8))
             print(password)
 
-            teamLeader = request.data.get('teamLeader')
-            member1 = request.data.get('member1')
-            member2 = request.data.get('member2')
+            teamLeader = data.get('teamLeader')
+            member1 = data.get('member1')
+            member2 = data.get('member2')
 
             if teamLeader is not None and member1 is not None or member2 is not None:
 
