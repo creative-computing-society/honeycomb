@@ -14,10 +14,10 @@ admin.site.register(Question, QuestionAdmin)
 
 ##Submission##
 class SubmissionAdmin(admin.ModelAdmin):
-    list_display = ('team_id', 'qID', 'ans_submitted')
-    list_display_links = ('team_id', 'qID')
+    list_display = ('team_id', 'question', 'ans_submitted')
+    list_display_links = ('team_id', 'question')
     list_filter = ('team_id',)
-    search_fields = ('team_id', 'qID', 'ans_submitted')
+    search_fields = ('team_id', 'question', 'ans_submitted')
     list_per_page = 25
 
 admin.site.register(Submission, SubmissionAdmin)

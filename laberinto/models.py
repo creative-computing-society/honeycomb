@@ -17,8 +17,8 @@ class Question(models.Model):
 
 
 class Submission(models.Model):
-    team_id = models.ForeignKey(Team, on_delete = models.CASCADE)
-    qID = models.ForeignKey(Question, on_delete = models.CASCADE)
+    team = models.ForeignKey(Team, on_delete = models.CASCADE)
+    question = models.ForeignKey(Question, on_delete = models.CASCADE)
     ans_submitted = models.CharField(max_length = 250)
     time_when_submitted = models.DateTimeField(default=None, blank=True, null=True)
 
