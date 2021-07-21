@@ -52,13 +52,25 @@ export const register = (
             // 'Authorization': `${token}`
         }
     }
+    var body = {
+        "teamName": `${teamName}`,
+        "teamLeader": {"name": `${name1}`, "email": `${email1}`, "mobile": `${mobile1}`},
+    }
 
-    const body = {
+    if(name2 && email2 && mobile2 && name3 && email3 && mobile3){
+        body = {
         "teamName": `${teamName}`,
         "teamLeader": {"name": `${name1}`, "email": `${email1}`, "mobile": `${mobile1}`},
         "member1": {"name": `${name2}`, "email": `${email2}`, "mobile": `${mobile2}`},
         "member2": {"name": `${name3}`, "email": `${email3}`, "mobile": `${mobile3}`}
-    };
+        }
+    }else if(name2 && email2 && mobile2){
+        body = {
+            "teamName": `${teamName}`,
+            "teamLeader": {"name": `${name1}`, "email": `${email1}`, "mobile": `${mobile1}`},
+            "member1": {"name": `${name2}`, "email": `${email2}`, "mobile": `${mobile2}`},
+        };
+    }
     console.log(body)
 
     try {
@@ -80,6 +92,7 @@ export const register = (
         })
     }
 }
+
 
 // Login User    
 
