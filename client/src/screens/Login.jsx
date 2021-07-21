@@ -1,42 +1,41 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 // import "font-awesome/css/font-awesome.min.css";
 import { func } from "prop-types";
 import { useHistory } from "react-router";
-import { register } from "../actions/auth";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { register } from '../actions/auth'
+// const handleRegister = (params = {}, handleChangeInLogin, history, handleError) => {
 
-const handleRegister = (params = {}, handleChangeInLogin, history, handleError) => {
+// };
 
-};
+// const handleLogin = (params = {}, handleChangeInLogin, history, handleError) => {
 
-const handleLogin = (params = {}, handleChangeInLogin, history, handleError) => {
-
-}
+// }
 
 const Login = ({ handleChangeInLogin }) => {
-  const history = useHistory();
-  const [register, setRegister] = useState({
-    username: "",
-    email: "",
-    password: ""
-  });
+  // const history = useHistory();
+  // const [register, setRegister] = useState({
+  //   username: "",
+  //   email: "",
+  //   password: ""
+  // });
 
-  const [login, setLogin] = useState({
-    username: "",
-    password: ""
-  });
+  // const [login, setLogin] = useState({
+  //   username: "",
+  //   password: ""
+  // });
 
   const [error, setError] = useState("");
 
-  const handleChange = ({ target }) => {
-    let name = target.name;
-    let value = target.value;
-    setRegister(prevState => ({ ...prevState, [name]: value }))
-  };
+  // const handleChange = ({ target }) => {
+  //   let name = target.name;
+  //   let value = target.value;
+  //   setRegister(prevState => ({ ...prevState, [name]: value }))
+  // };
 
-  const handleChangeLogin = ({ target }) => {
-    setLogin(prevState => ({ ...prevState, [target.name]: target.value }))
-  };
+  // const handleChangeLogin = ({ target }) => {
+  //   setLogin(prevState => ({ ...prevState, [target.name]: target.value }))
+  // };
 
   const handleError = (error) => {
     setError(error);
@@ -51,15 +50,12 @@ const Login = ({ handleChangeInLogin }) => {
   const [mobile1, setMobile1] = useState('');
   const [mobile2, setMobile2] = useState('');
   const [mobile3, setMobile3] = useState('');
+  
   const dispatch = useDispatch();
+  const auth = useSelector(state => state.auth)
   const handleSubmit = (e) => {
-    dispatch(register({
-      teamName,
-      name1, name2, name3,
-      email1, email2, email3,
-      mobile1, mobile2, mobile3
-    }))
-
+    e.preventDefault();
+    dispatch(register(teamName,name1, name2, name3,email1, email2, email3,mobile1, mobile2, mobile3))
   }
 
 
@@ -67,19 +63,20 @@ const Login = ({ handleChangeInLogin }) => {
 
 
   return (
-    <>
+    <Fragment>
+      {auth.isAuthenticated? <p>{auth.success}</p>:
       <div className="container1">
         <div className="forms-container1">
           <div className="signin-signup">
-            <form className="sign-in-form" onSubmit={(event) => { event.preventDefault(); handleLogin(login, handleChangeInLogin, history, handleError) }} >
+            <form className="sign-in-form" onSubmit={handleSubmit} >
               <h2 className="title">Sign in</h2>
               <div className="input-field">
                 <span></span>
-                <input required type="text" placeholder="Username" name="username" onChange={handleChangeLogin} />
+                {/* <input required type="text" placeholder="Username" name="username" onChange={handleChangeLogin} /> */}
               </div>
               <div className="input-field">
                 <span></span>
-                <input required type="password" placeholder="Password" name="password" onChange={handleChangeLogin} />
+                {/* <input required type="password" placeholder="Password" name="password" onChange={handleChangeLogin} /> */}
               </div>
               <input type="submit" value="Login" className="btn solid" />
               <label style={{ color: "red" }}>{error}</label>
@@ -156,7 +153,7 @@ const Login = ({ handleChangeInLogin }) => {
                 value={mobile3}
                 onChange={(e) => setMobile3(e.target.value)}
               />
-              <button>Register</button>
+              <button type='submit'>Register</button>
             </form>
           </div>
         </div>
@@ -191,7 +188,8 @@ const Login = ({ handleChangeInLogin }) => {
           </div>
         </div>
       </div>
-    </>
+}
+    </Fragment>
   );
 }
 
