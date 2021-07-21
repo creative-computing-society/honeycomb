@@ -2,13 +2,15 @@ import React, { useState } from "react";
 // import "font-awesome/css/font-awesome.min.css";
 import { func } from "prop-types";
 import { useHistory } from "react-router";
+import { register } from "../actions/auth";
+import { useDispatch } from "react-redux";
 
 const handleRegister = (params = {}, handleChangeInLogin, history, handleError) => {
-  
+
 };
 
 const handleLogin = (params = {}, handleChangeInLogin, history, handleError) => {
- 
+
 }
 
 const Login = ({ handleChangeInLogin }) => {
@@ -39,6 +41,30 @@ const Login = ({ handleChangeInLogin }) => {
   const handleError = (error) => {
     setError(error);
   }
+  const [teamName, setTeamName] = useState('');
+  const [name1, setName1] = useState('');
+  const [name2, setName2] = useState('');
+  const [name3, setName3] = useState('');
+  const [email1, setEmail1] = useState('');
+  const [email2, setEmail2] = useState('');
+  const [email3, setEmail3] = useState('');
+  const [mobile1, setMobile1] = useState('');
+  const [mobile2, setMobile2] = useState('');
+  const [mobile3, setMobile3] = useState('');
+  const dispatch = useDispatch();
+  const handleSubmit = (e) => {
+    dispatch(register({
+      teamName,
+      name1, name2, name3,
+      email1, email2, email3,
+      mobile1, mobile2, mobile3
+    }))
+
+  }
+
+
+
+
 
   return (
     <>
@@ -59,22 +85,78 @@ const Login = ({ handleChangeInLogin }) => {
               <label style={{ color: "red" }}>{error}</label>
             </form>
 
-            <form className="sign-up-form" onSubmit={(event) => { event.preventDefault(); handleRegister(register, handleChangeInLogin, history, handleError);}} >
-              <h2 className="title">Sign up</h2>
-              <div className="input-field">
-                <span></span>
-                <input required type="text" placeholder="Username" name="username" onChange={handleChange} />
-              </div>
-              <div className="input-field">
-                <span></span>
-                <input required type="email" placeholder="Email" name="email" onChange={handleChange} />
-              </div>
-              <div className="input-field">
-                <span></span>
-                <input required type="password" placeholder="Password" name="password" onChange={handleChange} />
-              </div>
-              <input type="submit" className="btn" value="Sign up" />
-              <label style={{ color: "red" }}>{error}</label>
+            <form className="sign-up-form" onSubmit={ handleSubmit} >
+              <label>Team Name:</label>
+              <input
+                type="text"
+                required
+                value={teamName}
+                onChange={(e) => setTeamName(e.target.value)}
+              />
+
+              <label>Team Leader:</label>
+              <input
+                type="text"
+                required
+                value={name1}
+                onChange={(e) => setName1(e.target.value)}
+              />
+
+              <label>Name of Member 2:</label>
+              <input
+                type="text"
+                required
+                value={name2}
+                onChange={(e) => setName2(e.target.value)}
+              />
+              <label>Name of Member 3:</label>
+              <input
+                type="text"
+                value={name3}
+                onChange={(e) => setName3(e.target.value)}
+              />
+              <label>Email 1:</label>
+              <input
+                type="email"
+                required
+                value={email1}
+                onChange={(e) => setEmail1(e.target.value)}
+              />
+
+              <label>Email 2:</label>
+              <input
+                type="email"
+                required
+                value={email2}
+                onChange={(e) => setEmail2(e.target.value)}
+              />
+              <label>Email 3:</label>
+              <input
+                type="email"
+                value={email3}
+                onChange={(e) => setEmail3(e.target.value)}
+              />
+              <label>Mobile Number 1:</label>
+              <input
+                type="text"
+                required
+                value={mobile1}
+                onChange={(e) => setMobile1(e.target.value)}
+              />
+              <label>Mobile Number 2:</label>
+              <input
+                type="text"
+                required
+                value={mobile2}
+                onChange={(e) => setMobile2(e.target.value)}
+              />
+              <label>Mobile Number 3:</label>
+              <input
+                type="text"
+                value={mobile3}
+                onChange={(e) => setMobile3(e.target.value)}
+              />
+              <button>Register</button>
             </form>
           </div>
         </div>
