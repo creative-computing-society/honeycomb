@@ -110,13 +110,13 @@ export const login = ( email, password ) => async dispatch => {
             type: LOGIN_REQUEST
         })
 
-        const res = await axios.post(proxy+'/api/auth', body, config);
+        const res = await axios.post(proxy+'/api/auth/login', body, config);
         
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
         });
-        dispatch(loadUser());
+        dispatch(loadUser(res.data.token));
     } catch (e) {
         const errors = e.response.data.errors;
 
