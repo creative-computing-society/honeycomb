@@ -21,6 +21,14 @@ class QuestionView(APIView):
         serializer = QuestionSerializer(qs, many=True)
         return Response(serializer.data)
 
+
+class QuestionDetailView(APIView):
+    permission_classes = (IsAuthenticated, )
+    def get(self, request, *args, **kwargs):
+        id = kwargs['id']
+        qs = Question.objects.filter(qID=id)
+        serializer = QuestionSerializer(qs, many=True)
+        return Response(serializer.data)
     
 
 class SubmissionView(APIView):

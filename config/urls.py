@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from registration import views
 from rest_framework.authtoken.views import obtain_auth_token
-from laberinto.views import QuestionView, SubmissionView
+from laberinto.views import QuestionView,QuestionDetailView, SubmissionView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,5 +25,6 @@ urlpatterns = [
     path('api/auth/', include('dj_rest_auth.urls')),
     
     path('api/question/', QuestionView.as_view(), name='question'),
+    path('api/question/<int:id>', QuestionDetailView.as_view(), name='question'),
     path('api/submission/', SubmissionView.as_view(), name='submission'),
 ]
