@@ -1,15 +1,18 @@
-#from django.shortcuts import get_object_or_404, render
-from django.db.models.query import QuerySet
-from django.http.response import FileResponse
 from .models import Question, Submission
 from django.http import JsonResponse
-
 
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import APIView
 from rest_framework.response import Response
-#from rest_framework import generics
-from .serializers import QuestionSerializer, SubmissionSerializer
+from .serializers import ParticipantSerializer, QuestionSerializer, SubmissionSerializer
+
+
+class ParticipantDetailView(APIView):
+    permission_classes = (IsAuthenticated,)
+    def get(self, request):
+        participant = request.user
+        serializer = ParticipantSerializer(participant)
+        return Response(serializer.data)
 
 class QuestionView(APIView):
 
