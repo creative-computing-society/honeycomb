@@ -14,7 +14,7 @@ input {
 .container1 {
   position: relative;
   width: 100%;
-  background-color: #080F0F;
+  background-color: #080f0f;
   min-height: 100vh;
   overflow: hidden;
 }
@@ -83,7 +83,7 @@ form.sign-in-form {
 .input-field svg {
   text-align: center;
   line-height: 55px;
-  color: #080F0F;
+  color: #080f0f;
   transition: 0.5s;
   /* font-size: 1.1rem; */
 }
@@ -102,6 +102,45 @@ form.sign-in-form {
   color: #080f0f;
   font-weight: 500;
 }
+.input-signup svg {
+  text-align: center;
+  line-height: 55px;
+  color: #080f0f;
+  transition: 0.5s;
+
+}
+
+.input-signup input {
+  background: none;
+  outline: none;
+  border: none;
+  line-height: 1;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #333;
+
+}
+
+.input-signup input::placeholder {
+  color: #080f0f;
+  font-weight: 500;
+}
+.input-signup{
+  max-width: 300px;
+  width: 100%;
+  background-color: #f0f0f0;
+  margin: 10px 0;
+  height: 40px;
+  border-radius: 55px;
+  display: grid;
+  grid-template-columns: 15% 85%;
+  padding: 0 0.4rem;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+
+
 
 .social-text {
   padding: 0.7rem 0;
@@ -150,6 +189,7 @@ form.sign-in-form {
 
 .btn:hover {
   background-color: #ff0000;
+  color: #fff;
 }
 .panels-container1 {
   position: absolute;
@@ -225,6 +265,11 @@ form.sign-in-form {
   height: 41px;
   font-weight: 600;
   font-size: 0.8rem;
+}
+.btn.transparent:hover{
+  background: #fff;
+  border: 2px solid #af0404;
+  color: #af0404;
 }
 
 .right-panel .image,
@@ -398,4 +443,79 @@ form.sign-in-form {
     bottom: 28%;
     left: 50%;
   }
+}
+nav{
+  background-color: #080f0f !important;
+  -webkit-box-shadow: 0 8px 6px -6px #630000;
+  -moz-box-shadow: 0 8px 6px -6px #630000;
+  box-shadow: 0 8px 6px -6px #630000;
+}
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
+  transition: all 0.5s;
+}
+nav ul li a:hover {
+  color: #555;
+}
+
+/* SHIFT */
+nav.shift ul li a {
+  position: relative;
+  z-index: 1;
+}
+nav.shift ul li a:hover {
+  color: #91640f;
+}
+nav.shift ul li a:after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  height: 1px;
+  content: ".";
+  color: transparent;
+  background: #af0404;
+  visibility: none;
+  opacity: 0;
+  z-index: -1;
+}
+nav.shift ul li a:hover:after {
+  opacity: 1;
+  visibility: visible;
+  height: 100%;
+}
+
+
+#landing {
+  width: 100vw;
+  height: 512px;
+  overflow: hidden;
+  margin-bottom: 200vh;
+  background-color: #080f0f;
+}
+#bg {
+  width: 100%;
+  height: 100%;
+  background: url("back.png");
+  background-size: cover;
+  transform-origin: center;
+  background-color: #080f0f;
+  overflow: hidden;
+}
+
+
+.regform{
+  margin-top: -30%;
+}
+
+.reghead{
+  font-size: 1.8rem;
+  color: #fff;
+  margin: 10px;
+  font-weight: 500;
 }
