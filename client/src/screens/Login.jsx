@@ -80,7 +80,7 @@ const Login = ({ handleChangeInLogin }) => {
       <div className="container1">
         <div className="forms-container1">
           <div className="signin-signup">
-            <div className="container">
+            <div className="container regsig">
               <form
                 className="sign-in-form"
                 onSubmit={(event) => {

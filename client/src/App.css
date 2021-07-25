@@ -315,7 +315,28 @@ form.sign-in-form {
 .container1.sign-up-mode .right-panel {
   pointer-events: all;
 }
-
+@media screen and (max-width:1124px){
+  .signin-signup{
+    margin-top: 10%;
+  }
+  .regform{
+    margin-top: -80% !important;
+  }
+  .input-signup{
+    height: 15% !important;
+  }
+}
+@media screen and (max-width:1124px){
+  .signin-signup{
+    margin-top: 10%;
+  }
+  .regform{
+    margin-top: -80% !important;
+  }
+  .input-signup{
+    height: 15% !important;
+  }
+}
 @media (max-width: 870px) {
   .container1 {
     min-height: 800px;
@@ -324,8 +345,15 @@ form.sign-in-form {
   .signin-signup {
     width: 100%;
     top: 95%;
+    margin-top: 20%;
     transform: translate(-50%, -100%);
     transition: 1s 0.8s ease-in-out;
+  }
+  .regsig{
+    margin-top: -40%;
+  }
+  .regform{
+    margin-top: -10% !important;
   }
 
   .signin-signup,
@@ -444,6 +472,18 @@ form.sign-in-form {
     left: 50%;
   }
 }
+
+@media screen and (max-width:426px) {
+  .regsig{
+    margin-top: -70% !important;
+  }
+
+  .input-signup{
+    height: 10% !important;
+  }
+}
+
+
 nav{
   background-color: #080f0f !important;
   -webkit-box-shadow: 0 8px 6px -6px #630000;
