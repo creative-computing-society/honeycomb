@@ -223,7 +223,7 @@ const Login = ({ handleChangeInLogin }) => {
               <p className="hide">
                 “A journey of a thousand miles begins with a single step.”{" "}
                 <br />
-                —Lao Tzu
+                Sign up, to get lost in the maze.
               </p>
               <button
                 className="btn transparent"
@@ -243,8 +243,8 @@ const Login = ({ handleChangeInLogin }) => {
             <div className="content">
               <h3 className="hide">One of us ?</h3>
               <p className="hide">
-                “A room without books is like a body without a soul.” <br />~
-                Cicero
+                "Sign in, and enter the maze.Get Ready, to GET LOST" <br />~
+                
               </p>
               <button
                 className="btn transparent"
