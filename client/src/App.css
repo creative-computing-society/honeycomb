@@ -473,13 +473,59 @@ form.sign-in-form {
   }
 }
 
-@media screen and (max-width:426px) {
+@media screen and (max-width:451px) {
+
+.regsig{
+  margin-bottom: -20%;
+  padding-top: 30%;
+  padding-bottom: -10%;
+}
+.hide{
+  display: none;
+}
+.reghead{
+  font-size: 1.2rem !important;
+  white-space: nowrap;
+  margin-top: -10%;
+}
+
+.titlesignup{
+  font-size: 2rem;
+  font-weight: 400;
+}
+}
+@media screen and (max-width:389px) {
+
   .regsig{
-    margin-top: -70% !important;
+    margin-bottom: -10%;
+    padding-top: 30%;
+    padding-bottom: -10%;
+    margin-left: -4%;
+  }
+  .hide{
+    display: none;
+  }
+  .reghead{
+    font-size: 1.14rem !important;
+
+    margin-top: -0%;
+    margin-bottom: 0%;
   }
 
-  .input-signup{
-    height: 10% !important;
+  .regform{
+    margin-left: -18px;
+  }
+  
+  .titlesignup{
+    font-size: 2rem;
+    font-weight: 400;
+    
+  }
+  }
+
+@media screen and (max-width:321px){
+  .container1{
+    overflow-x: scroll !important;
   }
 }
 

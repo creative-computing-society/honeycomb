@@ -116,7 +116,7 @@ const Login = ({ handleChangeInLogin }) => {
 
             <div className="container regform">
               <form className="sign-up-form" onSubmit={handleSubmit}>
-                <h2 className="title">Sign Up</h2>
+                <h2 className="title titlesignup">Sign Up</h2>
                 <div className="row">
                   <input
                     type="text"
@@ -219,8 +219,8 @@ const Login = ({ handleChangeInLogin }) => {
         <div className="panels-container1">
           <div className="panel left-panel">
             <div className="content">
-              <h3>New here ?</h3>
-              <p>
+              <h3 className="hide">New here ?</h3>
+              <p className="hide">
                 “A journey of a thousand miles begins with a single step.”{" "}
                 <br />
                 —Lao Tzu
@@ -241,8 +241,8 @@ const Login = ({ handleChangeInLogin }) => {
           </div>
           <div className="panel right-panel">
             <div className="content">
-              <h3>One of us ?</h3>
-              <p>
+              <h3 className="hide">One of us ?</h3>
+              <p className="hide">
                 “A room without books is like a body without a soul.” <br />~
                 Cicero
               </p>
