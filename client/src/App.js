@@ -5,25 +5,20 @@ import { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import {Provider} from 'react-redux';
 import store from './store';
-import Landing from './components/Landing/landing'
+
 import Navbar from './screens/navbar';
 import Login from './screens/Login';
 
 function App() {
   return (
-    <div className="App">
     <Provider store={store}>
-      <Router>
     <Navbar />
-    
-      <Switch>
-    <Route exact path = '/' component = {Landing}/>
+    <Router>
+
     <Route path = '/login' component = {Login}></Route>
-    </Switch>
+
     </Router>
     </Provider>
-    </div>
-
   );
 }
 

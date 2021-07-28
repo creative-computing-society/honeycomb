@@ -9,8 +9,6 @@
 body,
 input {
   font-family: "Poppins", sans-serif;
-  overflow-x: hidden;
-  max-width: 100vw;
 }
 
 .container1 {
@@ -538,24 +536,24 @@ nav{
   -moz-box-shadow: 0 8px 6px -6px #630000;
   box-shadow: 0 8px 6px -6px #630000;
 }
-nav ul li Link,
-nav ul li Link:after,
-nav ul li Link:before {
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
   transition: all 0.5s;
 }
-nav ul li Link:hover {
+nav ul li a:hover {
   color: #555;
 }
 
 /* SHIFT */
-nav.shift ul li Link {
+nav.shift ul li a {
   position: relative;
   z-index: 1;
 }
-nav.shift ul li Link:hover {
+nav.shift ul li a:hover {
   color: #91640f;
 }
-nav.shift ul li Link:after {
+nav.shift ul li a:after {
   display: block;
   position: absolute;
   top: 0;
@@ -572,7 +570,7 @@ nav.shift ul li Link:after {
   opacity: 0;
   z-index: -1;
 }
-nav.shift ul li Link:hover:after {
+nav.shift ul li a:hover:after {
   opacity: 1;
   visibility: visible;
   height: 100%;
