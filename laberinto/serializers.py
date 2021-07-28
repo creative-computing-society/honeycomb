@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from registration.models import Participant, Team
-from .models import Room, Question, Submission
+from .models import Question, Submission
 
 
 class TeamSerializer(serializers.ModelSerializer):
@@ -14,17 +14,10 @@ class ParticipantSerializer(serializers.ModelSerializer):
 		model = Participant
 		fields = ('name', 'email', 'team')
 
-
-class RoomSerializer(serializers.ModelSerializer):
-	class Meta:
-		model = Room
-		fields = ('room_id', 'level')
-
 class QuestionSerializer(serializers.ModelSerializer):
-	room = RoomSerializer()
 	class Meta:
 		model = Question
-		fields =('qID', 'room', 'q_text', 'q_image')
+		fields =('qID', 'level', 'q_text', 'q_image')
 
 class SubmissionSerializer(serializers.ModelSerializer):
 	class Meta:
