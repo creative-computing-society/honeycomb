@@ -10,6 +10,7 @@ import Navbar from './screens/navbar';
 import Login from './screens/Login';
 import Team from './components/team/Team';
 import Room from './screens/Room';
+import Question from './screens/Question';
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
     <Route path = '/login' component = {Login}></Route>
     <Route path = '/team-registration' component = {Team}/>
     <Route path = '/maze/:roomId' component={Room}/>
+    <Route path = '/path/:qID' component={Question}/>
+
     </Switch>
     </Router>
     </Provider>

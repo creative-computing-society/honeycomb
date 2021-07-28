@@ -16,7 +16,6 @@ function questions(state=initialState, action){
         case POST_ANSWER_REQUEST:
             return {
                 loading: true,
-                isSolved: false,
             }
 
         case GET_QUESTIONS_BY_LEVEL:
@@ -26,11 +25,13 @@ function questions(state=initialState, action){
             }
         case GET_QUESTIONS_BY_ID:
             return{
-                isSolved: false
+                ...state,
+                questionById: payload
             }
         case POST_ANSWER_SUCCESS:
             return{
-                isSolved: true,
+                ...state,
+                answer: payload
             }
 
         case GET_QUESTIONS_BY_LEVEL_FAILURE:
