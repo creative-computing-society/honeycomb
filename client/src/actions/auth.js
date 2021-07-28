@@ -43,45 +43,56 @@ export const loadUser = (token) => async dispatch => {
 
 // Register User    
 
-export const register = ({ 
-    teamName,
-    name1,name2,name3,
-    email1,email2,email3,
-    mobile1,mobile2,mobile3 
- }) => async dispatch => {
+export const register = (
+    teamName,name1,name2,name3,email1,email2,email3,mobile1,mobile2,mobile3 
+) => async dispatch => {
     const config = {
         headers: {
             'Content-Type':'application/json',
             // 'Authorization': `${token}`
         }
     }
+    var body = {
+        "teamName": `${teamName}`,
+        "teamLeader": {"name": `${name1}`, "email": `${email1}`, "mobile": `${mobile1}`},
+    }
 
-    const body = JSON.stringify({
-        "teamName": teamName,
-        "teamLeader": {"name": name1, "email": email1, "mobile": mobile1},
-        "member1": {"name": name2, "email": email2, "mobile": mobile2},
-        "member2": {"name": name3, "email": email3, "mobile": mobile3}
-    });
+    if(name2 && email2 && mobile2 && name3 && email3 && mobile3){
+        body = {
+        "teamName": `${teamName}`,
+        "teamLeader": {"name": `${name1}`, "email": `${email1}`, "mobile": `${mobile1}`},
+        "member1": {"name": `${name2}`, "email": `${email2}`, "mobile": `${mobile2}`},
+        "member2": {"name": `${name3}`, "email": `${email3}`, "mobile": `${mobile3}`}
+        }
+    }else if(name2 && email2 && mobile2){
+        body = {
+            "teamName": `${teamName}`,
+            "teamLeader": {"name": `${name1}`, "email": `${email1}`, "mobile": `${mobile1}`},
+            "member1": {"name": `${name2}`, "email": `${email2}`, "mobile": `${mobile2}`},
+        };
+    }
+    console.log(body)
 
     try {
         dispatch({
             type: REGISTER_REQUEST
         })
-        const res = await axios.post(proxy+'/api/users', body, config);
+        const res = await axios.post(proxy+'/api/register/', body, config);
         
         dispatch({
             type: REGISTER_SUCCESS,
             payload: res.data
         });
-        dispatch(loadUser(res.data));
+        // dispatch(loadUser(res.data));
 
     } catch (e) {
-        const errors = e.response.data.errors;
+        // const errors = e.response.data.errors;
         dispatch({
             type: REGISTER_FAILURE
         })
     }
 }
+
 
 // Login User    
 
@@ -99,13 +110,13 @@ export const login = ( email, password ) => async dispatch => {
             type: LOGIN_REQUEST
         })
 
-        const res = await axios.post(proxy+'/api/auth', body, config);
+        const res = await axios.post(proxy+'/api/auth/login', body, config);
         
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
         });
-        dispatch(loadUser());
+        dispatch(loadUser(res.data.token));
     } catch (e) {
         const errors = e.response.data.errors;
 

@@ -1,4 +1,4 @@
-// Participant JSON (POST)
+// Registration endpoint (POST)
 {
     "teamName": "teamName",
     "teamLeader": {"name": "name1", "email": "test_1@thapar.edu", "mobile": "1234567890"},
@@ -29,6 +29,18 @@ Response:
 }
 
 
+// Participant detail endpoint (GET)
+Response:
+{
+    "name": "name1",
+    "email": "test_1@thapar.edu",
+    "team": {
+        "teamName": "teamName",
+        "score": 0,
+        "level": 0
+    }
+}
+
 // Question endpoint (GET)
 [
     {
@@ -47,6 +59,18 @@ Response:
         "qID": 4,
         "level": 1,
         "q_text": "question text",
+        "q_image": null
+    }
+]
+
+
+// Question detail endpoint (GET)
+response:
+[
+    {
+        "qID": 2,
+        "level": 1,
+        "q_text": "This is question 1.1",
         "q_image": null
     }
 ]
