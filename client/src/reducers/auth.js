@@ -9,11 +9,14 @@ import {
     LOGIN_SUCCESS,
     LOGIN_FAILURE,
     LOGOUT,
+    SAVE_TEAM_LEADER_INFO,
+    SAVE_TEAM_LEADER_INFO_FAILURE
 } from '../actions/types';
 
 const initialState = {
     token: localStorage.getItem('token'),
     isAuthenticated: null,
+    teamLeader: null
 }   
 
 function auth(state = initialState, action){
@@ -24,6 +27,7 @@ function auth(state = initialState, action){
         case REGISTER_REQUEST:
         case LOGIN_REQUEST:
             return{
+                ...state,
                 loading: true
             }
         case USER_LOADED: 
@@ -41,6 +45,11 @@ function auth(state = initialState, action){
                 ...payload,
                 isAuthenticated: true,
                 loading: false
+            }
+        case SAVE_TEAM_LEADER_INFO:
+            return{
+                ...state,
+                teamLeader: payload
             }
         case REGISTER_FAILURE:
         case AUTH_ERROR:

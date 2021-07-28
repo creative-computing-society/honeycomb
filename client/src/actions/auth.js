@@ -10,10 +10,25 @@ import {
     LOGIN_SUCCESS,
     LOGIN_FAILURE,    
     LOGOUT,
+    SAVE_TEAM_LEADER_INFO,
+    SAVE_TEAM_LEADER_INFO_FAILURE,
     proxy
 } from './types';
 
-
+// Save team leader info
+export const saveTeamLeader = (teamName, name1, email1, mobile1) => async dispatch => {
+    try {
+        const res = {teamName, name1, email1, mobile1}
+        dispatch({
+            type: SAVE_TEAM_LEADER_INFO,
+            payload: res
+        })
+    } catch (error) {
+        dispatch({
+            type: SAVE_TEAM_LEADER_INFO_FAILURE
+        })
+    }
+}
 
 // Load User
 export const loadUser = (token) => async dispatch => {
