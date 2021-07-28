@@ -9,6 +9,7 @@ import Landing from './components/Landing/landing'
 import Navbar from './screens/navbar';
 import Login from './screens/Login';
 import Team from './components/team/Team';
+import Room from './screens/Room';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
     <Route exact path = '/' component = {Landing}/>
     <Route path = '/login' component = {Login}></Route>
     <Route path = '/team-registration' component = {Team}/>
+    <Route path = '/maze/:roomId' component={Room}/>
     </Switch>
     </Router>
     </Provider>

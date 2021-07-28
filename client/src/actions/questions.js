@@ -3,16 +3,19 @@ import {proxy} from './types'
 import {QUESTIONS_BY_LEVEL_REQUEST, GET_QUESTIONS_BY_LEVEL, GET_QUESTIONS_BY_LEVEL_FAILURE, QUESTIONS_BY_ID_REQUEST, GET_QUESTIONS_BY_ID, GET_QUESTIONS_BY_ID_FAILURE, 
 POST_ANSWER_FAILURE, POST_ANSWER_REQUEST, POST_ANSWER_SUCCESS} from './types'  
 
-// Questions by level
-export const getQuestionsByLevel = (token) => async dispatch => {
+// Questions by room
+export const getQuestionsByRoom = (token, roomId) => async dispatch => {
     const config = {
         headers: {
             'Authorization': `Token ${token}`,
         }
     }
+    const body = {
+        "room": roomId
+    }
     try {
         dispatch({type: QUESTIONS_BY_LEVEL_REQUEST})
-        const res = await axios.get(proxy + '/api/question', config)
+        const res = await axios.get(proxy + '/api/question', body, config)
         dispatch({
             type: GET_QUESTIONS_BY_LEVEL,
             payload: res.data,

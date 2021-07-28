@@ -14,7 +14,7 @@ import {
 } from '../actions/types';
 
 const initialState = {
-    token: localStorage.getItem('token'),
+    key: null,
     isAuthenticated: null,
     teamLeader: null
 }   

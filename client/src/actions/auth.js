@@ -34,7 +34,7 @@ export const saveTeamLeader = (teamName, name1, email1, mobile1) => async dispat
 export const loadUser = (token) => async dispatch => {
     const config = {
         headers: {
-            'Authorization': `${token}`,
+            'Authorization': `Token ${token}`,
         }
     }
     try {
@@ -42,7 +42,7 @@ export const loadUser = (token) => async dispatch => {
             type: LOAD_REQUEST
         })
 
-        const res = await axios.get(proxy+'/api/auth', config);
+        const res = await axios.get(proxy+'/api/participant', config);
 
         dispatch({
             type: USER_LOADED,
@@ -125,13 +125,13 @@ export const login = ( email, password ) => async dispatch => {
             type: LOGIN_REQUEST
         })
 
-        const res = await axios.post(proxy+'/api/auth/login', body, config);
+        const res = await axios.post(proxy+'/api/auth/login/', body, config);
         
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
         });
-        dispatch(loadUser(res.data.token));
+        dispatch(loadUser(res.data.key));
     } catch (e) {
         const errors = e.response.data.errors;
 

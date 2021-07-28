@@ -3,7 +3,7 @@ import React, { Fragment, useState } from "react";
 import { func } from "prop-types";
 // import { useHistory } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { saveTeamLeader } from '../actions/auth'
+import { login, saveTeamLeader } from '../actions/auth'
 import {Link, Redirect} from 'react-router-dom'
 import {useHistory} from 'react-router'
 // const handleRegister = (params = {}, handleChangeInLogin, history, handleError) => {
@@ -15,39 +15,47 @@ import {useHistory} from 'react-router'
 
 // }
 
-const Login = ({ handleChangeInLogin }) => {
+const Login = () => {
 
   const [teamName, setTeamName] = useState('');
   const [name1, setName1] = useState('');
   const [email1, setEmail1] = useState('');
   const [mobile1, setMobile1] = useState('');
+  const [loginEmail, setLoginEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  
   const history = useHistory()
   const dispatch = useDispatch();
   const auth = useSelector(state => state.auth)
+
+  if(auth.isAuthenticated){
+    history.push('/')
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(saveTeamLeader(teamName,name1,email1,mobile1));
     history.push('/team-registration');
   }
+  const handleSubmitLogin = (e) => {
+    e.preventDefault();
+    dispatch(login(loginEmail, password));
+  }
 
   return (
     <Fragment>
-      {auth.isAuthenticated? <p>{auth.success}</p>:
       <div className="container1">
         <div className="forms-container1">
           <div className="signin-signup">
 
-            <form className="sign-in-form" onSubmit={handleSubmit} >
+            <form className="sign-in-form" onSubmit={handleSubmitLogin} >
               <h2 className="title">Sign in</h2>
               <div className="input-field">
                 <span></span>
-                {/* <input required type="text" placeholder="Username" name="username" onChange={handleChangeLogin} /> */}
+                <input required type="text" placeholder="Email" value={loginEmail} onChange={(e)=>setLoginEmail(e.target.value)} />
               </div>
               <div className="input-field">
                 <span></span>
-                {/* <input required type="password" placeholder="Password" name="password" onChange={handleChangeLogin} /> */}
+                <input required type="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} />
               </div>
               <input type="submit" value="Login" className="btn solid" />
               {/* <label style={{ color: "red" }}>{error}</label> */}
@@ -139,7 +147,7 @@ const Login = ({ handleChangeInLogin }) => {
           </div>
         </div>
       </div>
-}
+
     </Fragment>
   );
 };
