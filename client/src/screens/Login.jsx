@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { register } from '../actions/auth'
 // const handleRegister = (params = {}, handleChangeInLogin, history, handleError) => {
 
+
 // };
 
 // const handleLogin = (params = {}, handleChangeInLogin, history, handleError) => {
@@ -51,9 +52,11 @@ const Login = ({ handleChangeInLogin }) => {
   const [mobile2, setMobile2] = useState('');
   const [mobile3, setMobile3] = useState('');
   
+
   const dispatch = useDispatch();
   const auth = useSelector(state => state.auth)
   const handleSubmit = (e) => {
+
     e.preventDefault();
     dispatch(register(teamName,name1, name2, name3,email1, email2, email3,mobile1, mobile2, mobile3))
   }
@@ -68,6 +71,7 @@ const Login = ({ handleChangeInLogin }) => {
       <div className="container1">
         <div className="forms-container1">
           <div className="signin-signup">
+
             <form className="sign-in-form" onSubmit={handleSubmit} >
               <h2 className="title">Sign in</h2>
               <div className="input-field">
@@ -155,19 +159,28 @@ const Login = ({ handleChangeInLogin }) => {
               />
               <button type='submit'>Register</button>
             </form>
+
           </div>
         </div>
 
         <div className="panels-container1">
           <div className="panel left-panel">
             <div className="content">
-              <h3>New here ?</h3>
-              <p>
+              <h3 className="hide">New here ?</h3>
+              <p className="hide">
                 “A journey of a thousand miles begins with a single step.”{" "}
                 <br />
-                —Lao Tzu
+                Sign up, to get lost in the maze.
               </p>
-              <button className="btn transparent" id="sign-up-btn" onClick={() => document.querySelector(".container1").classList.add("sign-up-mode")}>
+              <button
+                className="btn transparent"
+                id="sign-up-btn"
+                onClick={() =>
+                  document
+                    .querySelector(".container1")
+                    .classList.add("sign-up-mode")
+                }
+              >
                 Sign up
               </button>
             </div>
@@ -175,12 +188,20 @@ const Login = ({ handleChangeInLogin }) => {
           </div>
           <div className="panel right-panel">
             <div className="content">
-              <h3>One of us ?</h3>
-              <p>
-                “A room without books is like a body without a soul.” <br />~
-                Cicero
+              <h3 className="hide">One of us ?</h3>
+              <p className="hide">
+                "Sign in, and enter the maze.Get Ready, to GET LOST" <br />~
+                
               </p>
-              <button className="btn transparent" id="sign-in-btn" onClick={() => document.querySelector(".container1").classList.remove("sign-up-mode")}>
+              <button
+                className="btn transparent"
+                id="sign-in-btn"
+                onClick={() =>
+                  document
+                    .querySelector(".container1")
+                    .classList.remove("sign-up-mode")
+                }
+              >
                 Sign in
               </button>
             </div>
@@ -191,10 +212,10 @@ const Login = ({ handleChangeInLogin }) => {
 }
     </Fragment>
   );
-}
+};
 
 Login.propType = {
-  handleChangeInLogin: func.isRequired
-}
+  handleChangeInLogin: func.isRequired,
+};
 
 export default Login;

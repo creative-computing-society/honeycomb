@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+* {
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+#landing {
+	width: 100vw;
+	height: 85vh;
+	overflow: hidden;
+	}
+
+	#bg {
+		width: 100%;
+		height: 100%;
+		background: url('https://media.discordapp.net/attachments/851864341758345256/866992808833056768/photo-1611920507986-b41638a9054f.png?width=528&height=660');
+		background-size: cover;
+		transform-origin: center;
+		background-position: center;
+}
+.register-button{
+
+	/* background-color: #af0404; */
+	color: #af0404;
+	padding: 10px;
+	padding-bottom: 30px;
+	margin: auto;
+	width: 120px;
+	height: 40px;
+	border-radius: 12px;
+}
+
+.main{
+	background-color: #080f0f;
+
+}
