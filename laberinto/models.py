@@ -3,14 +3,24 @@ from django.utils import timezone
 
 from registration.models import Team
 
+
+class Room(models.Model):
+    room_id = models.CharField(primary_key=True,max_length=100)
+    level = models.IntegerField()
+
+    def __str__(self):
+        return self.room_id
+
 class Question(models.Model):
     qID = models.IntegerField(primary_key=True)
-    level = models.IntegerField(default=0)
+    room = models.ForeignKey(Room, on_delete=models.CASCADE)
     points = models.IntegerField(default=0)
     q_text = models.TextField()
     q_image = models.ImageField(upload_to='images/', blank=True)
     answer = models.CharField(max_length = 200)
+    hint = models.TextField(blank=True)
     is_dead_end = models.BooleanField(default = False)
+    leads_to = models.ForeignKey(Room, on_delete=models.CASCADE, related_name='leads_to')
     
     def __str__(self):
         return self.q_text
