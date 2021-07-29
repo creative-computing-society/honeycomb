@@ -66,12 +66,12 @@ class SubmissionView(APIView):
             if Submission.objects.filter(team=self.request.user.team, question=question).exists():
                 return Response({'error': 'You have already submitted an answer for this question'})
             if ans_submitted == ans_correct:
-                if question.is_dead_end:
-                    return JsonResponse({'message': 'dead_end'}, status=400)
                 serializer.save()
-                self.request.user.team.level += 1
                 self.request.user.team.score += question.points
                 self.request.user.team.save()
+                if question.is_dead_end:
+                    return JsonResponse({'message': 'dead_end'}, status=400)                
+                self.request.user.team.level += 1
                 return JsonResponse({'message': 'correct', 'leads_to': question.leads_to.room_id}, status=200)
             return Response({'message': 'incorrect'}, status=400)
         else:
