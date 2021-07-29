@@ -22,7 +22,7 @@ class QuestionView(APIView):
         room = request.data['room']
         qs = Question.objects.filter(room=room)
         if not qs.exists():
-            return JsonResponse({'status': 'No questions'})
+            return Response({'status': 'No questions'})
         level = qs[0].room.level
         if self.request.user.team.level < level:
             return Response({'error': 'You are not allowed to access this room'})
@@ -38,7 +38,7 @@ class QuestionDetailView(APIView):
             qs = Question.objects.get(qID=id)
             level = qs.room.level
         except:
-            return JsonResponse({'status': 'Invalid question ID'})
+            return Response({'status': 'Invalid question ID'})
         if self.request.user.team.level < level:
             return Response({'error': 'You are not allowed to access this room'})
         serializer = QuestionSerializer(qs)
@@ -55,10 +55,6 @@ class SubmissionView(APIView):
         serializer = SubmissionSerializer(data=request.data)
         if serializer.is_valid():
             question = serializer.validated_data['question']
-            try:
-                question = Question.objects.get(qID=question.qID)
-            except:
-                return JsonResponse({'status': 'Invalid question ID'})
             if question.room.level > self.request.user.team.level:
                 return Response({'error': 'You are not allowed to access this room'})
             ans_submitted = serializer.validated_data['ans_submitted']
@@ -70,9 +66,10 @@ class SubmissionView(APIView):
                 self.request.user.team.score += question.points
                 self.request.user.team.save()
                 if question.is_dead_end:
-                    return JsonResponse({'message': 'dead_end'}, status=400)                
+                    return Response({'message': 'dead_end'}, status=400)                
                 self.request.user.team.level += 1
-                return JsonResponse({'message': 'correct', 'leads_to': question.leads_to.room_id}, status=200)
+                self.request.user.team.save()
+                return Response({'message': 'correct', 'leads_to': question.leads_to.room_id}, status=200)
             return Response({'message': 'incorrect'}, status=400)
         else:
             print("Nah")
@@ -86,7 +83,7 @@ class Hint(APIView):
         try:
             qs = Question.objects.get(qID=qID)
         except:
-            return JsonResponse({'status': 'Invalid question ID'})
+            return Response({'status': 'Invalid question ID'})
         level = qs.room.level
         if self.request.user.team.level < level:
             return Response({'error': 'You are not allowed to access this room'})
