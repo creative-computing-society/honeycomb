@@ -17,5 +17,8 @@ export const QUESTIONS_BY_ID_REQUEST = 'QUESTIONS_BY_ID_REQUEST';
 export const POST_ANSWER_FAILURE = 'POST_ANSWER_FAILURE';
 export const POST_ANSWER_SUCCESS = 'POST_ANSWER_SUCCESS';
 export const POST_ANSWER_REQUEST = 'POST_ANSWER_REQUEST';
+export const SAVE_TEAM_LEADER_INFO = 'SAVE_TEAM_LEADER_INFO';
+export const SAVE_TEAM_LEADER_INFO_FAILURE = 'SAVE_TEAM_LEADER_INFO_FAILURE';
 
-export const proxy = 'http://b35fac868c2a.ngrok.io'
+
+export const proxy = 'http://af4f2bd2f281.ngrok.io'

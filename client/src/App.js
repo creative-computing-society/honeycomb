@@ -4,10 +4,13 @@ import { Fragment } from 'react';
 // import Login from './screens/Login';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import {Provider} from 'react-redux';
-import store from './store';
+import {store} from './store';
 import Landing from './components/Landing/landing'
 import Navbar from './screens/navbar';
 import Login from './screens/Login';
+import Team from './components/team/Team';
+import Room from './screens/Room';
+import Question from './screens/Question';
 
 function App() {
   return (
@@ -19,6 +22,10 @@ function App() {
       <Switch>
     <Route exact path = '/' component = {Landing}/>
     <Route path = '/login' component = {Login}></Route>
+    <Route path = '/team-registration' component = {Team}/>
+    <Route path = '/maze/:roomId' component={Room}/>
+    <Route path = '/path/:qID' component={Question}/>
+
     </Switch>
     </Router>
     </Provider>

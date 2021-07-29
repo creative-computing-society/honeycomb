@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
-
+import {useDispatch, useSelector} from 'react-redux';
+import { logout } from '../actions/auth';
 const Navbar = () => {
+  const auth = useSelector(state => state.auth);
+    const dispatch = useDispatch();
+    const logoutHandler = () => {
+      dispatch(logout());
+    }
+
     return ( 
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark  fixed-top shift">
@@ -21,6 +28,10 @@ const Navbar = () => {
               <li className="nav-item">
                 <a className="nav-link" href="#">Rulebook</a>
               </li>
+              {auth.isAuthenticated? 
+              <li className="nav-item" onClick={logoutHandler}>
+              <a className="nav-link" href="#">Logout</a>
+            </li>: ''}
             </ul>
           </div>
         </div>

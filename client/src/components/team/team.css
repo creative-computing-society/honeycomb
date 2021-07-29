@@ -1,0 +1,17 @@
+.team-players{
+    background-color: black;
+    min-height: 100vh;
+    color: white;
+}
+.team-player-row{
+    padding-top: 25vh;
+}
+.team-player-name{
+    margin: auto !important;
+    filter: drop-shadow(8px 8px 8px black);
+    margin-top: 25vh;
+    text-align: center;
+}
+.team-player-name{
+    color: red;
+}
