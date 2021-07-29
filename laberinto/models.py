@@ -12,15 +12,16 @@ class Room(models.Model):
         return self.room_id
 
 class Question(models.Model):
-    qID = models.IntegerField(primary_key=True)
+    qID = models.CharField(primary_key=True, max_length=100)
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
     points = models.IntegerField(default=0)
     q_text = models.TextField()
-    q_image = models.ImageField(upload_to='images/', blank=True)
+    q_image = models.URLField(blank=True)
     answer = models.CharField(max_length = 200)
     hint = models.TextField(blank=True)
+    hint_points = models.IntegerField(default=0)
     is_dead_end = models.BooleanField(default = False)
-    leads_to = models.ForeignKey(Room, on_delete=models.CASCADE, related_name='leads_to')
+    leads_to = models.ForeignKey(Room, on_delete=models.CASCADE, related_name='leads_to', null=True)
     
     def __str__(self):
         return self.q_text
