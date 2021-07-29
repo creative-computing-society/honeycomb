@@ -18,7 +18,7 @@ class QuestionView(APIView):
 
     permission_classes = (IsAuthenticated, )
 
-    def get(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         room = request.data['room']
         qs = Question.objects.filter(room=room)
         if not qs.exists():

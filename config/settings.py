@@ -36,6 +36,7 @@ INSTALLED_APPS = [
 
     # Third-party
     'corsheaders',
+    'import_export',
     'rest_framework',
     'rest_framework.authtoken',
 

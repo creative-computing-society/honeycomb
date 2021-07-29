@@ -1,8 +1,17 @@
 from django.contrib import admin
+from import_export import resources
+from import_export.admin import ImportExportModelAdmin
 from .models import Room, Question, Submission
 
+
 ##Question##
-class QuestionAdmin(admin.ModelAdmin):
+class QuestionResource(resources.ModelResource):
+    class Meta:
+        model = Question
+
+
+class QuestionAdmin(ImportExportModelAdmin):
+    resource_class = QuestionResource
     list_display = ('qID', 'q_text', 'answer', 'room', 'points', 'is_dead_end')
     list_display_links = ('qID', 'q_text')
     list_filter = ('points', 'room')

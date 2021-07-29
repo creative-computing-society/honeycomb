@@ -1,8 +1,15 @@
 from django.contrib import admin
+from import_export import resources
+from import_export.admin import ImportExportModelAdmin
 from .models import Participant, Team
 
 ##Participant##
-class ParticipantAdmin(admin.ModelAdmin):
+class ParticipantResource(resources.ModelResource):
+    class Meta:
+        model = Participant
+
+class ParticipantAdmin(ImportExportModelAdmin):
+    resource_class = ParticipantResource
     list_display = ('uuid', 'name', 'email', 'team')
     list_display_links = ('uuid', 'name')
     list_filter = ('team_id',)
@@ -12,7 +19,13 @@ class ParticipantAdmin(admin.ModelAdmin):
 admin.site.register(Participant, ParticipantAdmin)
 
 ##Team##
-class TeamAdmin(admin.ModelAdmin):
+class TeamResource(resources.ModelResource):
+    class Meta:
+        model = Team
+
+
+class TeamAdmin(ImportExportModelAdmin):
+    resource_class = TeamResource
     list_display = ('id','teamName', 'score', 'level')
     list_display_links = ('id', 'teamName')
     list_filter = ('score',)
