@@ -60,7 +60,7 @@ class SubmissionView(APIView):
             if question.room.level > self.request.user.team.level:
                 return Response({'error': 'You are not allowed to access this room'})
 
-            ans_submitted = serializer.validated_data['ans_submitted']
+            ans_submitted = serializer.validated_data['ans_submitted'].strip()
             ans_correct = question.answer
 
             # Check if question has already been solved
@@ -84,7 +84,7 @@ class SubmissionView(APIView):
                 self.request.user.team.level += 1
                 self.request.user.team.save()
                 return Response({'message': 'correct', 'leads_to': question.leads_to.room_id}, status=200)
-                
+
             return Response({'message': 'incorrect'}, status=400)
         else:
             print("Nah")
