@@ -55,21 +55,36 @@ class SubmissionView(APIView):
         serializer = SubmissionSerializer(data=request.data)
         if serializer.is_valid():
             question = serializer.validated_data['question']
+
+            # Don't allow solving a higher level question
             if question.room.level > self.request.user.team.level:
                 return Response({'error': 'You are not allowed to access this room'})
+
             ans_submitted = serializer.validated_data['ans_submitted']
             ans_correct = question.answer
+
+            # Check if question has already been solved
             if Submission.objects.filter(team=self.request.user.team, question=question).exists():
                 return Response({'error': 'You have already submitted an answer for this question'})
+
             if ans_submitted == ans_correct:
                 serializer.save()
+
+                # Don't increase points if solving a prev level question
+                if question.room.level < self.request.user.team.level:
+                    return Response({'message': 'correct', 'leads_to': question.leads_to.room_id}, status=200)
+
                 self.request.user.team.score += question.points
                 self.request.user.team.save()
+                
+                # Don't increase level if solving a dead end question
                 if question.is_dead_end:
-                    return Response({'message': 'dead_end'}, status=400)                
+                    return Response({'message': 'dead_end'}, status=400)      
+
                 self.request.user.team.level += 1
                 self.request.user.team.save()
                 return Response({'message': 'correct', 'leads_to': question.leads_to.room_id}, status=200)
+                
             return Response({'message': 'incorrect'}, status=400)
         else:
             print("Nah")
@@ -88,4 +103,6 @@ class Hint(APIView):
         if self.request.user.team.level < level:
             return Response({'error': 'You are not allowed to access this room'})
         hint = qs.hint
+        self.request.user.team.score -= qs.hint_points
+        self.request.user.team.save()
         return Response({'hint': hint})
