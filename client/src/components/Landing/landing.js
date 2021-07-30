@@ -5,6 +5,7 @@ import Sponsors from '../Sponsors/sponsors.js';
 import RegisterButton from '../RegisterButton/registerButton.js';
 import Notif from '../Toast/Toast'
 import {useSelector} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 const Landing =()=>{
     useEffect(()=>{
@@ -49,6 +50,7 @@ const Landing =()=>{
         <RegisterButton></RegisterButton>
       </div>
     </div>
+    {auth.isAuthenticated ? <Link to='/maze/0'><center><button className="btn solid">Start The Game</button></center></Link> : ''}
       <div className="sponsors">
         <Sponsors></Sponsors>
       </div>

@@ -93,7 +93,7 @@ const Login = () => {
 
               <input
                 type="text"
-                placeholder="Mobile Number"
+                placeholder="Discord ID (name#xxxx)"
                 required
                 value={mobile1}
                 className="team-lead-deets"
