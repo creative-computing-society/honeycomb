@@ -9,7 +9,7 @@ class TeamForm(forms.ModelForm):
 class ParticipantForm(forms.ModelForm):
     class Meta:
         model = Participant
-        fields = ['name', 'email', 'mobile', 'team', 'password']
+        fields = ['name', 'email', 'discord_ID', 'team', 'password']
 
     def save(self, *args, **kwargs):
         member = super(ParticipantForm, self).save(*args, **kwargs)

@@ -4,12 +4,12 @@ from registration.managers import UserManager
 from django.db import models
 from django.core.validators import RegexValidator
 
+DISCORD_REGEX = "^.{3,32}#[0-9]{4}$"
 EMAIL_REGEX = "^[A-Za-z0-9._~+-]+@thapar\.edu$"
-#EMAIL_REGEX = "^[A-Za-z0-9._~+-]+@gmail\.com$"
 
 class Team(models.Model):
     teamName = models.CharField(max_length=100, unique=True)
-    score = models.IntegerField(default=0)
+    score = models.IntegerField(default=20)
     level = models.IntegerField(default=0)
     
     def __str__(self):
@@ -27,15 +27,17 @@ class Participant(AbstractBaseUser):
             )
         ],
     )
-    mobile = models.CharField(
-        max_length=16,
+    discord_ID = models.CharField(
+        max_length=255,
         validators=[
             RegexValidator(
-                regex="^(\+\d{1,3}[- ]?)?\d{10}$",
-                message="Enter a valid mobile number",
-                code="invalid_mobile"
+                regex=DISCORD_REGEX,
+                message="Enter a valid discord ID",
+                code="invalid"
             )
         ],
+        default="",
+        unique=True
     )
     team = models.ForeignKey(Team, on_delete=models.CASCADE, null=True, blank=True)
 
