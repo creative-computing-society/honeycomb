@@ -68,7 +68,7 @@ const Login = () => {
                 required
                 value={teamName}
                 onChange={(e) => setTeamName(e.target.value)}
-                className='team-name'
+                className='team-name team-lead-deets'
               />
 
               <label>Team Leader:</label>
@@ -77,7 +77,7 @@ const Login = () => {
                 required
                 value={name1}
                 onChange={(e) => setName1(e.target.value)}
-                className='team-leader'
+                className='team-leader team-lead-deets'
               />
 
               <label>Email 1:</label>
@@ -85,6 +85,7 @@ const Login = () => {
                 type="email"
                 required
                 value={email1}
+                className = "team-lead-deets"
                 onChange={(e) => setEmail1(e.target.value)}
               />
 
@@ -93,6 +94,7 @@ const Login = () => {
                 type="text"
                 required
                 value={mobile1}
+                className="team-lead-deets"
                 onChange={(e) => setMobile1(e.target.value)}
               />
                 <button type='submit'>Register</button>

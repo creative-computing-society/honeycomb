@@ -15,3 +15,51 @@
 .team-player-name{
     color: red;
 }
+
+.team-member-detail svg {
+    text-align: center;
+    line-height: 55px;
+    color: #080f0f;
+    transition: 0.5s;
+  
+  }
+  
+  .team-member-detail input {
+    background: none;
+    outline: none;
+    border: none;
+    line-height: 1;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #333;
+  
+  }
+  
+  .team-member-detail input::placeholder {
+    color: #080f0f;
+    font-weight: 500;
+  }
+  .team-member-detail{
+    max-width: 300px;
+    width: 100%;
+    background-color: #f0f0f0;
+    margin: 10px 0;
+    height: 40px;
+    border-radius: 55px;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    padding: 0 0.4rem;
+    position: relative;
+    margin-bottom: 20px;
+    margin-left: 25%;
+  }
+  @media screen and (max-width:1025px){
+    .team-member-detail{
+        margin-left: 15%;
+    }
+}
+  @media screen and (max-width:960px){
+      .team-member-detail{
+          margin-left: 0%;
+      }
+  }
