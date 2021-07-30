@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { register } from '../../actions/auth'
 import {Row, Col} from 'react-bootstrap'
 import './team.css'
+import {useHistory} from 'react-router-dom'
 
 const Team = () => {
     const [name2, setName2] = useState('');
@@ -15,7 +16,10 @@ const Team = () => {
     const auth = useSelector(state => state.auth);
     const dispatch = useDispatch();
 
-    console.log(auth);
+    const history = useHistory();
+    if(auth.isRegistered){
+      history.push('/')
+    }
      teamName = auth.teamLeader.teamName;
      name1 = auth.teamLeader.name1;
      email1 = auth.teamLeader.email1;
@@ -26,8 +30,11 @@ const Team = () => {
     }
 
     return (
+
         <div className='team-players'>
             <Row className='team-player-row'>
+              <center><h2 className='title'>Team-Details</h2></center>
+              <center><h4 className='title'>You will be notified through e-mail</h4></center>
               <form onSubmit = {handleSubmit}>
                 <Col lg={5} className="team-player-name">
                     <h3>Member-2</h3>
@@ -60,24 +67,21 @@ const Team = () => {
                 <h3>Member-3</h3>
                     <input
                 type="text"
-                placeholder="Member-3< Name"
-                required
+                placeholder="Member-3 Name"
                 value={name3}
                 onChange={(e) => setName3(e.target.value)}
                 className='team-member-detail'
               />
               <input
                 type="text"
-                placeholder="Member-3< Email"
-                required
+                placeholder="Member-3 Email"
                 value={email3}
                 onChange={(e) => setEmail3(e.target.value)}
                 className='team-member-detail'
               />
               <input
                 type="text"
-                placeholder="Member-3< Mobile"
-                required
+                placeholder="Member-3 Mobile"
                 value={mobile3}
                 onChange={(e) => setMobile3(e.target.value)}
                 className='team-member-detail'
