@@ -93,4 +93,4 @@ class RegisterView(APIView):
                 return Response({'error': 'Team Leader and Member 1 or Member 2 are required'}, status=status.HTTP_400_BAD_REQUEST)
 
         else:
-            return Response({'message':'Team Name is taken'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'error':'Team Name is taken'}, status=status.HTTP_400_BAD_REQUEST)
