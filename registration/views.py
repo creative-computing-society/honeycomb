@@ -12,6 +12,11 @@ from .forms import TeamForm, ParticipantForm
 from .models import Participant
 
 
+#For rendered emails
+from django.shortcuts import render
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+
 class RegisterView(APIView):
     def post(self, request):
         data = request.data.copy()
@@ -71,13 +76,15 @@ class RegisterView(APIView):
                     Token.objects.create(user=Participant.objects.get(email=member2['email']))
                 
 
-                def send_email(subject, message, from_email, to_list):
-                    send_mail(subject, message, from_email, to_list, fail_silently=True)
+                def send_email(subject, message, from_email, to_list, html_message):
+                    send_mail(subject, message, from_email, to_list, html_message=html_message,fail_silently=True)
 
-                subject = 'Team Registration Successful!'
-                message = 'Your team has been registered successfully. Your team password is: ' + password
+                subject = 'Thankyou for registering!' #subject of the email
+                password={'OTP':password} #password dict to be passed to email template
+                html_message = render_to_string('registration/registrationsuccessful.html', password) #html rendered message
+                message = strip_tags(html_message) #incase html render fails
                 from_email = settings.EMAIL_HOST_USER
-                send_email(subject, message, from_email, to_list)
+                send_email(subject, message, from_email, to_list,html_message)
 
                 return Response({'success': 'Your team has been registered successfully.'}, status=status.HTTP_201_CREATED)
 
