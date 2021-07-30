@@ -3,11 +3,24 @@ from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 from .models import Room, Question, Submission
 
+##Room##
+class RoomResource(resources.ModelResource):
+    class Meta:
+        model = Room
+        exclude = ('id',)
+        import_id_fields = ('room_id',)
+
+class RoomAdmin(ImportExportModelAdmin):
+    resource_class = RoomResource
+
+admin.site.register(Room, RoomAdmin)
 
 ##Question##
 class QuestionResource(resources.ModelResource):
     class Meta:
         model = Question
+        exclude = ('id',)
+        import_id_fields = ('qID',)
 
 
 class QuestionAdmin(ImportExportModelAdmin):
@@ -22,12 +35,16 @@ class QuestionAdmin(ImportExportModelAdmin):
 admin.site.register(Question, QuestionAdmin)
 
 ##Submission##
-class SubmissionAdmin(admin.ModelAdmin):
+class SubmissionResource(resources.ModelResource):
+    class Meta:
+        model = Submission
+
+class SubmissionAdmin(ImportExportModelAdmin):
+    resource_class = SubmissionResource
     list_display = ('team_id', 'question', 'ans_submitted')
     list_display_links = ('team_id', 'question')
     list_filter = ('team_id',)
     search_fields = ('team_id', 'question', 'ans_submitted')
     list_per_page = 25
 
-admin.site.register(Room)
 admin.site.register(Submission, SubmissionAdmin)

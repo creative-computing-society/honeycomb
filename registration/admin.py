@@ -7,6 +7,8 @@ from .models import Participant, Team
 class ParticipantResource(resources.ModelResource):
     class Meta:
         model = Participant
+        exclude = ('id',)
+        import_id_fields = ('uuid',)
 
 class ParticipantAdmin(ImportExportModelAdmin):
     resource_class = ParticipantResource
