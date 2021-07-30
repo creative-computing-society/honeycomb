@@ -1,8 +1,10 @@
-import {useEffect} from 'react';
+import React, {useEffect, Fragment} from 'react';
 import './Landing.css';
 import Countdown from '../Countdown/countdown.js';
 import Sponsors from '../Sponsors/sponsors.js';
 import RegisterButton from '../RegisterButton/registerButton.js';
+import Notif from '../Toast/Toast'
+import {useSelector} from 'react-redux';
 
 const Landing =()=>{
     useEffect(()=>{
@@ -27,7 +29,18 @@ const Landing =()=>{
           });
       }
     },[]);
+
+    const auth = useSelector(state => state.auth);
+
+    const isSuccess = (auth.success!==null);
+    const isError = (auth.error!==null);
+
+    console.log(isSuccess, isError);  
     return(
+      <Fragment>
+
+       {isSuccess ?  (<Notif text={auth.success} color='success'/>) : (isError ? (<Notif text={auth.error} color='danger'/>) : '')}
+
   <div className = "main">
     <div id="landing">
       <div id="bg">
@@ -40,6 +53,7 @@ const Landing =()=>{
         <Sponsors></Sponsors>
       </div>
   </div>
+  </Fragment>
     );
 }
 export default Landing;

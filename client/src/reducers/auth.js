@@ -10,7 +10,8 @@ import {
     LOGIN_FAILURE,
     LOGOUT,
     SAVE_TEAM_LEADER_INFO,
-    SAVE_TEAM_LEADER_INFO_FAILURE
+    SAVE_TEAM_LEADER_INFO_FAILURE,
+    NEW_REGISTER
 } from '../actions/types';
 
 const initialState = {
@@ -29,6 +30,13 @@ function auth(state = initialState, action){
             return{
                 ...state,
                 loading: true
+            }
+        case NEW_REGISTER:
+            return{
+                ...state,
+                isRegistered: false,
+                success: null,
+                error: null
             }
         case USER_LOADED: 
             return{
@@ -63,10 +71,10 @@ function auth(state = initialState, action){
         case LOGOUT:
             localStorage.removeItem('token');
             return{
-                ...state, 
                 token: null,
                 isAuthenticated: false,
-                loading: false
+                loading: false,
+                error: payload
             }
         default:
             return state;

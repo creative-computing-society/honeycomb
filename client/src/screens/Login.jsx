@@ -1,19 +1,12 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 // import "font-awesome/css/font-awesome.min.css";
 import { func } from "prop-types";
-// import { useHistory } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { login, saveTeamLeader } from '../actions/auth'
 import {Link, Redirect} from 'react-router-dom'
 import {useHistory} from 'react-router'
-// const handleRegister = (params = {}, handleChangeInLogin, history, handleError) => {
-
-
-// };
-
-// const handleLogin = (params = {}, handleChangeInLogin, history, handleError) => {
-
-// }
+import {NEW_REGISTER} from '../actions/types'
+import Notif from "../components/Toast/Toast";
 
 const Login = () => {
 
@@ -31,6 +24,13 @@ const Login = () => {
   if(auth.isAuthenticated){
     history.push('/')
   }
+
+  useEffect(()=>{
+    dispatch({
+      type: NEW_REGISTER
+    })
+  },[])
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(saveTeamLeader(teamName,name1,email1,mobile1));
@@ -81,11 +81,11 @@ const Login = () => {
                 onChange={(e) => setName1(e.target.value)}
                 className='team-leader team-lead-deets'
               />
-
+              <label>Please use your Thapar email id</label>
               <input
                 type="email"
                 required
-                placeholder="Email Address"
+                placeholder="example@thapar.edu"
                 value={email1}
                 className = "team-lead-deets"
                 onChange={(e) => setEmail1(e.target.value)}

@@ -48,7 +48,7 @@ const Team = () => {
               />
               <input
                 type="text"
-                placeholder="Member-2 Email"
+                placeholder="y"
                 required
                 value={email2}
                 onChange={(e) => setEmail2(e.target.value)}
@@ -74,7 +74,7 @@ const Team = () => {
               />
               <input
                 type="text"
-                placeholder="Member-3 Email"
+                placeholder="example@thapar.edu"
                 value={email3}
                 onChange={(e) => setEmail3(e.target.value)}
                 className='team-member-detail'

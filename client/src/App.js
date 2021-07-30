@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 import { Fragment } from 'react';
-// import Login from './screens/Login';
+import { PersistGate } from 'redux-persist/integration/react'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import {Provider} from 'react-redux';
-import {store} from './store';
+import {store, persistor} from './store';
 import Landing from './components/Landing/landing'
 import Navbar from './screens/navbar';
 import Login from './screens/Login';
@@ -16,6 +16,7 @@ function App() {
   return (
     <div className="App">
     <Provider store={store}>
+    <PersistGate persistor={persistor}>
       <Router>
     <Navbar />
     
@@ -28,6 +29,7 @@ function App() {
 
     </Switch>
     </Router>
+    </PersistGate>
     </Provider>
     </div>
 
