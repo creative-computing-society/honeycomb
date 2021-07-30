@@ -1,10 +1,16 @@
 import './registerButton.css';
+import { Link } from "react-router-dom";
+
 
 const RegisterButton=()=>{
   return(
     <div className='regbut'>
        <section className="buttons">
-         <button className="draw meet">Register Now</button>
+         <Link className='nav-link' to = '/login'>
+         <button className="btn solid" >Register Now</button>
+
+         </Link>
+
        </section>
      </div>
   );

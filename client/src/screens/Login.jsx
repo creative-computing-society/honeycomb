@@ -47,7 +47,7 @@ const Login = () => {
         <div className="forms-container1">
           <div className="signin-signup">
 
-            <form className="sign-in-form" onSubmit={handleSubmitLogin} >
+            <form className="sign-in-form sign-in-form-1" onSubmit={handleSubmitLogin} >
               <h2 className="title">Sign in</h2>
               <div className="input-field">
                 <span></span>
@@ -61,43 +61,45 @@ const Login = () => {
               {/* <label style={{ color: "red" }}>{error}</label> */}
             </form>
 
-            <form className="sign-up-form" onSubmit={ handleSubmit} >
-              <label>Team Name:</label>
+            <form className="sign-up-form sign-up-form-1" onSubmit={ handleSubmit} >
+            <h2 className="title">Sign up</h2>
+
               <input
                 type="text"
+                placeholder="Team Name"
                 required
                 value={teamName}
                 onChange={(e) => setTeamName(e.target.value)}
                 className='team-name team-lead-deets'
               />
 
-              <label>Team Leader:</label>
               <input
                 type="text"
+                placeholder="Team Leader"
                 required
                 value={name1}
                 onChange={(e) => setName1(e.target.value)}
                 className='team-leader team-lead-deets'
               />
 
-              <label>Email 1:</label>
               <input
                 type="email"
                 required
+                placeholder="Email Address"
                 value={email1}
                 className = "team-lead-deets"
                 onChange={(e) => setEmail1(e.target.value)}
               />
 
-              <label>Mobile Number 1:</label>
               <input
                 type="text"
+                placeholder="Mobile Number"
                 required
                 value={mobile1}
                 className="team-lead-deets"
                 onChange={(e) => setMobile1(e.target.value)}
               />
-                <button type='submit'>Register</button>
+                <button type='submit'className="btn solid">Register</button>
             </form>
 
           </div>
