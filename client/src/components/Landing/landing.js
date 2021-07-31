@@ -50,7 +50,7 @@ const Landing =()=>{
         <RegisterButton></RegisterButton>
       </div>
     </div>
-    {auth.isAuthenticated ? <Link to='/maze/0'><center><button className="btn solid">Start The Game</button></center></Link> : ''}
+    {/* {auth.isAuthenticated ? <Link to='/maze/0'><center><button className="btn solid">Start The Game</button></center></Link> : ''} */}
       <div className="sponsors">
         <Sponsors></Sponsors>
       </div>
