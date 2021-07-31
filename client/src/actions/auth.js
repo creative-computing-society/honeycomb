@@ -48,9 +48,13 @@ export const loadUser = (token) => async dispatch => {
             type: USER_LOADED,
             payload: res.data
         })
-    } catch (e) {
+    } catch (error) {
         dispatch({
-            type:AUTH_ERROR
+            type:AUTH_ERROR,
+            payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
         })
     }
 }
@@ -59,7 +63,7 @@ export const loadUser = (token) => async dispatch => {
 // Register User    
 
 export const register = (
-    teamName,name1,name2,name3,email1,email2,email3,mobile1,mobile2,mobile3 
+    teamName,name1,name2,name3,email1,email2,email3,discord_ID1,discord_ID2,discord_ID3 
 ) => async dispatch => {
     const config = {
         headers: {
@@ -69,21 +73,21 @@ export const register = (
     }
     var body = {
         "teamName": `${teamName}`,
-        "teamLeader": {"name": `${name1}`, "email": `${email1}`, "mobile": `${mobile1}`},
+        "teamLeader": {"name": `${name1}`, "email": `${email1}`, "discord_ID": `${discord_ID1}`},
     }
 
-    if(name2 && email2 && mobile2 && name3 && email3 && mobile3){
+    if(name2 && email2 && discord_ID2 && name3 && email3 && discord_ID3){
         body = {
         "teamName": `${teamName}`,
-        "teamLeader": {"name": `${name1}`, "email": `${email1}`, "mobile": `${mobile1}`},
-        "member1": {"name": `${name2}`, "email": `${email2}`, "mobile": `${mobile2}`},
-        "member2": {"name": `${name3}`, "email": `${email3}`, "mobile": `${mobile3}`}
+        "teamLeader": {"name": `${name1}`, "email": `${email1}`, "discord_ID": `${discord_ID1}`},
+        "member1": {"name": `${name2}`, "email": `${email2}`, "discord_ID": `${discord_ID2}`},
+        "member2": {"name": `${name3}`, "email": `${email3}`, "discord_ID": `${discord_ID3}`}
         }
-    }else if(name2 && email2 && mobile2){
+    }else if(name2 && email2 && discord_ID2){
         body = {
             "teamName": `${teamName}`,
-            "teamLeader": {"name": `${name1}`, "email": `${email1}`, "mobile": `${mobile1}`},
-            "member1": {"name": `${name2}`, "email": `${email2}`, "mobile": `${mobile2}`},
+            "teamLeader": {"name": `${name1}`, "email": `${email1}`, "discord_ID": `${discord_ID1}`},
+            "member1": {"name": `${name2}`, "email": `${email2}`, "discord_ID": `${discord_ID2}`},
         };
     }
     console.log(body)
@@ -100,10 +104,14 @@ export const register = (
         });
         // dispatch(loadUser(res.data));
 
-    } catch (e) {
+    } catch (error) {
         // const errors = e.response.data.errors;
         dispatch({
-            type: REGISTER_FAILURE
+            type: REGISTER_FAILURE.replace,
+            payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
         })
     }
 }
@@ -132,15 +140,14 @@ export const login = ( email, password ) => async dispatch => {
             payload: res.data
         });
         dispatch(loadUser(res.data.key));
-    } catch (e) {
-        const errors = e.response.data.errors;
-
-        if(errors){
-            // errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-        }
+    } catch (error) {
 
         dispatch({
-            type: LOGIN_FAILURE
+            type: LOGIN_FAILURE,
+            payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
         })
     }
 }

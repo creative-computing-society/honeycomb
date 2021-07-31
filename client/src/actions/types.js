@@ -19,6 +19,6 @@ export const POST_ANSWER_SUCCESS = 'POST_ANSWER_SUCCESS';
 export const POST_ANSWER_REQUEST = 'POST_ANSWER_REQUEST';
 export const SAVE_TEAM_LEADER_INFO = 'SAVE_TEAM_LEADER_INFO';
 export const SAVE_TEAM_LEADER_INFO_FAILURE = 'SAVE_TEAM_LEADER_INFO_FAILURE';
-
+export const NEW_REGISTER = 'NEW_REGISTER';
 
 export const proxy = 'http://60c2b2cfdf6b.ngrok.io'

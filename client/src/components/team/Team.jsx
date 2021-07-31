@@ -48,7 +48,7 @@ const Team = () => {
               />
               <input
                 type="text"
-                placeholder="Member-2 Email"
+                placeholder="example@thapar.edu"
                 required
                 value={email2}
                 onChange={(e) => setEmail2(e.target.value)}
@@ -56,7 +56,7 @@ const Team = () => {
               />
               <input
                 type="text"
-                placeholder="Member-2 Mobile"
+                placeholder="Member-2 Discord ID (name#xxxx)"
                 required
                 value={mobile2}
                 onChange={(e) => setMobile2(e.target.value)}
@@ -74,14 +74,14 @@ const Team = () => {
               />
               <input
                 type="text"
-                placeholder="Member-3 Email"
+                placeholder="example@thapar.edu"
                 value={email3}
                 onChange={(e) => setEmail3(e.target.value)}
                 className='team-member-detail'
               />
               <input
                 type="text"
-                placeholder="Member-3 Mobile"
+                placeholder="Member-3 Discord ID (name#xxxx)"
                 value={mobile3}
                 onChange={(e) => setMobile3(e.target.value)}
                 className='team-member-detail'

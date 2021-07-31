@@ -580,7 +580,7 @@ margin-top: 80px;
 
 
 nav{
-  background-color: #080f0f !important;
+  background-color: #000000 !important;
   -webkit-box-shadow: 0 8px 6px -6px #630000;
   -moz-box-shadow: 0 8px 6px -6px #630000;
   box-shadow: 0 8px 6px -6px #630000;
@@ -654,9 +654,18 @@ nav.shift ul li Link:hover:after {
   margin: 10px;
   font-weight: 500;
 }
-.team-name{
-
-}
 .room h1{
   padding-top: 10vh;
+}
+label{
+  color: white;
+}
+.toast{
+  z-index: 10;
+}
+.logo-img{
+  width: 100%;
+}
+.navbar-brand{
+  width: 15%;
 }
