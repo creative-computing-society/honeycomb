@@ -524,6 +524,14 @@ margin-top: 80px;
 
 @media screen and (max-width:451px) {
 
+  .registerbtn{
+    margin-top: -20%;
+  }
+
+  .countdown-title{
+    font-size: 3rem !important;
+  }
+
 .regsig{
   margin-bottom: -20%;
   padding-top: 30%;
@@ -545,6 +553,13 @@ margin-top: 80px;
 }
 @media screen and (max-width:389px) {
 
+  .registerbtn{
+    margin-top: -25%;
+  }
+
+  .countdown-title{
+    font-size: 2.5rem !important;
+  }
   .regsig{
     margin-bottom: -10%;
     padding-top: 30%;

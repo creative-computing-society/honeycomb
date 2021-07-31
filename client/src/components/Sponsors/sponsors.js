@@ -1,7 +1,7 @@
 import './sponsors.css'
 const Sponsors =()=>{
   return(
-          <div className="wrapper">
+          <div className="wrapper" id="sponsors">
           <br/>
           <br/>
             <h1 id='sponsors'><b>Our Sponsors</b></h1>
