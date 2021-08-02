@@ -11,7 +11,7 @@ import Login from './screens/Login';
 import Team from './components/team/Team';
 import Room from './screens/Room';
 import Question from './screens/Question';
-
+import Main from './screens/mainpage'
 function App() {
   return (
     <div className="App">
@@ -26,7 +26,7 @@ function App() {
     <Route path = '/team-registration' component = {Team}/>
     <Route path = '/maze/:roomId' component={Room}/>
     <Route path = '/path/:qID' component={Question}/>
-
+    <Route path='/main' component = {Main}></Route>
     </Switch>
     </Router>
     </PersistGate>
