@@ -6,8 +6,8 @@ function Notif(props) {
     const toggleShowA = () => setShowA(!showA);  
 
     return (
-        <ToastContainer position='bottom-start'>
-          <Toast show={showA} onClose={toggleShowA} bg={props.color}>
+        <ToastContainer position='top-center'>
+          <Toast show={showA} onClose={toggleShowA} bg={props.color} autohide>
             <Toast.Header>
             <strong className="me-auto">Laberinto</strong>
             <small>Just Now</small>

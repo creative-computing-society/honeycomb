@@ -40,7 +40,7 @@ const Landing =()=>{
     return(
       <Fragment>
 
-       {isSuccess ?  (<Notif text={auth.success} color='success'/>) : (isError ? (<Notif text={auth.error} color='danger'/>) : '')}
+       {auth.isRegistered && isSuccess ?  (<Notif text={auth.success} color='light'/>) : (isError ? (<Notif text={auth.error} color='danger'/>) : '')}
 
   <div className = "main">
     <div id="landing">
@@ -50,7 +50,7 @@ const Landing =()=>{
         <RegisterButton></RegisterButton>
       </div>
     </div>
-    {/* {auth.isAuthenticated ? <Link to='/maze/0'><center><button className="btn solid">Start The Game</button></center></Link> : ''} */}
+    {auth.isAuthenticated ? <Link to='/maze/0'><center><button className="btn solid">Start The Game</button></center></Link> : ''}
       <div className="sponsors">
         <Sponsors></Sponsors>
       </div>
