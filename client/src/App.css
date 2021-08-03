@@ -684,3 +684,43 @@ label{
 .navbar-brand{
   width: 15%;
 }
+
+.question-page{
+  height: 100vh;
+  background-size: cover;
+  overflow-y: hidden;
+  background-color: #000000;
+}
+
+.question-div{
+  width: 75vw;
+  height: 75vh;
+  margin:  20vh auto;
+  background-color: #00000086;
+  color: white !important;
+  text-align: center;
+  filter: drop-shadow(0 0 8px black);
+  padding: 5%;
+  border-radius: 55px;
+  border: 2px solid rgba(255, 0, 0, 0.603);
+}
+.answer-submission{
+  /*margin-top: 40vh; */
+}
+.answer-submission input{
+  border-radius: 55px;
+  padding: 10px;
+}
+.answer-submission button{
+  padding: 10px;
+  background-color: black;
+}
+.Typewriter{
+  width: 75%;
+  margin: auto;
+  text-align: left;
+}
+.question-div h3{
+  height: 80%;
+  overflow-y: scroll;
+}
