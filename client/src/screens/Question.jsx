@@ -18,6 +18,7 @@ const Question = ({match}) => {
 
     const auth = useSelector(state => state.auth);
     const dispatch = useDispatch();
+    
     useEffect(() => {
         dispatch(getQuestionsById(auth.key, match.params.qID));
     },[getQuestionsById, auth.key, match.params.qID]);
@@ -48,8 +49,10 @@ const Question = ({match}) => {
   }}
 /></h3>
             <div className='answer-submission'>
-            <input type='text' placeholder='answer' value={answer} onChange={e => setAnswer(e.target.value)} />
+            <input type='text' placeholder='answer' value={answer} onChange={e => setAnswer(e.target.value)} /><br/>
+            <button className='hint'>Hint</button>
             <button onClick={answerHandler}>Submit</button></div>
+
             </div>
         </div>
     )

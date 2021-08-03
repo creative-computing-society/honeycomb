@@ -710,10 +710,18 @@ label{
 .answer-submission input{
   border-radius: 55px;
   padding: 10px;
+  width: 55%;
 }
 .answer-submission button{
   padding: 10px;
-  background-color: black;
+  background-color: red;
+  color: white;
+  width: 15%;
+  margin: 20px;
+}
+.hint{
+  background-color: #000000 !important;
+  color: red !important;
 }
 .Typewriter{
   width: 75%;
