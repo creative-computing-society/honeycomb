@@ -25,7 +25,7 @@ urlpatterns = [
 
     path('api/participant/', ParticipantDetailView.as_view(), name='participant'),
     path('api/question/', QuestionView.as_view(), name='question'),
-    path('api/question/<int:id>', QuestionDetailView.as_view(), name='question'),
+    path('api/question/<id>', QuestionDetailView.as_view(), name='question'),
     path('api/submission/', SubmissionView.as_view(), name='submission'),
     path('api/hint/', Hint.as_view(), name='hint'),
 ]
