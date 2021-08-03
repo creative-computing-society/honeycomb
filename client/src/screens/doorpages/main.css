@@ -1,0 +1,38 @@
+.body {
+  background-color: black;
+  overflow: hidden;
+  padding-top: 2%;
+  height: 100vh;
+}
+.bgimg {
+  position: absolute;
+  opacity: 0.1;
+  margin-left: 15vw;
+  margin-top: 30vh;
+  width: 70%;
+}
+.port {
+  margin: auto;
+  width: 33%;
+  padding: 0%;
+}
+.singledoor {
+  width: 80%;
+  margin-top: -5%;
+}
+.row1 {
+  display: inline-block;
+  margin-top: 5%;
+}
+.row2 {
+  display: inline-block;
+  margin-left: 11%;
+  margin-top: -10%;
+  padding: 0%;
+}
+.three {
+  visibility: hidden;
+}
+.four {
+  visibility: hidden;
+}
