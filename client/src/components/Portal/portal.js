@@ -19,7 +19,7 @@ class DoorUI extends React.Component {
     
     componentDidUpdate = e => {
      
-     var tl = new TimelineMax({onComplete:this.setBtnEnabled, onCompleteParams:[true]}).timeScale(1.8);
+     var tl = new TimelineMax({onComplete:this.setBtnEnabled, onCompleteParams:[true]}).timeScale(3);
       tl.staggerTo('.radialGroup g', 1, {
        fill:(this.state.open) ? '#F70048' : '#41E969'
       },0.2)

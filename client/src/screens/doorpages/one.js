@@ -7,7 +7,7 @@ const OneDoor = () => {
   const history = useHistory();
  const delay = (e) => {
       e.preventDefault();
-      setTimeout(()=>history.push('/'), 1500);
+      setTimeout(()=>history.push('/'), 1000);
   };
   return (
     <div className="body">
