@@ -1,14 +1,22 @@
 import DoorUI from "../../components/Portal/portal";
 import logo from "../../images/logo.png";
 import "./main.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+
 const OneDoor = () => {
+  const history = useHistory();
+ const delay = (e) => {
+      e.preventDefault();
+      setTimeout(()=>history.push('/'), 1500);
+  };
   return (
     <div className="body">
       <img src={logo} alt="" className="bgimg" />
       <center>
         <div className="singledoor">
-          <Link to="/">
+          <Link to = {{
+            pathname:'/'
+          }} onClick={delay}>
             <DoorUI className="door"></DoorUI>
           </Link>
         </div>
