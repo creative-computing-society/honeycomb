@@ -5,9 +5,15 @@ import {useDispatch, useSelector} from 'react-redux'
 import {useHistory} from 'react-router-dom'
 import {Row,Col} from 'react-bootstrap'
 import Typewriter from 'typewriter-effect';
-import image_1 from '../images/image_1.jpg'
-import image_2 from '../images/image_2.jpg'
-import image_3 from '../images/image_3.jpg'
+import image1 from '../images/image_1.jpg'
+import image2 from '../images/image_2.jpg'
+import image3 from '../images/image_3.jpg'
+import image4 from '../images/imag4.jpeg'
+import image5 from '../images/image5.jpeg'
+import image6 from '../images/image6.jpg'
+import image7 from '../images/image7.jpg'
+import image8 from '../images/image8.jpg'
+
 
 
 const Question = ({match}) => {
@@ -23,8 +29,8 @@ const Question = ({match}) => {
         dispatch(getQuestionsById(auth.key, match.params.qID));
     },[getQuestionsById, auth.key, match.params.qID]);
     
-    var imageNumber = Math.floor(Math.random() * 3);
-    var image = [image_1, image_2, image_3];
+    var imageNumber = Math.floor(Math.random() * 8);
+    var image = [image1, image2, image3,image4,image5,image6,image7,image8 ];
     console.log(imageNumber);
     const [answer, setAnswer] = useState('');
     const history = useHistory();
