@@ -11,7 +11,11 @@ import Login from './screens/Login';
 import Team from './components/team/Team';
 import Room from './screens/Room';
 import Question from './screens/Question';
-import Main from './screens/mainpage'
+
+import OneDoor from './screens/doorpages/one';
+import ThreeDoors from './screens/doorpages/three';
+import FourDoors from './screens/doorpages/four';
+import FiveDoors from './screens/doorpages/five';
 function App() {
   return (
     <div className="App">
@@ -26,7 +30,11 @@ function App() {
     <Route path = '/team-registration' component = {Team}/>
     <Route path = '/maze/:roomId' component={Room}/>
     <Route path = '/path/:qID' component={Question}/>
-    <Route path='/main' component = {Main}></Route>
+
+    <Route path = '/onedoor' component = {OneDoor}/>
+    <Route path = '/threedoors' component = {ThreeDoors}/>
+    <Route path = '/fourdoors' component = {FourDoors}/>
+    <Route path = '/fivedoors' component = {FiveDoors}/>
     </Switch>
     </Router>
     </PersistGate>
