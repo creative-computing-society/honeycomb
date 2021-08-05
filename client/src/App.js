@@ -28,6 +28,7 @@ function App() {
     <Route exact path = '/' component = {Landing}/>
     <Route path = '/login' component = {Login}></Route>
     <Route path = '/team-registration' component = {Team}/>
+    <Route exact path = '/maze/dead_end' component={Landing}/>
     <Route path = '/maze/:roomId' component={Room}/>
     <Route path = '/path/:qID' component={Question}/>
 

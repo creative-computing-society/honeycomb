@@ -33,9 +33,12 @@ function questions(state=initialState, action){
                 ...state,
                 answer: payload
             }
-
-        case GET_QUESTIONS_BY_LEVEL_FAILURE:
         case POST_ANSWER_FAILURE:
+            return{
+                ...state,
+                answer: payload
+            }
+        case GET_QUESTIONS_BY_LEVEL_FAILURE:
         case GET_QUESTIONS_BY_ID_FAILURE:
             return{
                 loading: false

@@ -13,6 +13,7 @@ import image5 from '../images/image5.jpeg'
 import image6 from '../images/image6.jpg'
 import image7 from '../images/image7.jpg'
 import image8 from '../images/image8.jpg'
+import {Alert} from 'react-bootstrap'
 
 
 
@@ -25,6 +26,8 @@ const Question = ({match}) => {
     const auth = useSelector(state => state.auth);
     const dispatch = useDispatch();
     
+    const [show, setShow] = useState(true);
+
     useEffect(() => {
         dispatch(getQuestionsById(auth.key, match.params.qID));
     },[getQuestionsById, auth.key, match.params.qID]);
@@ -54,12 +57,19 @@ const Question = ({match}) => {
     pauseFor: 10000000
   }}
 /></h3>
+<Alert variant="danger" onClose={() => setShow(false)} dismissable>
+            <Alert.Heading>Incorrect Answer</Alert.Heading>
+        </Alert>:
             <div className='answer-submission'>
             <input type='text' placeholder='answer' value={answer} onChange={e => setAnswer(e.target.value)} /><br/>
             <button className='hint'>Hint</button>
             <button onClick={answerHandler}>Submit</button></div>
 
             </div>
+            {/* {questions.answer === 'incorrect'? */}
+            
+        
+            
         </div>
     )
 }

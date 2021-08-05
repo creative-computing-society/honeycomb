@@ -11,7 +11,8 @@ import {
     LOGOUT,
     SAVE_TEAM_LEADER_INFO,
     SAVE_TEAM_LEADER_INFO_FAILURE,
-    NEW_REGISTER
+    NEW_REGISTER,
+    SAVE_ANSWER
 } from '../actions/types';
 
 const initialState = {
@@ -44,6 +45,11 @@ function auth(state = initialState, action){
                 isAuthenticated: true,
                 loading: false,
                 user: payload
+            }
+        case SAVE_ANSWER:
+            return{
+                ...state,
+                last_answer: payload
             }
         case REGISTER_SUCCESS:
             return{

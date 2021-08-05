@@ -1,7 +1,7 @@
 import axios from 'axios'
 import {proxy} from './types'
 import {QUESTIONS_BY_LEVEL_REQUEST, GET_QUESTIONS_BY_LEVEL, GET_QUESTIONS_BY_LEVEL_FAILURE, QUESTIONS_BY_ID_REQUEST, GET_QUESTIONS_BY_ID, GET_QUESTIONS_BY_ID_FAILURE, 
-POST_ANSWER_FAILURE, POST_ANSWER_REQUEST, POST_ANSWER_SUCCESS} from './types'  
+POST_ANSWER_FAILURE, POST_ANSWER_REQUEST, POST_ANSWER_SUCCESS, SAVE_ANSWER} from './types'  
 
 // Questions by room
 export const getQuestionsByRoom = (token, roomId) => async dispatch => {
@@ -74,9 +74,17 @@ export const postAnswer = (token, questionId, answer) => async dispatch => {
             type: POST_ANSWER_SUCCESS,
             payload: res.data,
         })
+        dispatch({
+            type: SAVE_ANSWER,
+            payload: res.data.leads_to
+        })
     } catch (error) {
         dispatch({
             type: POST_ANSWER_FAILURE,
+            payload:
+            error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
         })
     }
 }
