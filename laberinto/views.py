@@ -69,17 +69,16 @@ class SubmissionView(APIView):
 
             if ans_submitted == ans_correct:
                 serializer.save()
-
-                # Don't increase points if solving a prev level question
-                if question.room.level < self.request.user.team.level:
-                    return Response({'message': 'correct', 'leads_to': question.leads_to.room_id}, status=200)
-
                 self.request.user.team.score += question.points
                 self.request.user.team.save()
                 
                 # Don't increase level if solving a dead end question
                 if question.is_dead_end:
-                    return Response({'message': 'dead_end'}, status=400)      
+                    return Response({'message': 'dead_end', 'leads_to': 'dead_end'}, status=400)
+
+                # Don't increase level if solving a prev level question
+                if question.room.level < self.request.user.team.level:
+                    return Response({'message': 'correct', 'leads_to': question.leads_to.room_id}, status=200)
 
                 self.request.user.team.level += 1
                 self.request.user.team.save()
