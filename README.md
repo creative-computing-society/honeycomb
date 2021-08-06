@@ -8,3 +8,4 @@
 <b>GET Questions:</b> /api/question <br>
 <b>GET Question Detail:</b>    /api/question/{qID} <br>
 <b>POST Answer:</b>   /api/submission <br>
+<b>GET Hint:</b>    /api/hint/ <br>
