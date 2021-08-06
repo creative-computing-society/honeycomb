@@ -1,19 +1,29 @@
 import React, {useEffect} from 'react'
 import { getQuestionsByRoom } from '../actions/questions'
 import { connect, useDispatch, useSelector } from 'react-redux'
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import PropTypes from 'prop-types';
+import DoorUI from "../components/Portal/portal";
 const Room = ({auth, getQuestionsByRoom, match}) => {
+    // const history = useHistory();
     useEffect(() => {
         getQuestionsByRoom(auth.key, match.params.roomId);
     }, [getQuestionsByRoom, auth.key, match.params.roomId]);
     const questions = useSelector(state => state.questions.questionsByLevel);
+    
+    //   const delay = (event, id) => {
+//     event.preventDefault();
+//     setTimeout(() => history.push("/path/" + id), 2400);
+//   };
     return (
         <div className='room'>
 
             {questions && questions.map((ques) => {
                 return (
-                    <Link to = {'/path/'+ques.qID}><h1>Door</h1></Link>
+                    <div className="port">
+                    <Link to = {'/path/'+ques.qID}><DoorUI/></Link>
+                    </div>
+
                 )
             })}
         </div>

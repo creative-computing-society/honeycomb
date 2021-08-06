@@ -732,3 +732,88 @@ label{
   min-height: 80%;
   overflow-y: scroll;
 }
+
+
+
+
+.doorui{
+  width: 50% !important;
+  height: 20%;
+  margin-top: 100px;
+}
+
+.room{
+  background-color: black;
+  height: 100vh;
+  padding-top: 3%;
+  overflow: hidden;
+}
+.port {
+
+  width: 40%;
+  padding: 0%;
+
+}
+.port:nth-child(2){
+  margin-top: -10%;
+  margin-left: 12%;
+}
+.port:nth-child(1){
+  margin-top: 0%;
+  margin-left: -5%;
+
+}
+.port:nth-child(3){
+  margin-top: -50%;
+  margin-left: 40%;
+
+}
+.port:nth-child(3){
+  margin-top: -50%;
+  margin-left: 65%;
+
+
+}
+.port:nth-child(4){
+  margin-top: -10%;
+  margin-left: 48%;
+
+}
+.port:nth-child(5){
+  margin-top: -50%;
+  margin-left: 30%;
+
+}
+
+@media screen and (max-width:500px){
+  .port:nth-child(1){
+    margin-top: 20%;
+    margin-left: 0%;
+  }
+  .port:nth-child(2){
+    margin-top: 0%;
+    margin-left: 0%;
+  }
+  .port:nth-child(3){
+    margin-top: 0%;
+    margin-left: 0%;
+  }
+  .port:nth-child(4){
+    margin-top: 0%;
+    margin-left: 0%;
+  }
+  .port:nth-child(5){
+    margin-top: 0%;
+    margin-left: 0%;
+  }
+  .port{
+    width: 100% !important;
+}
+}
+
+
+
+
+
+
+
