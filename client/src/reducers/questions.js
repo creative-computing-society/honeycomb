@@ -13,9 +13,13 @@ function questions(state=initialState, action){
     switch (type) {
         case QUESTIONS_BY_LEVEL_REQUEST:
         case QUESTIONS_BY_ID_REQUEST:
-        case POST_ANSWER_REQUEST:
             return {
                 loading: true,
+            }
+        case POST_ANSWER_REQUEST:
+            return {
+                ...state,
+                loading: true
             }
 
         case GET_QUESTIONS_BY_LEVEL:

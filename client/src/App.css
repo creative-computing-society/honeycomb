@@ -729,6 +729,6 @@ label{
   text-align: left;
 }
 .question-div h3{
-  height: 80%;
+  min-height: 80%;
   overflow-y: scroll;
 }

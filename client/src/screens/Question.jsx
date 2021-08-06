@@ -13,8 +13,7 @@ import image5 from '../images/image5.jpeg'
 import image6 from '../images/image6.jpg'
 import image7 from '../images/image7.jpg'
 import image8 from '../images/image8.jpg'
-import {Alert} from 'react-bootstrap'
-
+import Notif from '../components/Toast/NewToast'
 
 
 const Question = ({match}) => {
@@ -25,14 +24,13 @@ const Question = ({match}) => {
 
     const auth = useSelector(state => state.auth);
     const dispatch = useDispatch();
-    
-    const [show, setShow] = useState(true);
 
+    var imageNumber;
+    
     useEffect(() => {
         dispatch(getQuestionsById(auth.key, match.params.qID));
-    },[getQuestionsById, auth.key, match.params.qID]);
-    
-    var imageNumber = Math.floor(Math.random() * 8);
+    },[getQuestionsById, auth.key, match.params.qID, imageNumber]);
+    imageNumber = Math.floor(Math.random() * 8);
     var image = [image1, image2, image3,image4,image5,image6,image7,image8 ];
     console.log(imageNumber);
     const [answer, setAnswer] = useState('');
@@ -57,16 +55,15 @@ const Question = ({match}) => {
     pauseFor: 10000000
   }}
 /></h3>
-<Alert variant="danger" onClose={() => setShow(false)} dismissable>
-            <Alert.Heading>Incorrect Answer</Alert.Heading>
-        </Alert>:
+
             <div className='answer-submission'>
             <input type='text' placeholder='answer' value={answer} onChange={e => setAnswer(e.target.value)} /><br/>
             <button className='hint'>Hint</button>
             <button onClick={answerHandler}>Submit</button></div>
 
             </div>
-            {/* {questions.answer === 'incorrect'? */}
+            {questions.answer === 'incorrect'?
+            <Notif text="Your answer was incorrect" color='danger'/>:''}
             
         
             

@@ -145,9 +145,8 @@ export const login = ( email, password ) => async dispatch => {
         dispatch({
             type: LOGIN_FAILURE,
             payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+        error.response.data.non_field_errors
+
         })
     }
 }

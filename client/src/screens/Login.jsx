@@ -6,7 +6,7 @@ import { login, saveTeamLeader } from '../actions/auth'
 import {Link, Redirect} from 'react-router-dom'
 import {useHistory} from 'react-router'
 import {NEW_REGISTER} from '../actions/types'
-import Notif from "../components/Toast/Toast";
+import Notif from "../components/Toast/LoginToast";
 
 const Login = () => {
 
@@ -151,7 +151,11 @@ const Login = () => {
           </div>
         </div>
       </div>
-
+      {auth.error && auth.error.map((error) => {
+        return (
+          <Notif text={error} color='danger'/>
+        )
+      })}
     </Fragment>
   );
 };
