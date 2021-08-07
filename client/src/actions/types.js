@@ -22,4 +22,4 @@ export const SAVE_TEAM_LEADER_INFO_FAILURE = 'SAVE_TEAM_LEADER_INFO_FAILURE';
 export const NEW_REGISTER = 'NEW_REGISTER';
 export const SAVE_ANSWER = 'SAVE_ANSWER'
 
-export const proxy = 'http://969d1688802f.ngrok.io'
+export const proxy = 'http://45142be143aa.ngrok.io'

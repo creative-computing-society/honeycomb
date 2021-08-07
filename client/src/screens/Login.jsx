@@ -46,22 +46,7 @@ const Login = () => {
       <div className="container1">
         <div className="forms-container1">
           <div className="signin-signup">
-
-            <form className="sign-in-form sign-in-form-1" onSubmit={handleSubmitLogin} >
-              <h2 className="title">Sign in</h2>
-              <div className="input-field">
-                <span></span>
-                <input required type="text" placeholder="Email" value={loginEmail} onChange={(e)=>setLoginEmail(e.target.value)} />
-              </div>
-              <div className="input-field">
-                <span></span>
-                <input required type="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} />
-              </div>
-              <input type="submit" value="Login" className="btn solid" />
-              {/* <label style={{ color: "red" }}>{error}</label> */}
-            </form>
-
-            <form className="sign-up-form sign-up-form-1" onSubmit={ handleSubmit} >
+          <form className="sign-in-form sign-in-form-1" onSubmit={ handleSubmit} >
             <h2 className="title">Sign up</h2>
 
               <input
@@ -101,13 +86,50 @@ const Login = () => {
               />
                 <button type='submit'className="btn solid">Register</button>
             </form>
+            <form className="sign-up-form sign-up-form-1" onSubmit={handleSubmitLogin} >
+              <h2 className="title">Sign in</h2>
+              <h4 style={{textAlign:"center"}}>You would be able to sign in once the event begins.</h4>
+              <div className="input-field">
+                <span></span>
+                <input required type="text" disabled placeholder="Email" value={loginEmail} onChange={(e)=>setLoginEmail(e.target.value)} />
+              </div>
+              <div className="input-field">
+                <span></span>
+                <input required type="password" disabled placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} />
+              </div>
+              <input type="submit" value="Login" disabled className="btn solid" />
+              {/* <label style={{ color: "red" }}>{error}</label> */}
+            </form>
+
+            
 
           </div>
         </div>
 
         <div className="panels-container1">
           <div className="panel left-panel">
-            <div className="content">
+          <div className="content">
+              <h3 className="hide">One of us ?</h3>
+              <p className="hide">
+                "Sign in, and enter the maze.Get Ready, to GET LOST" <br />~
+                
+              </p>
+              <button
+                className="btn transparent"
+                id="sign-in-btn"
+                onClick={() =>
+                  document
+                    .querySelector(".container1")
+                    .classList.add("sign-up-mode")
+                }
+              >
+                Sign in
+              </button>
+            </div>
+            <img src="img/log.svg" className="image" alt="" />
+          </div>
+          <div className="panel right-panel">
+          <div className="content">
               <h3 className="hide">New here ?</h3>
               <p className="hide">
                 “A journey of a thousand miles begins with a single step.”{" "}
@@ -120,33 +142,13 @@ const Login = () => {
                 onClick={() =>
                   document
                     .querySelector(".container1")
-                    .classList.add("sign-up-mode")
+                    .classList.remove("sign-up-mode")
                 }
               >
                 Sign up
               </button>
             </div>
-            <img src="img/log.svg" className="image" alt="" />
-          </div>
-          <div className="panel right-panel">
-            <div className="content">
-              <h3 className="hide">One of us ?</h3>
-              <p className="hide">
-                "Sign in, and enter the maze.Get Ready, to GET LOST" <br />~
-                
-              </p>
-              <button
-                className="btn transparent"
-                id="sign-in-btn"
-                onClick={() =>
-                  document
-                    .querySelector(".container1")
-                    .classList.remove("sign-up-mode")
-                }
-              >
-                Sign in
-              </button>
-            </div>
+            
             <img src="img/register.svg" className="image" alt="" />
           </div>
         </div>
