@@ -14,7 +14,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>StreamYard</p>
-                      <span>Lorem ipsum</span>
+                      <span>Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -27,7 +27,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>repl.it</p>
-                      <span>Lorem ipsum</span>
+                      <span>Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -40,7 +40,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>Give My Certificate</p>
-                      <span>Lorem ipsum</span>
+                      <span>Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -53,7 +53,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>1Password</p>
-                      <span>Lorem ipsum</span>
+                      <span>Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -66,7 +66,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>taskade</p>
-                      <span>Lorem ipsum</span>
+                      <span>Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -79,7 +79,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>balsamiq</p>
-                      <span>Lorem ipsum</span>
+                      <span>Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -92,7 +92,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>Badelog.in</p>
-                      <span>Lorem ipsum</span>
+                      <span>Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -105,7 +105,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>Programming Pathshala</p>
-                      <span>Lorem ipsum</span>
+                      <span>Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -118,7 +118,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>Eduvantage</p>
-                      <span>Lorem ipsum</span>
+                      <span>Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -131,7 +131,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>Hover Robotics</p>
-                      <span>Lorem ipsum</span>
+                      <span>Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -144,7 +144,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>GeeksforGeeks</p>
-                      <span>Lorem ipsum</span>
+                      <span>Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -157,7 +157,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>RAPZ</p>
-                      <span>Lorem ipsum</span>
+                      <span>Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -170,7 +170,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>Interview Cake</p>
-                      <span>Lorem ipsum</span>
+                      <span>Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -183,7 +183,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>.xyz</p>
-                      <span>Lorem ipsum</span>
+                      <span>Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -196,7 +196,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>Rosenfeld</p>
-                      <span>Lorem ipsum</span>
+                      <span>Sponsor</span>
                     </div>
                   </div>
                 </div>
