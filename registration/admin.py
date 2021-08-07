@@ -12,10 +12,10 @@ class ParticipantResource(resources.ModelResource):
 
 class ParticipantAdmin(ImportExportModelAdmin):
     resource_class = ParticipantResource
-    list_display = ('uuid', 'name', 'email', 'team')
+    list_display = ('uuid', 'name', 'email', 'level', 'team')
     list_display_links = ('uuid', 'name')
     list_filter = ('team_id',)
-    search_fields = ('name', 'email', 'team')
+    search_fields = ('name', 'email', 'level', 'team')
     list_per_page = 25
 
 admin.site.register(Participant, ParticipantAdmin)
@@ -28,10 +28,10 @@ class TeamResource(resources.ModelResource):
 
 class TeamAdmin(ImportExportModelAdmin):
     resource_class = TeamResource
-    list_display = ('id','teamName', 'score', 'level')
+    list_display = ('id','teamName', 'score')
     list_display_links = ('id', 'teamName')
     list_filter = ('score',)
-    search_fields = ('id','teamName', 'score', 'level')
+    search_fields = ('id','teamName', 'score')
     list_per_page = 25
 
 admin.site.register(Team, TeamAdmin)
