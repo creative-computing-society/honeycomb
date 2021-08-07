@@ -6,13 +6,13 @@ from .models import Room, Question, Submission
 class TeamSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Team
-		fields = ('teamName', 'score', 'level')
+		fields = ('teamName', 'score')
 
 class ParticipantSerializer(serializers.ModelSerializer):
 	team = TeamSerializer()
 	class Meta:
 		model = Participant
-		fields = ('name', 'email', 'team')
+		fields = ('name', 'email', 'team', 'level')
 
 
 class RoomSerializer(serializers.ModelSerializer):
@@ -29,4 +29,4 @@ class QuestionSerializer(serializers.ModelSerializer):
 class SubmissionSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Submission
-		fields =('team', 'question', 'ans_submitted')
+		fields =('participant', 'question', 'ans_submitted')

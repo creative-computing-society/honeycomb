@@ -10,7 +10,6 @@ EMAIL_REGEX = "^[A-Za-z0-9._~+-]+@thapar\.edu$"
 class Team(models.Model):
     teamName = models.CharField(max_length=100, unique=True)
     score = models.IntegerField(default=20)
-    level = models.IntegerField(default=0)
     
     def __str__(self):
         return self.teamName
@@ -40,7 +39,7 @@ class Participant(AbstractBaseUser):
         unique=True
     )
     team = models.ForeignKey(Team, on_delete=models.CASCADE, null=True, blank=True)
-
+    level = models.IntegerField(default=0)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)

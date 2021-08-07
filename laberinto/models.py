@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
-from registration.models import Team
+from registration.models import Team, Participant
 
 
 class Room(models.Model):
@@ -28,7 +28,7 @@ class Question(models.Model):
 
 
 class Submission(models.Model):
-    team = models.ForeignKey(Team, on_delete = models.CASCADE)
+    participant = models.ForeignKey(Participant, on_delete = models.CASCADE, blank=True, null=True)
     question = models.ForeignKey(Question, on_delete = models.CASCADE)
     ans_submitted = models.CharField(max_length = 250)
     time_when_submitted = models.DateTimeField(default=None, blank=True, null=True)

@@ -1,9 +1,8 @@
 // Registration endpoint (POST)
 {
-    "teamName": "teamName",
-    "teamLeader": {"name": "name1", "email": "test_1@thapar.edu", "discord_ID": "1234567890"},
-    "member1": {"name": "name2", "email": "test_2@thapar.edu", "discord_ID": "1234567890"},
-    "member2": {"name": "name3", "email": "test_3@thapar.edu", "discord_ID": "1234567890"}
+    "teamName": "Testing",
+    "teamLeader": {"name": "name1", "email": "test_1@thapar.edu", "discord_ID": "pjkl#1232"},
+    "member1": {"name": "name2", "email": "test_2@thapar.edu", "discord_ID": "rjki#1234"}
 }
 Response:
 {
