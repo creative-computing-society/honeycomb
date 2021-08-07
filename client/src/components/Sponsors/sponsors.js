@@ -14,7 +14,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>StreamYard</p>
-                      <span>Sponsor</span>
+                      <span>Associate Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -27,7 +27,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>repl.it</p>
-                      <span>Sponsor</span>
+                      <span>Associate Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -40,7 +40,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>Give My Certificate</p>
-                      <span>Sponsor</span>
+                      <span>Associate Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -53,7 +53,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>1Password</p>
-                      <span>Sponsor</span>
+                      <span>Associate Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -66,7 +66,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>taskade</p>
-                      <span>Sponsor</span>
+                      <span>Associate Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -79,7 +79,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>balsamiq</p>
-                      <span>Sponsor</span>
+                      <span>Associate Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -92,7 +92,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>Badelog.in</p>
-                      <span>Sponsor</span>
+                      <span>Associate Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -105,7 +105,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>Programming Pathshala</p>
-                      <span>Sponsor</span>
+                      <span>Power Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -117,8 +117,8 @@ const Sponsors =()=>{
                   </div>
                   <div className="back">
                   <div className="inner">
-                      <p className='title'>Eduvantage</p>
-                      <span>Sponsor</span>
+                      <p className='title'>Eduvantage Box</p>
+                      <span>Associate Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -131,7 +131,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>Hover Robotics</p>
-                      <span>Sponsor</span>
+                      <span>Associate Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -144,7 +144,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>GeeksforGeeks</p>
-                      <span>Sponsor</span>
+                      <span>Power Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -156,8 +156,8 @@ const Sponsors =()=>{
                   </div>
                   <div className="back">
                   <div className="inner">
-                      <p className='title'>RAPZ</p>
-                      <span>Sponsor</span>
+                      <p className='title'>MENTORx</p>
+                      <span>Associate Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -170,7 +170,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>Interview Cake</p>
-                      <span>Sponsor</span>
+                      <span>Associate Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -183,7 +183,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>.xyz</p>
-                      <span>Sponsor</span>
+                      <span>Power Sponsor</span>
                     </div>
                   </div>
                 </div>
@@ -196,7 +196,20 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>Rosenfeld</p>
-                      <span>Sponsor</span>
+                      <span>Associate Sponsor</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-sponsor" ontouchstart="this.classList.toggle('hover');">
+                <div className="container">
+                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628360936/Sponsors/grid_2png_09_rgl6so.png)'}}>
+                   
+                  </div>
+                  <div className="back">
+                  <div className="inner">
+                      <p className='title'>Coding Ninjas</p>
+                      <span>Associate Sponsor</span>
                     </div>
                   </div>
                 </div>

@@ -88,7 +88,7 @@ const Login = () => {
             </form>
             <form className="sign-up-form sign-up-form-1" onSubmit={handleSubmitLogin} >
               <h2 className="title">Sign in</h2>
-              <h4 style={{textAlign:"center"}}>You would be able to sign in once the event begins.</h4>
+              <h4 style={{textAlign:"center", color:"red"}}>You would be able to sign in once the event begins.</h4>
               <div className="input-field">
                 <span></span>
                 <input required type="text" disabled placeholder="Email" value={loginEmail} onChange={(e)=>setLoginEmail(e.target.value)} />

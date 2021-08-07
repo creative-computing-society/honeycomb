@@ -21,12 +21,16 @@ const Navbar = () => {
           <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul className="navbar-nav">
 
+            {!auth.isAuthenticated? 
               <li className="nav-item">
                 <Link className='nav-link' to = '/login'>Register Now</Link>
-              </li>
+              </li> :
+              <li className ='nav-item'>
+              <p className='nav-link'>Team Name</p></li>}
+              {!auth.isAuthenticated? 
               <li className="nav-item">
               <a className='nav-link' href = '/#sponsors'>Our Sponsors</a>
-              </li>
+              </li> : <li className='nav-item'><p  className='nav-link'>Total Points</p></li>}
               <li className="nav-item">
                 <a className="nav-link" href="#">Rulebook</a>
               </li>

@@ -44,11 +44,12 @@ const Landing =()=>{
 
   <div className = "main">
     <div id="landing">
+      {auth && auth.isAuthenticated ? '' :
       <div id="bg">
         <Countdown></Countdown>
         <br/>
         <RegisterButton></RegisterButton>
-      </div>
+      </div>}
     </div>
     {auth.isAuthenticated ? <Link to='/maze/0'><center><button className="btn solid">Start The Game</button></center></Link> : ''}
       <div className="sponsors">
