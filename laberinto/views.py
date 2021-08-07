@@ -90,7 +90,7 @@ class SubmissionView(APIView):
             ans_submitted = serializer.validated_data["ans_submitted"].strip()
             ans_correct = question.answer
 
-            # Check if question has already been solved
+            # Check if question has already been solved by same participant
             if Submission.objects.filter(
                 participant=self.request.user, question=question
             ).exists():
@@ -100,8 +100,12 @@ class SubmissionView(APIView):
 
             if ans_submitted == ans_correct:
                 serializer.save()
-                self.request.user.team.score += question.points
-                self.request.user.team.save()
+                # Don't increase points if another participant solves question already solved by team
+                if not Submission.objects.filter(
+                    question=question, participant__team=self.request.user.team
+                ).exists():
+                    self.request.user.team.score += question.points
+                    self.request.user.team.save()
 
                 # Don't increase level if solving a dead end question
                 if question.is_dead_end:

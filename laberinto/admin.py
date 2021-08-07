@@ -41,10 +41,10 @@ class SubmissionResource(resources.ModelResource):
 
 class SubmissionAdmin(ImportExportModelAdmin):
     resource_class = SubmissionResource
-    list_display = ('participant', 'question', 'ans_submitted')
-    list_display_links = ('participant', 'question')
+    list_display = ('participant', 'question_id', 'ans_submitted')
+    list_display_links = ('participant', 'question_id')
     list_filter = ('participant',)
-    search_fields = ('participant', 'question', 'ans_submitted')
+    search_fields = ('participant', 'question_id', 'ans_submitted')
     list_per_page = 25
 
 admin.site.register(Submission, SubmissionAdmin)
