@@ -11,35 +11,35 @@ const ThreeDoors = () => {
   return (
     <div className="body">
       <img src={logo} alt="" className="bgimg" />
-      <div className="port row1 three">
+      <div className="portthree row1 three">
               <Link to = {{
             pathname:'/'
           }} onClick={delay}>
             <DoorUI className="door"></DoorUI>
           </Link>
       </div>
-      <div className="port row1 q2">
+      <div className="portthree row1 q2">
               <Link to = {{
             pathname:'/'
           }} onClick={delay}>
             <DoorUI className="door"></DoorUI>
           </Link>
       </div>
-      <div className="port row1 three">
+      <div className="portthree row1 three">
               <Link to = {{
             pathname:'/'
           }} onClick={delay}>
             <DoorUI className="door"></DoorUI>
           </Link>
       </div>
-      <div className="port row2 q4">
+      <div className="portthree row2 q4">
               <Link to = {{
             pathname:'/'
           }} onClick={delay}>
             <DoorUI className="door"></DoorUI>
           </Link>
       </div>
-      <div className="port row2 q5">
+      <div className="portthree row2 q5">
               <Link to = {{
             pathname:'/'
           }} onClick={delay}>

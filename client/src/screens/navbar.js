@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
 import { logout } from '../actions/auth';
 import logo from '../images/logo.png'
+import Rules from "./rulebook";
 
 const Navbar = () => {
   const auth = useSelector(state => state.auth);
@@ -34,7 +35,7 @@ const Navbar = () => {
               <a className='nav-link' href = '/#sponsors'>Our Sponsors</a>
               </li> : <li className='nav-item'><p  className='nav-link'>Total Points: {teamPoints}</p></li>}
               <li className="nav-item">
-                <a className="nav-link" target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1PUDP08kfEThypSuh_D9HbnQQujKw1V1k/view?usp=sharing">Rulebook</a>
+                <Link className="nav-link" to='/rulebook'>Rulebook</Link>
               </li>
               {auth.isAuthenticated? 
               <li className="nav-item" onClick={logoutHandler}>

@@ -17,6 +17,8 @@ import ThreeDoors from './screens/doorpages/three';
 import FourDoors from './screens/doorpages/four';
 import FiveDoors from './screens/doorpages/five';
 import Grid from './screens/grid-page/Grid';
+
+import Rules from './screens/rulebook';
 function App() {
   return (
     <div className="App">
@@ -34,10 +36,10 @@ function App() {
     <Route path = '/path/:qID' component={Question}/>
     <Route path = '/grid' component = {Grid}/>
 
+    <Route path='/rulebook' component={Rules}/>
     <Route path = '/onedoor' component = {OneDoor}/>
     <Route path = '/threedoors' component = {ThreeDoors}/>
-    <Route path = '/fourdoors' component = {FourDoors}/>
-    <Route path = '/fivedoors' component = {FiveDoors}/>
+
     </Switch>
     </Router>
     </PersistGate>
