@@ -744,6 +744,10 @@ label{
 
 .room{
   background-color: black;
+  background-image: url(./images/backgroundimage.png);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center;
   height: 100vh;
   padding-top: 3%;
   overflow: hidden;
@@ -813,7 +817,13 @@ label{
 
 
 
-
-
+/* 
+.bgimg {
+  position: absolute;
+  opacity: 0.1;
+  margin-left: 15vw;
+  margin-top: 30vh;
+  width: 70%;
+} */
 
 

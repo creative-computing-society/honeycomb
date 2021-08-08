@@ -39,21 +39,21 @@ class RegisterView(APIView):
                 teamLeader['password'] = password
                 form1 = ParticipantForm(teamLeader)
                 if not form1.is_valid():
-                    print(form.errors)
+                    print(form1.errors)
                     return Response({'error': form1.errors}, status=status.HTTP_400_BAD_REQUEST)
 
                 if member1 is not None:
                     member1['password'] = password
                     form2 = ParticipantForm(member1)
                     if not form2.is_valid():
-                        print(form.errors)
+                        print(form1.errors)
                         return Response({'error': form2.errors}, status=status.HTTP_400_BAD_REQUEST)
                 
                 if member2 is not None:
                     member2['password'] = password
                     form3 = ParticipantForm(member2)
                     if not form3.is_valid():
-                        print(form.errors)
+                        print(form3.errors)
                         return Response({'error': form3.errors}, status=status.HTTP_400_BAD_REQUEST)
                 
                 team = form.save()
@@ -93,4 +93,5 @@ class RegisterView(APIView):
                 return Response({'error': 'Team Leader and Member 1 or Member 2 are required'}, status=status.HTTP_400_BAD_REQUEST)
 
         else:
+            print(form.errors)
             return Response({'error':'Team Name is taken'}, status=status.HTTP_400_BAD_REQUEST)
