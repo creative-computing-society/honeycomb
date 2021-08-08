@@ -3,7 +3,7 @@ import './Landing.css';
 import Countdown from '../Countdown/countdown.js';
 import Sponsors from '../Sponsors/sponsors.js';
 import RegisterButton from '../RegisterButton/registerButton.js';
-import Notif from '../Toast/Toast'
+import Notif from '../Toast/LoginToast'
 import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 
@@ -40,7 +40,7 @@ const Landing =()=>{
     return(
       <Fragment>
 
-       {auth.isRegistered && isSuccess ?  (<Notif text={auth.success} color='light'/>) : (isError ? (<Notif text={auth.error} color='danger'/>) : '')}
+       {auth.isRegistered && isSuccess ?  (<Notif text={auth.success} color='light'/>) : ''}
 
   <div className = "main">
     <div id="landing">
@@ -56,6 +56,11 @@ const Landing =()=>{
         <Sponsors></Sponsors>
       </div>
   </div>
+  {/* {auth.error && auth.error.map((error) => {
+        return (
+          <Notif text={error} color='danger'/>
+        )
+      })} */}
   </Fragment>
     );
 }

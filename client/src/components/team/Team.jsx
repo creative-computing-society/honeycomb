@@ -4,6 +4,7 @@ import { register } from '../../actions/auth'
 import {Row, Col} from 'react-bootstrap'
 import './team.css'
 import {useHistory} from 'react-router-dom'
+import Notif  from '../Toast/NewToast';
 
 const Team = () => {
     const [name2, setName2] = useState('');
@@ -17,20 +18,25 @@ const Team = () => {
     const dispatch = useDispatch();
 
     const history = useHistory();
-    if(auth.isRegistered){
-      history.push('/')
-    }
+
      teamName = auth.teamLeader.teamName;
      name1 = auth.teamLeader.name1;
      email1 = auth.teamLeader.email1;
      mobile1 = auth.teamLeader.mobile1;
    const handleSubmit =(e)=> {
       e.preventDefault();
-      dispatch(register(teamName,name1,name2,name3,email1,email2,email3,mobile1,mobile2,mobile3))
+      dispatch(register(teamName,name1,name2,name3,email1,email2,email3,mobile1,mobile2,mobile3));
+      setTimeout(() => {
+        history.push('/login')
+      }, 8000);
+    }
+
+    if(auth.isRegistered){
+      history.push('/')
     }
 
     return (
-
+      <Fragment>
         <div className='team-players'>
             <Row className='team-player-row'>
               <center><h2 className='title'>Team-Details</h2></center>
@@ -92,6 +98,25 @@ const Team = () => {
 
             </Row>
         </div>
+        {auth.registerError && auth.registerError.error && auth.registerError.error.discord_ID &&
+        auth.registerError.error.discord_ID.map(err => {
+          return(
+          <Notif text={err + ". Try registering again"} color='danger'/>
+          )
+        })
+      }
+        {auth.registerError && auth.registerError.error && auth.registerError.error.email &&
+        auth.registerError.error.email.map(err => {
+          return(
+          <Notif text={err + ". Try registering again"} color='danger'/>
+          )
+        })
+      }
+        {auth.registerError && auth.registerError.error && !auth.registerError.error.email &&
+          !auth.registerError.error.discord_ID && <Notif text={auth.registerError.error + ". Try registering again"} color='danger'/>
+        
+      }
+        </Fragment>
     )
 }
 

@@ -107,10 +107,10 @@ export const register = (
     } catch (error) {
         // const errors = e.response.data.errors;
         dispatch({
-            type: REGISTER_FAILURE.place,
+            type: REGISTER_FAILURE,
             payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
+        error.response && error.response.data
+          ? error.response.data
           : error.message,
         })
     }
