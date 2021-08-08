@@ -116,7 +116,7 @@ class SubmissionView(APIView):
                 if question.is_dead_end:
                     # Don't increase level if solving a dead end question
                     return Response(
-                        {"message": "dead_end", "leads_to": "dead_end"}, status=400
+                        {"message": "correct", "leads_to": "dead_end"}, status=200
                     )
 
                 if question.room.level < self.request.user.level:
