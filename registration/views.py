@@ -77,7 +77,7 @@ class RegisterView(APIView):
                 
 
                 def send_email(subject, message, from_email, to_list, html_message):
-                    send_mail(subject, message, from_email, to_list, html_message=html_message,fail_silently=True)
+                    send_mail(subject, message, from_email, to_list, html_message=html_message,fail_silently=False)
 
                 subject = 'Thankyou for registering!' #subject of the email
                 password={'OTP':password,'Team_Name': teamData['teamName']} #password dict to be passed to email template
