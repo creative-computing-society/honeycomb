@@ -32,7 +32,7 @@ const Navbar = () => {
               <a className='nav-link' href = '/#sponsors'>Our Sponsors</a>
               </li> : <li className='nav-item'><p  className='nav-link'>Total Points</p></li>}
               <li className="nav-item">
-                <a className="nav-link" href="#">Rulebook</a>
+                <a className="nav-link" target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1PUDP08kfEThypSuh_D9HbnQQujKw1V1k/view?usp=sharing">Rulebook</a>
               </li>
               {auth.isAuthenticated? 
               <li className="nav-item" onClick={logoutHandler}>
