@@ -3,7 +3,6 @@ import React, { Fragment, useState, useEffect } from "react";
 import { func } from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import { login, saveTeamLeader } from '../actions/auth'
-import {Link, Redirect} from 'react-router-dom'
 import {useHistory} from 'react-router'
 import {NEW_REGISTER, REGISTER_ERROR_RESET} from '../actions/types'
 import Notif from "../components/Toast/LoginToast";

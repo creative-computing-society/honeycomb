@@ -16,6 +16,7 @@ import OneDoor from './screens/doorpages/one';
 import ThreeDoors from './screens/doorpages/three';
 import FourDoors from './screens/doorpages/four';
 import FiveDoors from './screens/doorpages/five';
+import Grid from './screens/grid-page/Grid';
 function App() {
   return (
     <div className="App">
@@ -31,6 +32,7 @@ function App() {
     <Route exact path = '/maze/dead_end' component={Landing}/>
     <Route path = '/maze/:roomId' component={Room}/>
     <Route path = '/path/:qID' component={Question}/>
+    <Route path = '/grid' component = {Grid}/>
 
     <Route path = '/onedoor' component = {OneDoor}/>
     <Route path = '/threedoors' component = {ThreeDoors}/>

@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import { getQuestionsById, postAnswer } from '../actions/questions'
 import {useDispatch, useSelector} from 'react-redux'
 import {useHistory} from 'react-router-dom'
-import {Row,Col} from 'react-bootstrap'
 import Typewriter from 'typewriter-effect';
 import image1 from '../images/image_1.jpg'
 import image2 from '../images/image_2.jpg'
@@ -17,6 +16,8 @@ import Notif from '../components/Toast/NewToast'
 
 
 const Question = ({match}) => {
+
+    const [imageNumber, setImageNumber] = useState(0);
     const questions = useSelector(state => state.questions);
     const question = useSelector(state => state.questions.questionById);
 
@@ -25,14 +26,17 @@ const Question = ({match}) => {
     const auth = useSelector(state => state.auth);
     const dispatch = useDispatch();
 
-    var imageNumber;
+    var random;
     
     useEffect(() => {
         dispatch(getQuestionsById(auth.key, match.params.qID));
-    },[getQuestionsById, auth.key, match.params.qID, imageNumber]);
-    imageNumber = Math.floor(Math.random() * 8);
+        random = Math.floor(Math.random() * 8);
+        setImageNumber(random);
+
+    },[getQuestionsById, auth.key, match.params.qID, random]);
     var image = [image1, image2, image3,image4,image5,image6,image7,image8 ];
     console.log(imageNumber);
+
     const [answer, setAnswer] = useState('');
     const history = useHistory();
     const answerHandler = (e) => {

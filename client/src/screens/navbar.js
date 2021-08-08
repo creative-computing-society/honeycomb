@@ -10,6 +10,8 @@ const Navbar = () => {
       dispatch(logout());
     }
 
+  const teamPoints = (auth.user && auth.user.team.score) || 0;
+  const teamName = (auth.user && auth.user.team.teamName) || 'Team Name';
     return ( 
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark  fixed-top shift">
@@ -26,11 +28,11 @@ const Navbar = () => {
                 <Link className='nav-link' to = '/login'>Register Now</Link>
               </li> :
               <li className ='nav-item'>
-              <p className='nav-link'>Team Name</p></li>}
+              <p className='nav-link'>{teamName}</p></li>}
               {!auth.isAuthenticated? 
               <li className="nav-item">
               <a className='nav-link' href = '/#sponsors'>Our Sponsors</a>
-              </li> : <li className='nav-item'><p  className='nav-link'>Total Points</p></li>}
+              </li> : <li className='nav-item'><p  className='nav-link'>Total Points: {teamPoints}</p></li>}
               <li className="nav-item">
                 <a className="nav-link" target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1PUDP08kfEThypSuh_D9HbnQQujKw1V1k/view?usp=sharing">Rulebook</a>
               </li>

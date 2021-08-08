@@ -1,4 +1,4 @@
-import React, {Fragment, useState, useEffect} from 'react'
+import React, {Fragment, useState} from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { register } from '../../actions/auth'
 import {Row, Col} from 'react-bootstrap'
