@@ -815,15 +815,30 @@ label{
 }
 }
 
+.rulebook-page{
+  background-color: #000000;
+  height: 100vh;
+  overflow-x: hidden;
+  padding: 5%;
+}
+.rulebook-display{
+  width: 45%;
 
 
-/* 
-.bgimg {
-  position: absolute;
-  opacity: 0.1;
-  margin-left: 15vw;
-  margin-top: 30vh;
-  width: 70%;
-} */
+}
+.pages{
+  height: 20% !important;
+}
 
-
+@media screen and (max-width:500px){
+  .rulebook-display{
+    margin-top: 40%;
+    width: fit-content;
+  }
+}
+@media screen and (max-width:1300px){
+  .rulebook-display{
+    margin-top: 10%;
+    width: 50%;
+  }
+}

@@ -72,7 +72,7 @@ const Team = () => {
               />
                 </Col>
                 <Col lg={5} className="team-player-name">
-                <h3>Member-3</h3>
+                <h3>Member-3 (Optional)</h3>
                     <input
                 type="text"
                 placeholder="Member-3 Name"

@@ -31,7 +31,7 @@ function App() {
     <Route exact path = '/maze/dead_end' component={Landing}/>
     <Route path = '/maze/:roomId' component={Room}/>
     <Route path = '/path/:qID' component={Question}/>
-    <Route path='/rulebook' component={Rules}></Route>
+    <Route path='/rulebook' component={Rules}/>
     <Route path = '/onedoor' component = {OneDoor}/>
     <Route path = '/threedoors' component = {ThreeDoors}/>
 
