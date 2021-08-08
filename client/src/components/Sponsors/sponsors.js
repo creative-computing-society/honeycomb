@@ -8,7 +8,7 @@ const Sponsors =()=>{
             <div className="col-sponsors">
               <div className="col-sponsor" ontouchstart="this.classList.toggle('hover');">
                 <div className="container">
-                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628360936/Sponsors/Streamyard.png)'}}>
+                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628444822/Sponsors/grid_1_sp-WEB_01_hy9t1k.png)'}}>
 
                   </div>
                   <div className="back">
@@ -21,8 +21,8 @@ const Sponsors =()=>{
               </div>
               <div className="col-sponsor" ontouchstart="this.classList.toggle('hover');">
                 <div className="container">
-                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628360934/Sponsors/grid_1_sp_02_hkupvx.png)'}}>
-     
+                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628444822/Sponsors/grid_1_sp-WEB_02_jiqy5w.png)'}}>
+
                   </div>
                   <div className="back">
                   <div className="inner">
@@ -34,8 +34,8 @@ const Sponsors =()=>{
               </div>
               <div className="col-sponsor" ontouchstart="this.classList.toggle('hover');">
                 <div className="container">
-                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628360936/Sponsors/grid_1_sp_03_sujzpl.png)'}}>
-          
+                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628444823/Sponsors/grid_1_sp-WEB_03_rwuesr.png)'}}>
+
                   </div>
                   <div className="back">
                   <div className="inner">
@@ -48,7 +48,7 @@ const Sponsors =()=>{
               <div className="col-sponsor" ontouchstart="this.classList.toggle('hover');">
                 <div className="container">
                   <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628360934/Sponsors/grid_1_sp_04_vjyhdl.png)'}}>
-               
+
                   </div>
                   <div className="back">
                   <div className="inner">
@@ -60,8 +60,8 @@ const Sponsors =()=>{
               </div>
               <div className="col-sponsor" ontouchstart="this.classList.toggle('hover');">
                 <div className="container">
-                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628360934/Sponsors/grid_1_sp_05_xspipw.png)'}}>
-                  
+                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628444822/Sponsors/grid_1_sp-WEB_05_iqptbw.png)'}}>
+
                   </div>
                   <div className="back">
                   <div className="inner">
@@ -73,8 +73,8 @@ const Sponsors =()=>{
               </div>
               <div className="col-sponsor" ontouchstart="this.classList.toggle('hover');">
                 <div className="container">
-                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628360934/Sponsors/grid_1_sp_06_tnghjz.png)'}}>
-                
+                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628444823/Sponsors/grid_1_sp-WEB_06_ykq7dx.png)'}}>
+
                   </div>
                   <div className="back">
                   <div className="inner">
@@ -86,8 +86,8 @@ const Sponsors =()=>{
               </div>
               <div className="col-sponsor" ontouchstart="this.classList.toggle('hover');">
                 <div className="container">
-                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628360934/Sponsors/grid_1_sp_07_izdpbz.png)'}}>
-               
+                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628444823/Sponsors/grid_1_sp-WEB_07_z6lae2.png)'}}>
+
                   </div>
                   <div className="back">
                   <div className="inner">
@@ -99,8 +99,8 @@ const Sponsors =()=>{
               </div>
               <div className="col-sponsor" ontouchstart="this.classList.toggle('hover');">
                 <div className="container">
-                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628360934/Sponsors/grid_1_sp_08_tyyjmg.png)'}}>
-                
+                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628444823/Sponsors/grid_1_sp-WEB_08_xk6mxj.png)'}}>
+
                   </div>
                   <div className="back">
                   <div className="inner">
@@ -112,8 +112,8 @@ const Sponsors =()=>{
               </div>
               <div className="col-sponsor" ontouchstart="this.classList.toggle('hover');">
                 <div className="container">
-                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628360935/Sponsors/grid_1_sp_09_ckt8kt.png)'}}>
-                   
+                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628444823/Sponsors/grid_1_sp-WEB_09_lm5gcb.png)'}}>
+
                   </div>
                   <div className="back">
                   <div className="inner">
@@ -125,8 +125,8 @@ const Sponsors =()=>{
               </div>
               <div className="col-sponsor" ontouchstart="this.classList.toggle('hover');">
                 <div className="container">
-                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628360935/Sponsors/grid_2png_04_jk567k.png)'}}>
-                   
+                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628444825/Sponsors/grid-WEB-1_04_nbzdjx.png)'}}>
+
                   </div>
                   <div className="back">
                   <div className="inner">
@@ -138,8 +138,8 @@ const Sponsors =()=>{
               </div>
               <div className="col-sponsor" ontouchstart="this.classList.toggle('hover');">
                 <div className="container">
-                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628360935/Sponsors/grid_2png_05_g31ie1.png)'}}>
-                   
+                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628444824/Sponsors/grid-WEB-1_05_m0m0tt.png)'}}>
+
                   </div>
                   <div className="back">
                   <div className="inner">
@@ -151,8 +151,8 @@ const Sponsors =()=>{
               </div>
               <div className="col-sponsor" ontouchstart="this.classList.toggle('hover');">
                 <div className="container">
-                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628360936/Sponsors/grid_2png_06_ouklvi.png)'}}>
-                   
+                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628444822/Sponsors/grid_1_sp-WEB_02_jiqy5w.png)'}}>
+
                   </div>
                   <div className="back">
                   <div className="inner">
@@ -164,8 +164,8 @@ const Sponsors =()=>{
               </div>
               <div className="col-sponsor" ontouchstart="this.classList.toggle('hover');">
                 <div className="container">
-                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628360936/Sponsors/grid_2png_07_aty8h4.png)'}}>
-                   
+                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628444824/Sponsors/grid-WEB-1_07_ozrcpx.png)'}}>
+
                   </div>
                   <div className="back">
                   <div className="inner">
@@ -177,8 +177,8 @@ const Sponsors =()=>{
               </div>
               <div className="col-sponsor" ontouchstart="this.classList.toggle('hover');">
                 <div className="container">
-                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628360935/Sponsors/grid_2png_08_buduai.png)'}}>
-                   
+                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628444824/Sponsors/grid-WEB-1_08_nuxyjt.png)'}}>
+
                   </div>
                   <div className="back">
                   <div className="inner">
@@ -190,8 +190,8 @@ const Sponsors =()=>{
               </div>
               <div className="col-sponsor" ontouchstart="this.classList.toggle('hover');">
                 <div className="container">
-                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628360936/Sponsors/grid_2png_09_rgl6so.png)'}}>
-                   
+                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628444825/Sponsors/grid-WEB-1_09_rhpjtg.png)'}}>
+
                   </div>
                   <div className="back">
                   <div className="inner">
@@ -203,8 +203,8 @@ const Sponsors =()=>{
               </div>
               <div className="col-sponsor" ontouchstart="this.classList.toggle('hover');">
                 <div className="container">
-                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628406911/Sponsors/grid_2png_03_nvjeqj.png)'}}>
-                   
+                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628444824/Sponsors/grid-WEB-1_03_eihgfs.png)'}}>
+
                   </div>
                   <div className="back">
                   <div className="inner">
@@ -216,8 +216,8 @@ const Sponsors =()=>{
               </div>
               <div className="col-sponsor" ontouchstart="this.classList.toggle('hover');">
                 <div className="container">
-                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628406911/Sponsors/grid_2png_02_df9nwz.png)'}}>
-                   
+                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628444824/Sponsors/grid-WEB-1_02_nsgeea.png)'}}>
+
                   </div>
                   <div className="back">
                   <div className="inner">
