@@ -6,23 +6,23 @@ import PropTypes from 'prop-types';
 import background from '../images/backgroundimage.png'
 import DoorUI from "../components/Portal/portal";
 const Room = ({auth, getQuestionsByRoom, match}) => {
-    // const history = useHistory();
+     const history = useHistory();
     useEffect(() => {
         getQuestionsByRoom(auth.key, match.params.roomId);
     }, [getQuestionsByRoom, auth.key, match.params.roomId]);
     const questions = useSelector(state => state.questions.questionsByLevel);
     
-    //   const delay = (event, id) => {
-//     event.preventDefault();
-//     setTimeout(() => history.push("/path/" + id), 2400);
-//   };
+       const delay = (event, id) => {
+     event.preventDefault();
+    setTimeout(() => history.push("/path/" + id), 2400);
+   };
     return (
         <div className='room'>
 
             {questions && questions.map((ques) => {
                 return (
                     <div className="port">
-                    <Link to = {'/path/'+ques.qID}><DoorUI/></Link>
+                    <Link to = {'/path/'+ques.qID} onClick={delay}><DoorUI/></Link>
                     </div>
 
                 )
