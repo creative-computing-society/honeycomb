@@ -2,7 +2,7 @@ import React from 'react'
 import { Fragment } from 'react'
 import './grid.css'
 import Typewriter from 'typewriter-effect';
-
+import {Link} from 'react-router-dom'
 
 const Grid = () => {
     return (
@@ -13,7 +13,7 @@ const Grid = () => {
         <div class="top-plane"></div>
         <div class="bottom-plane"></div>
         <div class="typewriter">
-        <button class="bu" > {'< ENTER THE MAZE > '}</button> 
+        <Link to ='/maze/0'> <button class="bu" > {'< ENTER THE MAZE > '}</button> </Link>
 
         </div>
 
