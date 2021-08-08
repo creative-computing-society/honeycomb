@@ -12,7 +12,8 @@ import {
     SAVE_TEAM_LEADER_INFO,
     SAVE_TEAM_LEADER_INFO_FAILURE,
     NEW_REGISTER,
-    SAVE_ANSWER
+    SAVE_ANSWER,
+    REGISTER_ERROR_RESET
 } from '../actions/types';
 
 const initialState = {
@@ -39,6 +40,10 @@ function auth(state = initialState, action){
                 isRegistered: false,
                 success: null,
                 error: null
+            }
+        case REGISTER_ERROR_RESET:
+            return{
+                registerError: null
             }
         case USER_LOADED: 
             return{
@@ -73,11 +78,19 @@ function auth(state = initialState, action){
                 teamLeader: payload
             }
         case REGISTER_FAILURE:
+            return{
+                ...state,
+                token: null,
+                isAuthenticated: false,
+                loading: false,
+                registerError: payload
+            }
         case AUTH_ERROR:
         case LOGIN_FAILURE:
         case LOGOUT:
             localStorage.removeItem('token');
             return{
+                ...state,
                 token: null,
                 isAuthenticated: false,
                 loading: false,
