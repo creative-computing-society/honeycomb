@@ -92,7 +92,7 @@ const Countdown =()=>{
 
       ReactDOM.render(
       	<Countdown
-      		timeTillDate="08 14 2021, 6:00 pm"
+      		timeTillDate="08 13 2021, 12:30 pm"
       		timeFormat="MM DD YYYY, h:mm a"
       	/>,
       	document.getElementById('app')
