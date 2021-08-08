@@ -14,8 +14,8 @@ import Question from './screens/Question';
 
 import OneDoor from './screens/doorpages/one';
 import ThreeDoors from './screens/doorpages/three';
-import FourDoors from './screens/doorpages/four';
-import FiveDoors from './screens/doorpages/five';
+
+import Rules from './screens/rulebook';
 function App() {
   return (
     <div className="App">
@@ -31,11 +31,10 @@ function App() {
     <Route exact path = '/maze/dead_end' component={Landing}/>
     <Route path = '/maze/:roomId' component={Room}/>
     <Route path = '/path/:qID' component={Question}/>
-
+    <Route path='/rulebook' component={Rules}></Route>
     <Route path = '/onedoor' component = {OneDoor}/>
     <Route path = '/threedoors' component = {ThreeDoors}/>
-    <Route path = '/fourdoors' component = {FourDoors}/>
-    <Route path = '/fivedoors' component = {FiveDoors}/>
+
     </Switch>
     </Router>
     </PersistGate>
