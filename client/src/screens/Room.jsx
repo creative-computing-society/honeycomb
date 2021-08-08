@@ -3,6 +3,7 @@ import { getQuestionsByRoom } from '../actions/questions'
 import { connect, useDispatch, useSelector } from 'react-redux'
 import {Link, useHistory} from 'react-router-dom'
 import PropTypes from 'prop-types';
+import background from '../images/backgroundimage.png'
 import DoorUI from "../components/Portal/portal";
 const Room = ({auth, getQuestionsByRoom, match}) => {
     // const history = useHistory();
