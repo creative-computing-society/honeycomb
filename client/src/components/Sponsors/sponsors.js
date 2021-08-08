@@ -156,7 +156,7 @@ const Sponsors =()=>{
                   </div>
                   <div className="back">
                   <div className="inner">
-                      <p className='title'>MENTORx</p>
+                      <p className='title'>Rapz</p>
                       <span>Associate Sponsor</span>
                     </div>
                   </div>
@@ -203,7 +203,20 @@ const Sponsors =()=>{
               </div>
               <div className="col-sponsor" ontouchstart="this.classList.toggle('hover');">
                 <div className="container">
-                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628360936/Sponsors/grid_2png_09_rgl6so.png)'}}>
+                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628406911/Sponsors/grid_2png_03_nvjeqj.png)'}}>
+                   
+                  </div>
+                  <div className="back">
+                  <div className="inner">
+                      <p className='title'>MentorX</p>
+                      <span>Associate Sponsor</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-sponsor" ontouchstart="this.classList.toggle('hover');">
+                <div className="container">
+                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628406911/Sponsors/grid_2png_02_df9nwz.png)'}}>
                    
                   </div>
                   <div className="back">
@@ -214,6 +227,7 @@ const Sponsors =()=>{
                   </div>
                 </div>
               </div>
+
 
             </div>
           </div>
