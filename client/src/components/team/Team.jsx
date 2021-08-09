@@ -5,6 +5,7 @@ import {Row, Col} from 'react-bootstrap'
 import './team.css'
 import {useHistory} from 'react-router-dom'
 import Notif  from '../Toast/NewToast';
+import {Spinner} from 'react-bootstrap'
 
 const Team = () => {
     const [name2, setName2] = useState('');
@@ -26,11 +27,11 @@ const Team = () => {
    const handleSubmit =(e)=> {
       e.preventDefault();
       dispatch(register(teamName,name1,name2,name3,email1,email2,email3,mobile1,mobile2,mobile3));
-      if(!auth.isRegistered){
-      setTimeout(() => {
-        history.push('/login')
-      }, 8000);
-    }
+      // if(!auth.isRegistered &&  auth.registerError){
+      // setTimeout(() => {
+      //   history.push('/login')
+      // }, 8000);
+    
     }
 
     if(auth.isRegistered){
@@ -95,7 +96,7 @@ const Team = () => {
                 className='team-member-detail'
               />
                 </Col>
-                <button type="submit">Register</button>
+                {auth.loading?<Spinner animation="border" variant="danger" /> :<button type="submit">Register</button>}
                 </form>
 
             </Row>
