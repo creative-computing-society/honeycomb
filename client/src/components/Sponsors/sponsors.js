@@ -151,7 +151,7 @@ const Sponsors =()=>{
               </div>
               <div className="col-sponsor" ontouchstart="this.classList.toggle('hover');">
                 <div className="container">
-                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628444822/Sponsors/grid_1_sp-WEB_02_jiqy5w.png)'}}>
+                  <div className="front" style={{backgroundImage: 'url(https://res.cloudinary.com/dpphmkop0/image/upload/v1628444824/Sponsors/grid-WEB-1_06_t1wmhy.png)'}}>
 
                   </div>
                   <div className="back">
