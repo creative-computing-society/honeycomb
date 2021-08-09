@@ -14,8 +14,7 @@ import Question from './screens/Question';
 
 import OneDoor from './screens/doorpages/one';
 import ThreeDoors from './screens/doorpages/three';
-import FourDoors from './screens/doorpages/four';
-import FiveDoors from './screens/doorpages/five';
+
 import Grid from './screens/grid-page/Grid';
 
 import Rules from './screens/rulebook';
