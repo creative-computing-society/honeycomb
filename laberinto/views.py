@@ -33,8 +33,12 @@ class ParticipantDetailView(APIView):
 
     def get(self, request):
         participant = request.user
+        qs = Submission.objects.filter(participant=participant, question__room__level=participant.level-1).order_by("-time_when_submitted")
         serializer = ParticipantSerializer(participant)
-        return Response(serializer.data)
+        data = serializer.data
+        if qs.exists():
+            data.update({"room": qs[0].question.leads_to.room_id})
+        return Response(data)
 
 
 class QuestionView(APIView):
