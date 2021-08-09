@@ -11,7 +11,7 @@ import Login from './screens/Login';
 import Team from './components/team/Team';
 import Room from './screens/Room';
 import Question from './screens/Question';
-
+import Deadend from './components/deadend/deadend';
 import OneDoor from './screens/doorpages/one';
 import ThreeDoors from './screens/doorpages/three';
 
@@ -32,11 +32,9 @@ function App() {
     <Route exact path = '/maze/0' component = {OneDoor}/>
     <Route path = '/maze/1' component = {ThreeDoors}/>
     <Route path = '/team-registration' component = {Team}/>
-    <Route exact path = '/maze/dead_end' component={Landing}/>
+    <Route exact path = '/maze/dead_end' component={Deadend}/>
     <Route path = '/maze/:roomId' component={Room}/>
     <Route path = '/path/:qID' component={Question}/>
-    <Route path = '/grid' component = {Grid}/>
-
     <Route path='/rulebook' component={Rules}/>
 
     </Switch>
