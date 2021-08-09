@@ -100,12 +100,11 @@ class SubmissionView(APIView):
             ).exists():
                 # Check if question has already been solved by same participant
                 return Response(
-                    {"error": "You have already submitted an answer for this question"}
+                    {"error": "You have already submitted an answer for this question", "leads_to": question.leads_to.room_id}
                 )
 
             if ans_submitted == ans_correct:
-                serializer.save()
-
+                
                 if not Submission.objects.filter(
                     question=question, participant__team=self.request.user.team
                 ).exists():
@@ -113,6 +112,7 @@ class SubmissionView(APIView):
                     self.request.user.team.score += question.points
                     self.request.user.team.save()
 
+                serializer.save()
                 if question.is_dead_end:
                     # Don't increase level if solving a dead end question
                     return Response(
@@ -133,7 +133,7 @@ class SubmissionView(APIView):
                     status=200,
                 )
 
-            return Response({"message": "incorrect"}, status=400)
+            return Response({"message": "incorrect", "question": question.qID}, status=400)
         else:
             print("Nah")
             return Response(serializer.errors, status=400)
@@ -156,5 +156,7 @@ class Hint(APIView):
 
         # Deduct points for hint
         self.request.user.team.score -= qs.hint_points
+        if self.request.user.team.score < 0:
+            return Response({"error": "You don't have enough points"}, status=400)
         self.request.user.team.save()
         return Response({"hint": qs.hint})
