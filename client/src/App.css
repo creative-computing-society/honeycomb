@@ -179,7 +179,9 @@ form.sign-in-form {
 }
 
 
-
+.countdown-title{
+  color: #fff;
+}
 
 .social-text {
   padding: 0.7rem 0;
@@ -521,7 +523,11 @@ margin-top: 80px;
     left: 50%;
   }
 }
-
+@media screen and (max-width:481px){
+  .registerbtn{
+    margin-top: -15%;
+  }
+}
 @media screen and (max-width:451px) {
 
   .registerbtn{
@@ -530,6 +536,7 @@ margin-top: 80px;
 
   .countdown-title{
     font-size: 3rem !important;
+
   }
 
 .regsig{
@@ -867,5 +874,10 @@ label{
   }
   .rulebook-display{
     overflow-y: scroll;
+  }
+}
+@media screen and (max-width:500px){
+  .logo-img{
+    width: 200%;
   }
 }
