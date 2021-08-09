@@ -11,7 +11,7 @@ import Login from './screens/Login';
 import Team from './components/team/Team';
 import Room from './screens/Room';
 import Question from './screens/Question';
-
+import Deadend from './components/deadend/deadend';
 import OneDoor from './screens/doorpages/one';
 import ThreeDoors from './screens/doorpages/three';
 
@@ -38,7 +38,7 @@ function App() {
     <Route path='/rulebook' component={Rules}/>
     <Route path = '/onedoor' component = {OneDoor}/>
     <Route path = '/threedoors' component = {ThreeDoors}/>
-
+    <Route path = '/deadend' component={Deadend}/>
     </Switch>
     </Router>
     </PersistGate>
