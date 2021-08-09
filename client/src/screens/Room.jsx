@@ -12,17 +12,20 @@ const Room = ({auth, getQuestionsByRoom, match}) => {
     }, [getQuestionsByRoom, auth.key, match.params.roomId]);
     const questions = useSelector(state => state.questions.questionsByLevel);
     
-       const delay = (event, id) => {
-     event.preventDefault();
+       const delay = ( id) => {
+           console.log(id);
+    //  event.preventDefault();
     setTimeout(() => history.push("/path/" + id), 2400);
    };
     return (
         <div className='room'>
 
             {questions && questions.map((ques) => {
+                console.log(ques.qID);
                 return (
                     <div className="port">
-                    <Link to = {'/path/'+ques.qID} onClick={delay}><DoorUI/></Link>
+                    <Link to = {'/path/'+ques.qID} onClick={(e)=>{e.preventDefault();delay(ques.qID);}}>
+                        <DoorUI/></Link>
                     </div>
 
                 )

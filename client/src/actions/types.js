@@ -22,5 +22,8 @@ export const SAVE_TEAM_LEADER_INFO_FAILURE = 'SAVE_TEAM_LEADER_INFO_FAILURE';
 export const NEW_REGISTER = 'NEW_REGISTER';
 export const SAVE_ANSWER = 'SAVE_ANSWER'
 export const REGISTER_ERROR_RESET = 'REGISTER_ERROR_RESET';
+export const GET_HINTS_REQUEST = 'GET_HINTS_REQUEST';
+export const GET_HINTS_SUCCESS = 'GET_HINTS_SUCCESS';
+export const GET_HINTS_FAILURE = 'GET_HINTS_FAILURE';
 
-export const proxy = 'http://c98ba05f318d.ngrok.io'
+export const proxy = 'http://079907ca7f98.ngrok.io'
