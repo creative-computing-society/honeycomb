@@ -13,7 +13,7 @@ import image6 from '../images/image6.jpg'
 import image7 from '../images/image7.jpg'
 import image8 from '../images/image8.jpg'
 import Notif from '../components/Toast/NewToast'
-
+import { getHints } from '../actions/questions'
 
 const Question = ({match}) => {
 
@@ -44,7 +44,13 @@ const Question = ({match}) => {
         dispatch(postAnswer(auth.key, match.params.qID, answer));
     }
 
+    const hintHandler = (e) => {
+        e.preventDefault();
+        dispatch(getHints(auth.key, match.params.qID));
+    }
     if(questions.answer && questions.answer.message === 'correct'){
+        history.push('/maze/'+questions.answer.leads_to);
+    } else if(questions.answer && questions.answer.error && questions.answer.leads_to){
         history.push('/maze/'+questions.answer.leads_to);
     }
     return (
@@ -62,7 +68,7 @@ const Question = ({match}) => {
 
             <div className='answer-submission'>
             <input type='text' placeholder='answer' value={answer} onChange={e => setAnswer(e.target.value)} /><br/>
-            <button className='hint'>Hint</button>
+            <button onClick={hintHandler} className='hint'>Hint</button>
             <button onClick={answerHandler}>Submit</button></div>
 
             </div>

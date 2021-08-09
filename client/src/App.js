@@ -28,7 +28,9 @@ function App() {
     
       <Switch>
     <Route exact path = '/' component = {Landing}/>
-    <Route path = '/login' component = {Login}></Route>
+    <Route path = '/login' component = {Login}/>
+    <Route exact path = '/maze/0' component = {OneDoor}/>
+    <Route path = '/maze/1' component = {ThreeDoors}/>
     <Route path = '/team-registration' component = {Team}/>
     <Route exact path = '/maze/dead_end' component={Landing}/>
     <Route path = '/maze/:roomId' component={Room}/>
@@ -36,8 +38,6 @@ function App() {
     <Route path = '/grid' component = {Grid}/>
 
     <Route path='/rulebook' component={Rules}/>
-    <Route path = '/onedoor' component = {OneDoor}/>
-    <Route path = '/threedoors' component = {ThreeDoors}/>
 
     </Switch>
     </Router>
