@@ -21,7 +21,7 @@ from laberinto.views import ParticipantDetailView, QuestionView,QuestionDetailVi
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/register/', views.RegisterView.as_view(), name='register'),
-    path('api/auth/', include('dj_rest_auth.urls')),
+    # path('api/auth/', include('dj_rest_auth.urls')),
 
     path('api/participant/', ParticipantDetailView.as_view(), name='participant'),
     path('api/question/', QuestionView.as_view(), name='question'),
