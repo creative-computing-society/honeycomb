@@ -868,12 +868,24 @@ label{
 }
 @media screen and (max-width:500px){
   .rulebook-main{
-    margin-top: 30%;
+    margin-top: 20%;
     width: fit-content;
     height: 30%;
-  }
-  .rulebook-display{
     overflow-y: scroll;
+  }
+  .rulebook-page{
+    overflow-y: auto;
+  }
+}
+@media screen and (max-width:992px){
+  .rulebook-main{
+    margin-top: 10%;
+    width: fit-content;
+
+    overflow-y: scroll;
+  }
+  .rulebook-page{
+    overflow-y: auto;
   }
 }
 @media screen and (max-width:500px){
