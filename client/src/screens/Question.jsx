@@ -27,6 +27,7 @@ const Question = ({match}) => {
     const question = useSelector(state => state.questions.questionById);
 
     const questionText = (question && question.q_text) || 'Please Wait'
+    const url = (question && question.q_image) || ''
 
     const auth = useSelector(state => state.auth);
     const dispatch = useDispatch();
@@ -66,7 +67,8 @@ const Question = ({match}) => {
         <div className='question-page' style={{backgroundImage: `url(${image[imageNumber]})`}}>
             <div className='question-div'>
             <h3>
-            <Typewriter
+              <p className = "">
+            {/* <Typewriter
   options={{
     speed: 1, 
     strings: [questionText],
@@ -74,7 +76,13 @@ const Question = ({match}) => {
     loop: true,
     pauseFor: 10000000
   }}
-/></h3>
+/> */}
+{questionText}
+</p>
+</h3>
+{ (question && question.q_image) ? <p><a href={url}>Click Me!</a></p> : ''}
+
+
 
             <div className='answer-submission'>
             <input type='text' placeholder='answer' value={answer} onChange={e => setAnswer(e.target.value)} /><br/>
