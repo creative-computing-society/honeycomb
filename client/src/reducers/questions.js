@@ -46,7 +46,8 @@ function questions(state=initialState, action){
         case GET_QUESTIONS_BY_ID:
             return{
                 ...state,
-                questionById: payload
+                questionById: payload,
+                loading: false
             }
         case POST_ANSWER_SUCCESS:
             return{
