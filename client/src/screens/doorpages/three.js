@@ -20,34 +20,40 @@ const delay3 = (e) => {
     <div className="body">
       {/* <img src={logo} alt="" className="bgimg" /> */}
       <div className="portthree row1 three">
-              <Link to = {{
-            pathname:'/'
+          
+            <DoorUI className="door"></DoorUI>
+          
+      </div>
+      <div className="portthree row1 q2">
+       
+      <Link to = {{
+            pathname:'/path/1A1'
           }} onClick={delay1}>
             <DoorUI className="door"></DoorUI>
           </Link>
-      </div>
-      <div className="portthree row1 q2">
-              <Link to = {{
-            pathname:'/'
-          }} onClick={delay2}>
-            <DoorUI className="door"></DoorUI>
-          </Link>
+        
       </div>
       <div className="portthree row1 three">
-              <Link to = {{
-            pathname:'/'
-          }} onClick={delay3}>
+           
             <DoorUI className="door"></DoorUI>
-          </Link>
+          
       </div>
       <div className="portthree row2 q4">
              
+      <Link to = {{
+            pathname:'/path/1A2'
+          }} onClick={delay2}>
             <DoorUI className="door"></DoorUI>
+          </Link>
   
       </div>
       <div className="portthree row2 q5">
 
+      <Link to = {{
+            pathname:'/path/1A3'
+          }} onClick={delay3}>
             <DoorUI className="door"></DoorUI>
+          </Link>
       </div>
     </div>
   );
