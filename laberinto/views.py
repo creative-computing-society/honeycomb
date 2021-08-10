@@ -51,14 +51,14 @@ class QuestionView(APIView):
 
         # Check if room ID is valid
         if not qs.exists():
-            return Response({"status": "Invalid room ID"})
+            return Response([])
 
         # Check if user has permission to access room
         if has_permission(request, room):
             serializer = QuestionSerializer(qs, many=True)
             return Response(serializer.data)
 
-        return Response({"error": "You are not allowed to access this room"})
+        return Response([])
 
 
 class QuestionDetailView(APIView):
@@ -71,14 +71,14 @@ class QuestionDetailView(APIView):
         try:
             qs = Question.objects.get(qID=id)
         except:
-            return Response({"status": "Invalid question ID"})
+            return Response({"error": "Invalid question ID"})
 
         # Check if user has permission to access room
         if has_permission(request, qs.room):
             serializer = QuestionSerializer(qs)
             return Response(serializer.data)
 
-        return Response({"error": "You are not allowed to access this room"})
+        return Response({"error": "You are not allowed to access this question"})
 
 
 class SubmissionView(APIView):
@@ -94,7 +94,7 @@ class SubmissionView(APIView):
 
             # Check if user has permission to access room
             if not has_permission(request, question.room):
-                return Response({"error": "You are not allowed to access this room"})
+                return Response({"error": "You are not allowed to access this question"})
 
             ans_submitted = serializer.validated_data["ans_submitted"].strip()
             ans_correct = question.answer
@@ -146,17 +146,17 @@ class SubmissionView(APIView):
 class Hint(APIView):
     permission_classes = (IsAuthenticated,)
 
-    def get(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         qID = request.data["qID"]
         
         # Check if question ID is valid
         try:
             qs = Question.objects.get(qID=qID)
         except:
-            return Response({"status": "Invalid question ID"})
+            return Response({"error": "Invalid question ID"})
 
         if not has_permission(request, qs.room):
-            return Response({"error": "You are not allowed to access this room"})
+            return Response({"error": "You are not allowed to access this question"})
 
         # Deduct points for hint
         self.request.user.team.score -= qs.hint_points

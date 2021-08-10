@@ -24,7 +24,7 @@ class QuestionSerializer(serializers.ModelSerializer):
 	room = RoomSerializer()
 	class Meta:
 		model = Question
-		fields =('qID', 'room', 'q_text', 'q_image')
+		fields =('qID', 'room', 'q_text', 'q_image', 'hint_points')
 
 class SubmissionSerializer(serializers.ModelSerializer):
 	class Meta:
