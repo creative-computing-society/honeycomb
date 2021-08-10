@@ -26,4 +26,4 @@ export const GET_HINTS_REQUEST = 'GET_HINTS_REQUEST';
 export const GET_HINTS_SUCCESS = 'GET_HINTS_SUCCESS';
 export const GET_HINTS_FAILURE = 'GET_HINTS_FAILURE';
 
-export const proxy = 'https://api.ccstiet.com'
+export const proxy = 'http://079907ca7f98.ngrok.io'

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { loadUser } from './auth'
 import {proxy} from './types'
 import {QUESTIONS_BY_LEVEL_REQUEST, GET_QUESTIONS_BY_LEVEL, GET_QUESTIONS_BY_LEVEL_FAILURE, QUESTIONS_BY_ID_REQUEST, GET_QUESTIONS_BY_ID, GET_QUESTIONS_BY_ID_FAILURE, 
 POST_ANSWER_FAILURE, POST_ANSWER_REQUEST, POST_ANSWER_SUCCESS, SAVE_ANSWER, GET_HINTS_REQUEST, GET_HINTS_SUCCESS, GET_HINTS_FAILURE} from './types'  
@@ -78,6 +79,7 @@ export const postAnswer = (token, questionId, answer) => async dispatch => {
             type: SAVE_ANSWER,
             payload: res.data.leads_to
         })
+        dispatch(loadUser(token));
     } catch (error) {
         dispatch({
             type: POST_ANSWER_FAILURE,
@@ -97,17 +99,19 @@ export const getHints = (token, questionId) => async dispatch => {
             'Authorization': `Token ${token}`,
         }
     }
-    console.log(token);
     const body = {
         "qID":`${questionId}`
     }
+
+    console.log(token, questionId, body);
     try {
         dispatch({type: GET_HINTS_REQUEST})
-        const res = await axios.get(proxy + '/api/hint/',body, config)
+        const res = await axios.post(proxy + '/api/hint/',body, config)
         dispatch({
             type: GET_HINTS_SUCCESS,
             payload: res.data
         })
+        dispatch(loadUser(token));
     } catch (error) {
         dispatch({
             type: GET_HINTS_FAILURE,

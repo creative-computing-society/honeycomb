@@ -14,8 +14,13 @@ import image7 from '../images/image7.jpg'
 import image8 from '../images/image8.jpg'
 import Notif from '../components/Toast/NewToast'
 import { getHints } from '../actions/questions'
+import {Modal} from 'react-bootstrap'
 
 const Question = ({match}) => {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const [imageNumber, setImageNumber] = useState(0);
     const questions = useSelector(state => state.questions);
@@ -25,7 +30,8 @@ const Question = ({match}) => {
 
     const auth = useSelector(state => state.auth);
     const dispatch = useDispatch();
-
+    const hint = useSelector(state => state.questions.hint);
+    const hintPoints = (question && question.hint_points) || 0;
     var random;
     
     useEffect(() => {
@@ -43,7 +49,10 @@ const Question = ({match}) => {
         e.preventDefault();
         dispatch(postAnswer(auth.key, match.params.qID, answer));
     }
-
+    const clickHandler = (e) => {
+        hintHandler(e);
+        handleShow();
+    }
     const hintHandler = (e) => {
         e.preventDefault();
         dispatch(getHints(auth.key, match.params.qID));
@@ -59,6 +68,7 @@ const Question = ({match}) => {
             <h3>
             <Typewriter
   options={{
+    speed: 1, 
     strings: [questionText],
     autoStart: true,
     loop: true,
@@ -68,15 +78,28 @@ const Question = ({match}) => {
 
             <div className='answer-submission'>
             <input type='text' placeholder='answer' value={answer} onChange={e => setAnswer(e.target.value)} /><br/>
-            <button onClick={hintHandler} className='hint'>Hint</button>
+            
+            {hint?
+            <button onClick={handleShow} className='hint'>Hint</button> 
+            :
+            <button onClick={clickHandler} className='hint'><i class="fas fa-lock"></i>Hint:{hintPoints}</button>
+            }
+            
             <button onClick={answerHandler}>Submit</button></div>
 
             </div>
             {questions.answer === 'incorrect'?
             <Notif text="Your answer was incorrect" color='danger'/>:''}
-            
+            <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Hint</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{hint? hint.hint : 'Not enough points for hint'}</Modal.Body>
+      </Modal>
         
-            
+        {question && question.error &&
+          <Notif text={question.error} color='danger'/>
+        }
         </div>
     )
 }
