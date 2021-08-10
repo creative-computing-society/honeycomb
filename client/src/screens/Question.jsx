@@ -14,7 +14,7 @@ import image7 from '../images/image7.jpg'
 import image8 from '../images/image8.jpg'
 import Notif from '../components/Toast/NewToast'
 import { getHints } from '../actions/questions'
-import {Modal} from 'react-bootstrap'
+import {Badge, Modal} from 'react-bootstrap'
 
 const Question = ({match}) => {
     const [show, setShow] = useState(false);
@@ -66,8 +66,8 @@ const Question = ({match}) => {
     return (
         <div className='question-page' style={{backgroundImage: `url(${image[imageNumber]})`}}>
             <div className='question-div'>
-            <h3>
-              <p className = "">
+            <h4>
+              <p className = "question-text">
             {/* <Typewriter
   options={{
     speed: 1, 
@@ -79,8 +79,8 @@ const Question = ({match}) => {
 /> */}
 {questionText}
 </p>
-</h3>
-{ (question && question.q_image) ? <p><a href={url}>Click Me!</a></p> : ''}
+</h4>
+{ (question && question.q_image) ? <h4><p><a href={url}><Badge bg="secondary">Click Me!</Badge></a></p></h4> : ''}
 
 
 

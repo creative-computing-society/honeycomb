@@ -685,6 +685,11 @@ label {
   background-color: #000000;
 }
 
+.question-text {
+  padding: 10px;
+  text-align: justify;
+}
+
 .question-div {
   width: 75vw;
   margin: 20vh auto;
