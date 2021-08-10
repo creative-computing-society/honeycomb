@@ -1,0 +1,9 @@
+.game-won{
+    height: 100vh;
+    background-color: black;
+    padding: 10%;
+}
+
+.you-did-it{
+    width: 60%;
+}

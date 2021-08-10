@@ -18,6 +18,7 @@ import ThreeDoors from './screens/doorpages/three';
 import Grid from './screens/grid-page/Grid';
 
 import Rules from './screens/rulebook';
+import gameOver from './components/win/gameover';
 function App() {
   return (
     <div className="App">
@@ -36,7 +37,7 @@ function App() {
     <Route path = '/maze/:roomId' component={Room}/>
     <Route path = '/path/:qID' component={Question}/>
     <Route path='/rulebook' component={Rules}/>
-
+    <Route path='/gameover' component = {gameOver}/>
     </Switch>
     </Router>
     </PersistGate>
