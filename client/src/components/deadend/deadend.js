@@ -1,6 +1,10 @@
 import "./deadend.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 const Deadend = () => {
+    const history = useHistory();
+    const takeBack = () =>{
+        history.go(-2);
+    }
   return (
     <div className="deadend-main">
       <center>
@@ -11,9 +15,9 @@ const Deadend = () => {
         />
       </center>
       <center>
-        <Link>
-          <button className="goback-btn">Go Back</button>
-        </Link>
+       
+          <button onClick={takeBack} className="goback-btn">Go Back</button>
+     
       </center>
     </div>
   );
