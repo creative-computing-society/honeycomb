@@ -1,0 +1,9 @@
+.not-found{
+    height: 100vh;
+    background-color: black;
+    padding: 10%;
+}
+
+.meme-error{
+    width: 50%;
+}

@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 const Grid = () => {
 
     const user = useSelector(state => state.auth.user);
-    const room = user.room || 0;
+    const room = (user && user.room) || 0;
 
     return (
         <Fragment>

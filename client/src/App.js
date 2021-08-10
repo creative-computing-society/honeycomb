@@ -19,6 +19,7 @@ import Grid from './screens/grid-page/Grid';
 
 import Rules from './screens/rulebook';
 import gameOver from './components/win/gameover';
+import notFound from './components/notfound/404';
 function App() {
   return (
     <div className="App">
@@ -38,6 +39,7 @@ function App() {
     <Route path = '/path/:qID' component={Question}/>
     <Route path='/rulebook' component={Rules}/>
     <Route path='/gameover' component = {gameOver}/>
+    <Route component= {notFound} />
     </Switch>
     </Router>
     </PersistGate>

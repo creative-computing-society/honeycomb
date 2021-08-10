@@ -86,7 +86,7 @@ class DoorUI extends React.Component {
     render() {
      return (
       <svg viewBox="200 150 400 300" preserveAspectRatio="xMidYMid meet">
-       <title>uiDoorLock</title>
+       <title>Door</title>
        <defs>
         <circle
          id="ring"
