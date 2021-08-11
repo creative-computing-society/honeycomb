@@ -29,4 +29,4 @@ export const CHECKPOINT = 'CHECKPOINT';
 export const BACK = 'BACK'
 
 
-export const proxy = 'http://4d2303e59296.ngrok.io'
+export const proxy = 'http://0c028aa038a2.ngrok.io'
