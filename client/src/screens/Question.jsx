@@ -85,7 +85,7 @@ const Question = ({match}) => {
 {questionText}
 </p>
 </h4>
-{ (question && question.q_image) ? <h4><p><a href={url}><Badge bg="secondary">Click Me!</Badge></a></p></h4> : ''}
+{ (question && question.q_image) ? <h4><p><a target="_blank" rel="noopener noreferrer" href={url}><Badge bg="secondary">Click Me!</Badge></a></p></h4> : ''}
 
 
 

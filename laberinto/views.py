@@ -38,8 +38,13 @@ class ParticipantDetailView(APIView):
         ).order_by("-time_when_submitted")
         serializer = ParticipantSerializer(participant)
         data = serializer.data
+        
         if qs.exists():
-            data.update({"room": qs[0].question.leads_to.room_id})
+            room = qs[0].question.leads_to.room_id
+            if room.startswith("dead") or room.startswith("NA"):
+                data.update({"room": qs[0].question.room.room_id})
+            else:
+                data.update({"room": qs[0].question.leads_to.room_id})
         return Response(data)
 
 
