@@ -12,6 +12,7 @@ import {
     LOGOUT,
     SAVE_TEAM_LEADER_INFO,
     SAVE_TEAM_LEADER_INFO_FAILURE,
+    CHECKPOINT,
     proxy
 } from './types';
 
@@ -154,4 +155,12 @@ export const login = ( email, password ) => async dispatch => {
 // Logout User
 export const logout = () => async dispatch => {
     dispatch({ type: LOGOUT});
+}
+
+// Checkpoint
+export const checkPoint = (roomId) => async dispatch => {
+    dispatch({
+        type: CHECKPOINT,
+        payload: roomId
+    })
 }

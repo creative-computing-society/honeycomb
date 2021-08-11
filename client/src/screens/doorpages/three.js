@@ -2,8 +2,17 @@ import DoorUI from "../../components/Portal/portal";
 import logo from "../../images/logo.png";
 import "./main.css";
 import { Link, useHistory } from "react-router-dom";
-const ThreeDoors = () => {
+import { useEffect } from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import {checkPoint} from '../../actions/auth'
+const ThreeDoors = ({match}) => {
   const history = useHistory();
+  const auth = useSelector(state => state.auth);
+  const roomId=match.params.roomId;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(checkPoint(roomId));
+  }, [dispatch, roomId]);
   const delay1 = (e) => {
        e.preventDefault();
        setTimeout(()=>history.push('/path/1A1'), 2450);

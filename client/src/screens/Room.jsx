@@ -3,15 +3,16 @@ import { getQuestionsByRoom } from '../actions/questions'
 import { connect, useDispatch, useSelector } from 'react-redux'
 import {Link, useHistory} from 'react-router-dom'
 import PropTypes from 'prop-types';
-import background from '../images/backgroundimage.png'
 import DoorUI from "../components/Portal/portal";
 import { Fragment } from 'react';
 import Notif from '../components/Toast/MidErrorToast' 
+import {checkPoint} from '../actions/auth'
 
-const Room = ({auth, getQuestionsByRoom, match}) => {
+const Room = ({auth, getQuestionsByRoom, checkPoint, match}) => {
      const history = useHistory();
     useEffect(() => {
         getQuestionsByRoom(auth.key, match.params.roomId);
+        checkPoint(match.params.roomId);
     }, [getQuestionsByRoom, auth.key, match.params.roomId]);
     const questions = useSelector(state => state.questions.questionsByLevel);
     const questionsError = useSelector(state => state.questions);
@@ -54,4 +55,4 @@ const mapStateToProps = (state) => ({
 
 
 
-export default connect(mapStateToProps, {getQuestionsByRoom})(Room)
+export default connect(mapStateToProps, {getQuestionsByRoom, checkPoint})(Room)

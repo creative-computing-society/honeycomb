@@ -58,6 +58,10 @@ const Question = ({match}) => {
         e.preventDefault();
         dispatch(getHints(auth.key, match.params.qID));
     }
+    const takeBack = () =>{
+      history.push(`/maze/${auth.checkpoint}`);
+  }
+
     if(questions.answer && questions.answer.message === 'correct'){
         history.push('/maze/'+questions.answer.leads_to);
     } else if(questions.answer && questions.answer.error && questions.answer.leads_to){
@@ -65,6 +69,7 @@ const Question = ({match}) => {
     }
     return (
         <div className='question-page' style={{backgroundImage: `url(${image[imageNumber]})`}}>
+          <button onClick={takeBack} className="goback-btn">Go Back</button>
             <div className='question-div'>
             <h4>
               <p className = "question-text">

@@ -13,7 +13,8 @@ import {
     SAVE_TEAM_LEADER_INFO_FAILURE,
     NEW_REGISTER,
     SAVE_ANSWER,
-    REGISTER_ERROR_RESET
+    REGISTER_ERROR_RESET,
+    CHECKPOINT
 } from '../actions/types';
 
 const initialState = {
@@ -51,6 +52,11 @@ function auth(state = initialState, action){
                 isAuthenticated: true,
                 loading: false,
                 user: payload
+            }
+        case CHECKPOINT:
+            return{
+                ...state,
+                checkpoint: payload
             }
         case SAVE_ANSWER:
             return{

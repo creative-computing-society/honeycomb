@@ -1,9 +1,11 @@
 import "./deadend.css";
 import { Link, useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Deadend = () => {
     const history = useHistory();
+    const auth = useSelector(state => state.auth);
     const takeBack = () =>{
-        history.go(-2);
+        history.push(`/maze/${auth.checkpoint}`);
     }
   return (
     <div className="deadend-main">
