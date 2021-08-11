@@ -26,7 +26,7 @@ const delay3 = (e) => {
   setTimeout(()=>history.push('/path/1A3'), 1500);
 };
 const handleGoBack = () => {
-       
+       history.push('/maze/0');
 }
   return (
     <div className="body">
@@ -68,7 +68,7 @@ const handleGoBack = () => {
           </Link>
       </div>
       <center>
-            <button onClick={handleGoBack} className='room-back solid btn'>Go Back</button>
+            <button onClick={handleGoBack} className='room-back-three solid btn'>Go Back</button>
             </center>
     </div>
   );

@@ -755,28 +755,34 @@ label {
   padding: 0%;
 }
 .port:nth-child(2) {
-  margin-top: -10%;
+  margin-top: 17%;
   margin-left: 12%;
+  position: absolute;
 }
 .port:nth-child(1) {
-  margin-top: 0%;
-  margin-left: -5%;
+  margin-top: -3%;
+  margin-left: -4%;
+  position: absolute;
 }
-.port:nth-child(3) {
-  margin-top: -50%;
+/* .port:nth-child(3) {
+  margin-top: -200%;
   margin-left: 40%;
-}
+  position: absolute;
+} */
 .port:nth-child(3) {
-  margin-top: -50%;
-  margin-left: 65%;
+  margin-top: 17%;
+  margin-left: 50%;
+  position: absolute;
 }
 .port:nth-child(4) {
-  margin-top: -10%;
-  margin-left: 48%;
+  margin-top: -3%;
+  margin-left: 65%;
+  position: absolute;
 }
 .port:nth-child(5) {
-  margin-top: -50%;
+  margin-top: -2%;
   margin-left: 30%;
+  position: absolute;
 }
 
 @media screen and (max-width: 500px) {
@@ -876,5 +882,11 @@ label {
 
 
 .room-back{
-  margin-top: -30%;
+  margin-top: 30%;
+  margin-left: -4%;
+  position: fixed;
+}
+
+.room-back-three{
+  margin-top: -20%;
 }
