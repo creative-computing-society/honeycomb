@@ -749,10 +749,12 @@ label {
   height: 100vh;
   padding-top: 3%;
   overflow: hidden;
+  position: relative;
 }
 .port {
   width: 40%;
   padding: 0%;
+
 }
 .port:nth-child(2) {
   margin-top: 17%;
@@ -885,6 +887,7 @@ label {
   margin-top: 30%;
   margin-left: -4%;
   position: fixed;
+  z-index: 999;
 }
 
 .room-back-three{
