@@ -69,7 +69,7 @@ const Question = ({match}) => {
     }
     return (
         <div className='question-page' style={{backgroundImage: `url(${image[imageNumber]})`}}>
-          <button onClick={takeBack} className="goback-btn">Go Back</button>
+         
             <div className='question-div'>
             <h4>
               <p className = "question-text">
@@ -98,8 +98,10 @@ const Question = ({match}) => {
             <button onClick={clickHandler} className='hint'><i class="fas fa-lock"></i>Hint:{hintPoints}</button>
             }
             
-            <button onClick={answerHandler}>Submit</button></div>
-
+            <button onClick={answerHandler}>Submit</button>
+            <button onClick={takeBack} className="goback-btn hint">Go Back</button>
+            </div>
+            
             </div>
             {questions.answer === 'incorrect'?
             <Notif text="Your answer was incorrect" color='danger'/>:''}

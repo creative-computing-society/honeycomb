@@ -688,6 +688,8 @@ label {
 .question-text {
   padding: 10px;
   text-align: justify;
+  overflow-wrap: break-word;
+
 }
 
 .question-div {
@@ -702,6 +704,7 @@ label {
   border: 2px solid rgba(255, 0, 0, 0.603);
 }
 .answer-submission {
+  display: inline;
   /*margin-top: 40vh; */
 }
 .answer-submission input {
@@ -715,6 +718,7 @@ label {
   color: white;
   width: 15%;
   margin: 20px;
+ 
 }
 .hint {
   background-color: #000000 !important;
