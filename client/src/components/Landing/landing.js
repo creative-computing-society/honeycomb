@@ -6,6 +6,7 @@ import RegisterButton from '../RegisterButton/registerButton.js';
 import Notif from '../Toast/LoginToast'
 import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
+import Grid from '../../screens/grid-page/Grid';
 
 const Landing =()=>{
     useEffect(()=>{
@@ -44,14 +45,15 @@ const Landing =()=>{
 
   <div className = "main">
     <div id="landing">
-      {auth && auth.isAuthenticated ? '' :
+      {auth && auth.isAuthenticated ? 
+      <Grid/>
+       :
       <div id="bg">
         <Countdown></Countdown>
         <br/>
         <RegisterButton></RegisterButton>
       </div>}
     </div>
-    {auth.isAuthenticated ? <Link to='/maze/0'><center><button className="btn solid">Start The Game</button></center></Link> : ''}
       <div className="sponsors">
         <Sponsors></Sponsors>
       </div>

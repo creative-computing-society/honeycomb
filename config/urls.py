@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from registration import views
-from laberinto.views import ParticipantDetailView, QuestionView,QuestionDetailView, SubmissionView, Hint
+from laberinto.views import ParticipantDetailView, QuestionView,QuestionDetailView, SubmissionView, Hint, BackRoute
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,4 +28,5 @@ urlpatterns = [
     path('api/question/<id>', QuestionDetailView.as_view(), name='question'),
     path('api/submission/', SubmissionView.as_view(), name='submission'),
     path('api/hint/', Hint.as_view(), name='hint'),
+    path('api/back/', BackRoute.as_view(), name='back'),
 ]

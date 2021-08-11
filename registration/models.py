@@ -9,7 +9,7 @@ EMAIL_REGEX = "^[A-Za-z0-9._~+-]+@thapar\.edu$"
 
 class Team(models.Model):
     teamName = models.CharField(max_length=100, unique=True)
-    score = models.IntegerField(default=20)
+    score = models.IntegerField(default=0)
     
     def __str__(self):
         return self.teamName

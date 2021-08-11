@@ -79,7 +79,7 @@ class RegisterView(APIView):
                 def send_email(subject, message, from_email, to_list, html_message):
                     send_mail(subject, message, from_email, to_list, html_message=html_message,fail_silently=False)
 
-                subject = 'Thankyou for registering!' #subject of the email
+                subject = 'Thank you for registering!' #subject of the email
                 password={'OTP':password,'Team_Name': teamData['teamName']} #password dict to be passed to email template
                 html_message = render_to_string('registration/registrationsuccessful.html', password) #html rendered message
                 message = strip_tags(html_message) #incase html render fails

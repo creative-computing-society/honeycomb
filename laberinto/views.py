@@ -33,8 +33,14 @@ class ParticipantDetailView(APIView):
 
     def get(self, request):
         participant = request.user
+        qs = Submission.objects.filter(
+            participant=participant, question__room__level=participant.level - 1
+        ).order_by("-time_when_submitted")
         serializer = ParticipantSerializer(participant)
-        return Response(serializer.data)
+        data = serializer.data
+        if qs.exists():
+            data.update({"room": qs[0].question.leads_to.room_id})
+        return Response(data)
 
 
 class QuestionView(APIView):
@@ -47,14 +53,14 @@ class QuestionView(APIView):
 
         # Check if room ID is valid
         if not qs.exists():
-            return Response({"status": "Invalid room ID"})
+            return Response([])
 
         # Check if user has permission to access room
         if has_permission(request, room):
             serializer = QuestionSerializer(qs, many=True)
             return Response(serializer.data)
 
-        return Response({"error": "You are not allowed to access this room"})
+        return Response([])
 
 
 class QuestionDetailView(APIView):
@@ -67,14 +73,14 @@ class QuestionDetailView(APIView):
         try:
             qs = Question.objects.get(qID=id)
         except:
-            return Response({"status": "Invalid question ID"})
+            return Response({"error": "Invalid question ID"})
 
         # Check if user has permission to access room
         if has_permission(request, qs.room):
             serializer = QuestionSerializer(qs)
             return Response(serializer.data)
 
-        return Response({"error": "You are not allowed to access this room"})
+        return Response({"error": "You are not allowed to access this question"})
 
 
 class SubmissionView(APIView):
@@ -90,7 +96,9 @@ class SubmissionView(APIView):
 
             # Check if user has permission to access room
             if not has_permission(request, question.room):
-                return Response({"error": "You are not allowed to access this room"})
+                return Response(
+                    {"error": "You are not allowed to access this question"}
+                )
 
             ans_submitted = serializer.validated_data["ans_submitted"].strip()
             ans_correct = question.answer
@@ -100,11 +108,13 @@ class SubmissionView(APIView):
             ).exists():
                 # Check if question has already been solved by same participant
                 return Response(
-                    {"error": "You have already submitted an answer for this question"}
+                    {
+                        "error": "You have already submitted an answer for this question",
+                        "leads_to": question.leads_to.room_id,
+                    }
                 )
 
             if ans_submitted == ans_correct:
-                serializer.save()
 
                 if not Submission.objects.filter(
                     question=question, participant__team=self.request.user.team
@@ -113,6 +123,7 @@ class SubmissionView(APIView):
                     self.request.user.team.score += question.points
                     self.request.user.team.save()
 
+                serializer.save()
                 if question.is_dead_end:
                     # Don't increase level if solving a dead end question
                     return Response(
@@ -133,7 +144,9 @@ class SubmissionView(APIView):
                     status=200,
                 )
 
-            return Response({"message": "incorrect"}, status=400)
+            return Response(
+                {"message": "incorrect", "question": question.qID}, status=400
+            )
         else:
             print("Nah")
             return Response(serializer.errors, status=400)
@@ -142,19 +155,41 @@ class SubmissionView(APIView):
 class Hint(APIView):
     permission_classes = (IsAuthenticated,)
 
-    def get(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         qID = request.data["qID"]
-        
+
         # Check if question ID is valid
         try:
             qs = Question.objects.get(qID=qID)
         except:
-            return Response({"status": "Invalid question ID"})
+            return Response({"error": "Invalid question ID"})
 
         if not has_permission(request, qs.room):
-            return Response({"error": "You are not allowed to access this room"})
+            return Response({"error": "You are not allowed to access this question"})
 
         # Deduct points for hint
         self.request.user.team.score -= qs.hint_points
+        if self.request.user.team.score < 0:
+            return Response({"error": "You don't have enough points"}, status=400)
         self.request.user.team.save()
         return Response({"hint": qs.hint})
+
+
+class BackRoute(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request, *args, **kwargs):
+        room = request.data["room"]
+        qs = Question.objects.filter(room=room)
+
+        # Check if room ID is valid
+        if not qs.exists():
+            return Response({"error": "Invalid room ID"})
+
+        qs = (
+            Submission.objects.filter(participant=request.user, question__leads_to=room)
+            .order_by("-time_when_submitted")
+            .first()
+        )
+        if qs:
+            return Response({"room": qs.question.room.room_id})

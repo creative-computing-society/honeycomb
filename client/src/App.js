@@ -11,11 +11,15 @@ import Login from './screens/Login';
 import Team from './components/team/Team';
 import Room from './screens/Room';
 import Question from './screens/Question';
-
+import Deadend from './components/deadend/deadend';
 import OneDoor from './screens/doorpages/one';
 import ThreeDoors from './screens/doorpages/three';
-import FourDoors from './screens/doorpages/four';
-import FiveDoors from './screens/doorpages/five';
+
+import Grid from './screens/grid-page/Grid';
+
+import Rules from './screens/rulebook';
+import gameOver from './components/win/gameover';
+import notFound from './components/notfound/404';
 function App() {
   return (
     <div className="App">
@@ -26,16 +30,17 @@ function App() {
     
       <Switch>
     <Route exact path = '/' component = {Landing}/>
-    <Route path = '/login' component = {Login}></Route>
+    <Route path = '/login' component = {Login}/>
+    <Route exact path = '/maze/0' component = {OneDoor}/>
+    <Route path = '/maze/1' component = {ThreeDoors}/>
     <Route path = '/team-registration' component = {Team}/>
-    <Route exact path = '/maze/dead_end' component={Landing}/>
+    <Route exact path = '/maze/dead_end' component={Deadend}/>
+    <Route exact path = '/maze/NA' component={Deadend}/>
     <Route path = '/maze/:roomId' component={Room}/>
     <Route path = '/path/:qID' component={Question}/>
-
-    <Route path = '/onedoor' component = {OneDoor}/>
-    <Route path = '/threedoors' component = {ThreeDoors}/>
-    <Route path = '/fourdoors' component = {FourDoors}/>
-    <Route path = '/fivedoors' component = {FiveDoors}/>
+    <Route path='/rulebook' component={Rules}/>
+    <Route path='/gameover' component = {gameOver}/>
+    <Route component= {notFound} />
     </Switch>
     </Router>
     </PersistGate>

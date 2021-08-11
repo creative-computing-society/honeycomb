@@ -1,24 +1,26 @@
-/* .body {
+ .body {
   background-color: black;
   overflow: hidden;
   padding-top: 2%;
   height: 100vh;
-}
-.bgimg {
-  position: absolute;
-  opacity: 0.1;
-  margin-left: 15vw;
-  margin-top: 30vh;
-  width: 70%;
-}
-.port {
+    background-color: black;
+    background-image: url(../../images/backgroundimage.png);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
+    height: 100vh;
+    padding-top: 3%;
+    overflow: hidden;
+ }
+
+.portthree {
   margin: auto;
   width: 33%;
   padding: 0%;
 }
 .singledoor {
   width: 80%;
-  margin-top: -5%;
+  margin-top: -7%;
 }
 .row1 {
   display: inline-block;
@@ -33,6 +35,3 @@
 .three {
   visibility: hidden;
 }
-.four {
-  visibility: hidden;
-} */
