@@ -15,16 +15,19 @@ const ThreeDoors = ({match}) => {
   }, [dispatch, roomId]);
   const delay1 = (e) => {
        e.preventDefault();
-       setTimeout(()=>history.push('/path/1A1'), 2450);
+       setTimeout(()=>history.push('/path/1A1'), 1500);
    };
    const delay2 = (e) => {
     e.preventDefault();
-    setTimeout(()=>history.push('/path/1A2'), 2450);
+    setTimeout(()=>history.push('/path/1A2'), 1500);
 };
 const delay3 = (e) => {
   e.preventDefault();
-  setTimeout(()=>history.push('/path/1A3'), 2450);
+  setTimeout(()=>history.push('/path/1A3'), 1500);
 };
+const handleGoBack = () => {
+       
+}
   return (
     <div className="body">
       {/* <img src={logo} alt="" className="bgimg" /> */}
@@ -64,6 +67,9 @@ const delay3 = (e) => {
             <DoorUI className="door"></DoorUI>
           </Link>
       </div>
+      <center>
+            <button onClick={handleGoBack} className='room-back solid btn'>Go Back</button>
+            </center>
     </div>
   );
 };

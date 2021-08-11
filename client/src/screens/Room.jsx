@@ -21,6 +21,9 @@ const Room = ({auth, getQuestionsByRoom, checkPoint, match}) => {
     //  event.preventDefault();
     setTimeout(() => history.push("/path/" + id), 2400);
    };
+   const handleGoBack = () => {
+       
+   }
     return (
         <Fragment>
         <div className='room'>
@@ -36,7 +39,7 @@ const Room = ({auth, getQuestionsByRoom, checkPoint, match}) => {
                 )
             })}
             <center>
-            <button className='room-back solid btn'>Go Back</button>
+            <button onClick={handleGoBack} className='room-back solid btn'>Go Back</button>
             </center>
 
         </div>
