@@ -13,6 +13,7 @@ import {
     SAVE_TEAM_LEADER_INFO,
     SAVE_TEAM_LEADER_INFO_FAILURE,
     CHECKPOINT,
+    BACK,
     proxy
 } from './types';
 
@@ -163,4 +164,25 @@ export const checkPoint = (roomId) => async dispatch => {
         type: CHECKPOINT,
         payload: roomId
     })
+}
+
+// Go Back
+export const back = (token, roomId) => async dispatch => {
+    const config = {
+        headers: {
+            'Authorization': `Token ${token}`,
+        }
+    }
+    const body = {
+        "room": `${roomId}`
+    }
+    try {
+        const res = await axios.post(proxy+'/api/back/', body, config);
+        dispatch({
+            type: BACK,
+            payload: res.data
+        })
+    } catch (error) {
+        
+    }
 }

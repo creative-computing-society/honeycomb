@@ -6,14 +6,16 @@ import PropTypes from 'prop-types';
 import DoorUI from "../components/Portal/portal";
 import { Fragment } from 'react';
 import Notif from '../components/Toast/MidErrorToast' 
-import {checkPoint} from '../actions/auth'
+import {back, checkPoint} from '../actions/auth'
 
-const Room = ({auth, getQuestionsByRoom, checkPoint, match}) => {
+const Room = ({auth, getQuestionsByRoom, checkPoint,back, match}) => {
      const history = useHistory();
     useEffect(() => {
         getQuestionsByRoom(auth.key, match.params.roomId);
         checkPoint(match.params.roomId);
-    }, [getQuestionsByRoom, auth.key, match.params.roomId]);
+        back(auth.key, match.params.roomId);
+    }, [getQuestionsByRoom, auth.key, match.params.roomId, back, checkPoint]);
+    const lastRoom = (auth.back && auth.back.room) || 0;
     const questions = useSelector(state => state.questions.questionsByLevel);
     const questionsError = useSelector(state => state.questions);
        const delay = ( id) => {
@@ -22,7 +24,7 @@ const Room = ({auth, getQuestionsByRoom, checkPoint, match}) => {
     setTimeout(() => history.push("/path/" + id), 2400);
    };
    const handleGoBack = () => {
-       
+       history.push('/maze/'+lastRoom);
    }
     return (
         <Fragment>
@@ -62,4 +64,4 @@ const mapStateToProps = (state) => ({
 
 
 
-export default connect(mapStateToProps, {getQuestionsByRoom, checkPoint})(Room)
+export default connect(mapStateToProps, {getQuestionsByRoom, checkPoint, back})(Room)

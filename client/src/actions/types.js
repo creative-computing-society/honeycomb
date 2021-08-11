@@ -26,6 +26,7 @@ export const GET_HINTS_REQUEST = 'GET_HINTS_REQUEST';
 export const GET_HINTS_SUCCESS = 'GET_HINTS_SUCCESS';
 export const GET_HINTS_FAILURE = 'GET_HINTS_FAILURE';
 export const CHECKPOINT = 'CHECKPOINT';
+export const BACK = 'BACK'
 
 
-export const proxy = 'http://079907ca7f98.ngrok.io'
+export const proxy = 'http://4d2303e59296.ngrok.io'

@@ -14,7 +14,8 @@ import {
     NEW_REGISTER,
     SAVE_ANSWER,
     REGISTER_ERROR_RESET,
-    CHECKPOINT
+    CHECKPOINT,
+    BACK
 } from '../actions/types';
 
 const initialState = {
@@ -57,6 +58,11 @@ function auth(state = initialState, action){
             return{
                 ...state,
                 checkpoint: payload
+            }
+        case BACK:
+            return{
+                ...state,
+                back: payload
             }
         case SAVE_ANSWER:
             return{
