@@ -35,6 +35,7 @@ function App() {
     <Route path = '/maze/1' component = {ThreeDoors}/>
     <Route path = '/team-registration' component = {Team}/>
     <Route exact path = '/maze/dead_end' component={Deadend}/>
+    <Route exact path = '/maze/NA' component={Deadend}/>
     <Route path = '/maze/:roomId' component={Room}/>
     <Route path = '/path/:qID' component={Question}/>
     <Route path='/rulebook' component={Rules}/>
