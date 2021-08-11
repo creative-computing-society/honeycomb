@@ -35,6 +35,10 @@ const Room = ({auth, getQuestionsByRoom, checkPoint, match}) => {
 
                 )
             })}
+            <center>
+            <button className='room-back solid btn'>Go Back</button>
+            </center>
+
         </div>
         {questionsError && questionsError.questionsByLevel && questionsError.questionsByLevel.length < 1 ?
           <Notif text="You are not allowed to access this room" color='danger'/> : ''
