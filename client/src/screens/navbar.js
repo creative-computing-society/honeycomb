@@ -33,11 +33,12 @@ const Navbar = () => {
               <li className ='nav-item'>
               <p className='nav-link'><Badge bg="danger">{teamName}</Badge></p></li>}
               {!auth.isAuthenticated? 
-                <li className='nav-item'><p  className='nav-link'>Total Points: <Badge bg ="danger">{teamPoints}</Badge>
-              <button className='refresh-btn'><RefreshIcon/></button></p></li>
-               : <li className="nav-item">
+                <li className="nav-item">
               <a className='nav-link' href = '/#sponsors'>Our Sponsors</a>
               </li>
+               :
+              <li className='nav-item'><p  className='nav-link'>Total Points: <Badge bg ="danger">{teamPoints}</Badge>
+              <button className='refresh-btn'><RefreshIcon/></button></p></li>
               }
               <li className="nav-item">
                 <Link className="nav-link" to='/rulebook'>Rulebook</Link>
