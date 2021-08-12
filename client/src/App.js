@@ -31,6 +31,7 @@ function App() {
       <Switch>
     <Route exact path = '/' component = {Landing}/>
     <Route path = '/login' component = {Login}/>
+    <Route path = '/test' component = {OneDoor}/>
     <PrivateRoute exact path = '/maze/0' component = {OneDoor}/>
     <PrivateRoute path = '/maze/1' component = {ThreeDoors}/>
     <PrivateRoute path = '/team-registration' component = {Team}/>

@@ -1,0 +1,71 @@
+.newportal-div,
+.portal-span {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 50%;
+  transform: rotate(30deg);
+}
+.newportal-div-1 {
+  transform: rotate(calc(1 * 60deg));
+}
+.newportal-div-2 {
+  transform: rotate(calc(2 * 60deg));
+}
+.newportal-div-3 {
+  transform: rotate(calc(3 * 60deg));
+}
+.newportal-div-4 {
+  transform: rotate(calc(4 * 60deg));
+}
+.newportal-div-5 {
+  transform: rotate(calc(5 * 60deg));
+}
+.newportal-div-6 {
+  transform: rotate(calc(6 * 60deg));
+}
+.portal-span {
+  background: radial-gradient(circle, hsl(0, 96%, 35%), hsl(0, 100%, 26%));
+  --clip-path: polygon(50% 49.9%, 79.5% 100%, 20.5% 100%);
+  -webkit-clip-path: var(--clip-path);
+  clip-path: var(--clip-path);
+  transform-origin: 20% 80%;
+  animation: open 1500ms infinite alternate ease-in-out;
+  animation-play-state: paused;
+  border: 5px solid black;
+}
+main:hover .portal-span {
+  animation-play-state: running;
+}
+
+@keyframes open {
+  100% {
+    transform: rotate(90deg);
+  }
+}
+@keyframes gear {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+main {
+  margin: auto;
+  width: 30vh;
+  height: 30vh;
+  overflow: hidden;
+  border: 2px solid black;
+  border-radius: 50%;
+  background: black;
+  animation: gear 3000ms infinite;
+}
+
+main:hover {
+  animation-play-state: paused;
+}
