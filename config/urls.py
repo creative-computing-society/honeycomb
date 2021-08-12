@@ -16,17 +16,25 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from registration import views
-from laberinto.views import ParticipantDetailView, QuestionView,QuestionDetailView, SubmissionView, Hint, BackRoute
+from laberinto.views import (
+    ParticipantDetailView,
+    QuestionView,
+    QuestionDetailView,
+    SubmissionView,
+    Hint,
+    BackRoute,
+    Leaderboard,
+)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/register/', views.RegisterView.as_view(), name='register'),
-    path('api/auth/', include('dj_rest_auth.urls')),
-
-    path('api/participant/', ParticipantDetailView.as_view(), name='participant'),
-    path('api/question/', QuestionView.as_view(), name='question'),
-    path('api/question/<id>', QuestionDetailView.as_view(), name='question'),
-    path('api/submission/', SubmissionView.as_view(), name='submission'),
-    path('api/hint/', Hint.as_view(), name='hint'),
-    path('api/back/', BackRoute.as_view(), name='back'),
+    path("admin/", admin.site.urls),
+    path("api/register/", views.RegisterView.as_view(), name="register"),
+    path("api/auth/", include("dj_rest_auth.urls")),
+    path("api/participant/", ParticipantDetailView.as_view(), name="participant"),
+    path("api/question/", QuestionView.as_view(), name="question"),
+    path("api/question/<id>", QuestionDetailView.as_view(), name="question"),
+    path("api/submission/", SubmissionView.as_view(), name="submission"),
+    path("api/hint/", Hint.as_view(), name="hint"),
+    path("api/back/", BackRoute.as_view(), name="back"),
+    path("api/leaderboard/", Leaderboard.as_view(), name="leaderboard"),
 ]
