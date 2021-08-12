@@ -4,6 +4,7 @@ import { logout } from '../actions/auth';
 import logo from '../images/logo.png'
 import Rules from "./rulebook";
 import { Badge } from 'react-bootstrap';
+import RefreshIcon from '@material-ui/icons/Refresh';
 
 const Navbar = () => {
   const auth = useSelector(state => state.auth);
@@ -32,9 +33,12 @@ const Navbar = () => {
               <li className ='nav-item'>
               <p className='nav-link'><Badge bg="danger">{teamName}</Badge></p></li>}
               {!auth.isAuthenticated? 
-              <li className="nav-item">
+                <li className='nav-item'><p  className='nav-link'>Total Points: <Badge bg ="danger">{teamPoints}</Badge>
+              <button className='refresh-btn'><RefreshIcon/></button></p></li>
+               : <li className="nav-item">
               <a className='nav-link' href = '/#sponsors'>Our Sponsors</a>
-              </li> : <li className='nav-item'><p  className='nav-link'>Total Points: <Badge bg ="danger">{teamPoints}</Badge></p></li>}
+              </li>
+              }
               <li className="nav-item">
                 <Link className="nav-link" to='/rulebook'>Rulebook</Link>
               </li>
