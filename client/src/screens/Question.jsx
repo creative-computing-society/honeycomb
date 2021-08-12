@@ -15,6 +15,7 @@ import image8 from '../images/image8.jpg'
 import Notif from '../components/Toast/NewToast'
 import { getHints } from '../actions/questions'
 import {Badge, Modal} from 'react-bootstrap'
+import LockIcon from '@material-ui/icons/Lock';
 
 const Question = ({match}) => {
     const [show, setShow] = useState(false);
@@ -95,7 +96,7 @@ const Question = ({match}) => {
             {hint?
             <button onClick={handleShow} className='hint'>Hint</button> 
             :
-            <button onClick={clickHandler} className='hint'><i class="fas fa-lock"></i>Hint:{hintPoints}</button>
+            <button onClick={clickHandler} className='hint'><LockIcon/>Hint:{hintPoints}</button>
             }
             
             <button onClick={answerHandler}>Submit</button>
