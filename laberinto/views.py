@@ -1,6 +1,6 @@
+from registration.models import Participant, Team
 from .models import Question, Submission
-from django.http import JsonResponse
-
+from django.db.models import Q
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import APIView
 from rest_framework.response import Response
@@ -38,7 +38,7 @@ class ParticipantDetailView(APIView):
         ).order_by("-time_when_submitted")
         serializer = ParticipantSerializer(participant)
         data = serializer.data
-        
+
         if qs.exists():
             room = qs[0].question.leads_to.room_id
             if room.startswith("dead") or room.startswith("NA"):
@@ -49,7 +49,6 @@ class ParticipantDetailView(APIView):
 
 
 class QuestionView(APIView):
-
     permission_classes = (IsAuthenticated,)
 
     def post(self, request, *args, **kwargs):
@@ -89,7 +88,6 @@ class QuestionDetailView(APIView):
 
 
 class SubmissionView(APIView):
-
     permission_classes = (IsAuthenticated,)
 
     def post(self, request, *args, **kwargs):
@@ -108,18 +106,18 @@ class SubmissionView(APIView):
             ans_submitted = serializer.validated_data["ans_submitted"].strip()
             ans_correct = question.answer
 
-            if Submission.objects.filter(
-                participant=self.request.user, question=question
-            ).exists():
-                # Check if question has already been solved by same participant
-                return Response(
-                    {
-                        "error": "You have already submitted an answer for this question",
-                        "leads_to": question.leads_to.room_id,
-                    }
-                )
-
             if ans_submitted == ans_correct:
+
+                if Submission.objects.filter(
+                    participant=self.request.user, question=question
+                ).exists():
+                    # Check if question has already been solved by same participant
+                    return Response(
+                        {
+                            "error": "You have already submitted an answer for this question",
+                            "leads_to": question.leads_to.room_id,
+                        }
+                    )
 
                 if not Submission.objects.filter(
                     question=question, participant__team=self.request.user.team
@@ -198,3 +196,52 @@ class BackRoute(APIView):
         )
         if qs:
             return Response({"room": qs.question.room.room_id})
+
+
+class Leaderboard(APIView):
+    def get(self, request, *args, **kwargs):
+
+        # Participant of each team who is farthest from finish point
+        result = []
+        for team in Team.objects.all():
+            blackSheep = Participant.objects.filter(level__gt=0, team=team).order_by(
+                "level"
+            )
+            if blackSheep:
+                ans = (
+                    Submission.objects.filter(
+                        ~Q(question__leads_to__room_id__startswith="dead")
+                        & ~Q(question__leads_to__room_id__startswith="NA"),
+                        participant__team=team,
+                        question__room__level=blackSheep[0].level - 1,
+                    )
+                    .order_by("time_when_submitted")
+                    .first()
+                )
+                result.append(
+                    {
+                        "team": team.teamName,
+                        "participant": ans.participant.name,
+                        "level": ans.participant.level,
+                        "question": ans.question.qID,
+                        "timestamp": ans.time_when_submitted.strftime("%H:%M:%S %Z"),
+                    }
+                )
+        result = sorted(result, key=lambda k: k["level"], reverse=True)
+
+        # Group participants by level
+        result_list = []
+        count = 0
+        for i in range(1, len(result)):
+            if result[i]["level"] == result[i - 1]["level"]:
+                continue
+            else:
+                result_list.append(result[count:i])
+                count = i
+        result_list.append(result[count:])
+
+        # Sort each group by time
+        for i in range(len(result_list)):
+            result_list[i] = sorted(result_list[i], key=lambda k: k["timestamp"])
+
+        return Response(result_list)

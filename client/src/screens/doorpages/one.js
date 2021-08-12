@@ -20,6 +20,7 @@ const OneDoor = ({match}) => {
   return (
     <div className="body">
       {/* <img src={logo} alt="" className="bgimg" /> */}
+      <center>Hello</center>
       <center>
         <div className="singledoor">
           <Link to = {{
