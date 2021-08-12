@@ -7,7 +7,7 @@ const RegisterButton=()=>{
     <div className='regbut'>
        <section className="buttons">
          <Link className='nav-link' to = '/login'>
-         <button className="registerbtn btn solid" >Register Now</button>
+         <button className="registerbtn btn solid" >Login</button>
 
          </Link>
 
