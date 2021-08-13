@@ -18,6 +18,7 @@ import {Badge, Modal, Spinner} from 'react-bootstrap'
 import { Fragment } from 'react'
 // import {Spinner} from 'react-bootstrap'
 import LockIcon from '@material-ui/icons/Lock';
+import Skeleton from '@material-ui/lab/Skeleton';
 
 const Question = ({match}) => {
     const [show, setShow] = useState(false);
@@ -72,10 +73,18 @@ const Question = ({match}) => {
     }
     return (
       <Fragment>
-      {questions && questions.loading ? <Spinner animation="border" variant="danger" className='question-spinner'/> :
-        <Fragment>
+        { questions && questions.loading ?
+        <div className='skeleton-loader'>
+          <center>
+          <Skeleton  variant="text" width={950}/>
+          <Skeleton  variant="rect" width={950} height={218} className='x-skeleton'/>
+          </center>
+        </div> :
         <div className='question-page' style={{backgroundImage: `url(${image[imageNumber]})`}}>
-         
+        
+                <Fragment>
+
+
             <div className='question-div'>
             <h4>
               <p className = "question-text">
@@ -127,9 +136,11 @@ const Question = ({match}) => {
         {question && question.error &&
           <Notif text={question.error} color='danger'/>
         }
-        </div>
         </Fragment>
-      }
+
+      
+        </div>
+}
       </Fragment>
     )
 }
