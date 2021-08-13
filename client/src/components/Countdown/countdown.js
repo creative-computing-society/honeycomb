@@ -50,13 +50,7 @@ const Countdown =()=>{
       			<div className = "countdown-main flex">
       				<h1 className="countdown-title"><b>Countdown</b></h1>
       				<div className='countdown-wrapper'>
-      					{days && (
-      						<div className='countdown-item'>
-      							<SVGCircle radius={daysRadius} />
-      							{days}
-      							<span>days</span>
-      						</div>
-      					)}
+      					
       					{hours && (
       						<div className='countdown-item'>
       							<SVGCircle radius={hoursRadius} />
@@ -92,7 +86,7 @@ const Countdown =()=>{
 
       ReactDOM.render(
       	<Countdown
-      		timeTillDate="08 13 2021, 12:30 pm"
+      		timeTillDate="08 14 2021, 12:30 pm"
       		timeFormat="MM DD YYYY, h:mm a"
       	/>,
       	document.getElementById('app')

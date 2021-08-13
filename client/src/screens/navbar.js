@@ -35,7 +35,7 @@ const Navbar = () => {
 
             {!auth.isAuthenticated? 
               <li className="nav-item">
-                <Link className='nav-link' to = '/login'>Login</Link>
+                <Link className='nav-link' to = '/login'>Register</Link>
               </li> :
               <li className ='nav-item'>
               <p className='nav-link'><Badge bg="danger">{teamName}</Badge></p></li>}
