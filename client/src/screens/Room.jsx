@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import { getQuestionsByRoom } from '../actions/questions'
-import { connect, useDispatch, useSelector } from 'react-redux'
-import {Link, useHistory} from 'react-router-dom'
+import { connect,  useSelector } from 'react-redux'
+import {useHistory} from 'react-router-dom'
 import PropTypes from 'prop-types';
 import DoorUI from "../components/Portal/AwesomePortal";
 import { Fragment } from 'react';
@@ -21,7 +21,6 @@ const Room = ({auth, getQuestionsByRoom, checkPoint,back, match}) => {
     const questionsError = useSelector(state => state.questions);
 
 
-   console.log(match.params.roomId);
    const handleGoBack = () => {
        history.push('/maze/'+lastRoom);
    }
@@ -36,7 +35,6 @@ const Room = ({auth, getQuestionsByRoom, checkPoint,back, match}) => {
             <Fragment>
 
             {questions && questions.map((ques) => {
-                console.log(ques.qID);
                 return (
                     <div className={"port " + (ques.is_solved ? 'isSolved' : '')}>
                     {/* <Link to = {'/path/'+ques.qID} > */}
@@ -61,7 +59,6 @@ const Room = ({auth, getQuestionsByRoom, checkPoint,back, match}) => {
                 <Fragment>
                 
               {questions && questions.map((ques) => {
-                console.log(ques.qID);
                 return (
                     <div className={"three-doors " + (ques.is_solved ? 'isSolved' : '')}>
                     {/* <Link to = {'/path/'+ques.qID} > */}
@@ -84,7 +81,6 @@ const Room = ({auth, getQuestionsByRoom, checkPoint,back, match}) => {
             <div className="room">
 
       {questions && questions.map((ques) => {
-                console.log(ques.qID);
                 return (
 
                     <div className={"one-door " + (ques.is_solved ? 'isSolved' : '')} >    
@@ -107,7 +103,6 @@ const Room = ({auth, getQuestionsByRoom, checkPoint,back, match}) => {
             <div className="room">
 
       {questions && questions.map((ques) => {
-                console.log(ques.qID);
                 return (
 
                     <div className={"one-door " + (ques.is_solved ? 'isSolved' : '')}>    

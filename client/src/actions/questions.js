@@ -14,7 +14,6 @@ export const getQuestionsByRoom = (token, roomId) => async dispatch => {
     const body = {
         "room": roomId
     }
-    console.log(body);
     try {
         dispatch({type: QUESTIONS_BY_LEVEL_REQUEST})
         const res = await axios.post(proxy + '/api/question/', body, config)
@@ -43,7 +42,6 @@ export const getQuestionsById = (token, id) => async dispatch => {
             type: GET_QUESTIONS_BY_ID,
             payload: res.data,
         })
-        console.log(res);
     } catch (error) {
         dispatch({
             type: GET_QUESTIONS_BY_ID_FAILURE,
@@ -103,7 +101,6 @@ export const getHints = (token, questionId) => async dispatch => {
         "qID":`${questionId}`
     }
 
-    console.log(token, questionId, body);
     try {
         dispatch({type: GET_HINTS_REQUEST})
         const res = await axios.post(proxy + '/api/hint/',body, config)

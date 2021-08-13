@@ -17,7 +17,6 @@ import {Badge, Modal, Spinner} from 'react-bootstrap'
 import { Fragment } from 'react'
 // import {Spinner} from 'react-bootstrap'
 import LockIcon from '@material-ui/icons/Lock';
-import Skeleton from '@material-ui/lab/Skeleton';
 
 const Question = ({match}) => {
     const [show, setShow] = useState(false);
@@ -45,7 +44,6 @@ const Question = ({match}) => {
 
     },[getQuestionsById, auth.key, match.params.qID, random]);
     var image = [image1, image2, image3,image4,image5,image6,image7,image8 ];
-    console.log(imageNumber);
 
     const [answer, setAnswer] = useState('');
     const history = useHistory();
