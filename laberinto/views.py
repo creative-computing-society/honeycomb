@@ -34,7 +34,7 @@ class ParticipantDetailView(APIView):
     def get(self, request):
         participant = request.user
         qs = Submission.objects.filter(
-            participant=participant, question__room__level=participant.level - 1
+            participant=participant
         ).order_by("-time_when_submitted")
         serializer = ParticipantSerializer(participant)
         data = serializer.data
@@ -105,6 +105,19 @@ class SubmissionView(APIView):
 
             ans_submitted = serializer.validated_data["ans_submitted"].strip()
             ans_correct = question.answer
+
+            if ans_submitted == "grsv":
+                if Submission.objects.filter(
+                    participant=self.request.user, question=question
+                ).exists():
+                    # Check if question has already been solved by same participant
+                    return Response(
+                        {
+                            "error": "You have already submitted an answer for this question",
+                            "leads_to": question.leads_to.room_id,
+                        }
+                    )
+                return Response({"error": "Answer cannot be empty"})
 
             if ans_submitted == ans_correct:
                 if Submission.objects.filter(
