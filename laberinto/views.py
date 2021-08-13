@@ -107,7 +107,6 @@ class SubmissionView(APIView):
             ans_correct = question.answer
 
             if ans_submitted == ans_correct:
-
                 if Submission.objects.filter(
                     participant=self.request.user, question=question
                 ).exists():
@@ -219,11 +218,12 @@ class Leaderboard(APIView):
                     .first()
                 )
                 if ans:
+                    participant = blackSheep[0]
                     result.append(
                         {
                             "team": team.teamName,
-                            "participant": ans.participant.name,
-                            "level": ans.participant.level,
+                            "participant": participant.name,
+                            "level": participant.level,
                             "question": ans.question.qID,
                             "timestamp": ans.time_when_submitted.strftime("%H:%M:%S %Z"),
                         }
