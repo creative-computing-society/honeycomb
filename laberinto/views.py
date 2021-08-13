@@ -61,7 +61,7 @@ class QuestionView(APIView):
 
         # Check if user has permission to access room
         if has_permission(request, room):
-            serializer = QuestionSerializer(qs, many=True)
+            serializer = QuestionSerializer(qs, many=True, context={"request": request})
             return Response(serializer.data)
 
         return Response([])
@@ -81,7 +81,7 @@ class QuestionDetailView(APIView):
 
         # Check if user has permission to access room
         if has_permission(request, qs.room):
-            serializer = QuestionSerializer(qs)
+            serializer = QuestionSerializer(qs, context={"request": request})
             return Response(serializer.data)
 
         return Response({"error": "You are not allowed to access this question"})
