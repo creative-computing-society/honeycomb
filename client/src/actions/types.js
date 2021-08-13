@@ -29,4 +29,4 @@ export const CHECKPOINT = 'CHECKPOINT';
 export const BACK = 'BACK'
 
 
-export const proxy = 'http://ef9d39ad48ae.ngrok.io'
+export const proxy = 'https://ccs-laberinto.herokuapp.com'

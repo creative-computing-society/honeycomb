@@ -1003,3 +1003,12 @@ label {
   margin-top: 75vh !important;
 }
 
+.newtitle {
+  width: 50% !important;
+  margin: auto;
+  margin-top: 10%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.get-lost {
+  color: rgb(253, 8, 8);
+}

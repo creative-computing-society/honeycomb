@@ -5,7 +5,6 @@ import Sponsors from '../Sponsors/sponsors.js';
 import RegisterButton from '../RegisterButton/registerButton.js';
 import Notif from '../Toast/LoginToast'
 import {useSelector} from 'react-redux';
-import {Link} from 'react-router-dom';
 import Grid from '../../screens/grid-page/Grid';
 
 const Landing =()=>{
@@ -49,7 +48,7 @@ const Landing =()=>{
       <Grid/>
        :
       <div id="bg">
-        <Countdown></Countdown>
+        <h1 className='title newtitle'>The game has started<br/> can you escape the maze...<br/>or will you <span className='get-lost'>GET LOST</span>?</h1>
         <br/>
         <RegisterButton></RegisterButton>
       </div>}
