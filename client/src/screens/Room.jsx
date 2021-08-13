@@ -8,7 +8,7 @@ import { Fragment } from 'react';
 import Notif from '../components/Toast/MidErrorToast' 
 import {back, checkPoint} from '../actions/auth'
 import {Spinner} from 'react-bootstrap'
-
+import '../App.css'
 const Room = ({auth, getQuestionsByRoom, checkPoint,back, match}) => {
      const history = useHistory();
     useEffect(() => {
@@ -19,11 +19,7 @@ const Room = ({auth, getQuestionsByRoom, checkPoint,back, match}) => {
     const lastRoom = (auth.back && auth.back.room) || 0;
     const questions = useSelector(state => state.questions.questionsByLevel);
     const questionsError = useSelector(state => state.questions);
-       const delay = ( id) => {
-           console.log(id);
-    //  event.preventDefault();
-    
-   };
+
 
    console.log(match.params.roomId);
    const handleGoBack = () => {
@@ -43,7 +39,7 @@ const Room = ({auth, getQuestionsByRoom, checkPoint,back, match}) => {
                 console.log(ques.qID);
                 return (
                     <div className="port">
-                    <Link to = {'/path/'+ques.qID} onClick={(e)=>{e.preventDefault();delay(ques.qID);}}>
+                    <Link to = {'/path/'+ques.qID} >
                         <DoorUI/></Link>
                     </div>
 
@@ -60,52 +56,14 @@ const Room = ({auth, getQuestionsByRoom, checkPoint,back, match}) => {
 
         {match.params.roomId === '1' ? 
         <Fragment>
-        <div className="body">
-        {/* <img src={logo} alt="" className="bgimg" /> */}
-        {/* <div className="portthree row1 three">
-            
-              <DoorUI className="door"></DoorUI>
-            
-        </div>
-        <div className="portthree row1 q2">
-         
-        <Link to = {{
-              pathname:'/path/1A1'
-            }}>
-              <DoorUI className="door"></DoorUI>
-            </Link>
-          
-        </div>
-        <div className="portthree row1 three">
-             
-              <DoorUI className="door"></DoorUI>
-            
-        </div>
-        <div className="portthree row2 q4">
-               
-        <Link to = {{
-              pathname:'/path/1A2'
-            }}>
-              <DoorUI className="door"></DoorUI>
-            </Link>
-    
-        </div>
-        <div className="portthree row2 q5">
-  
-        <Link to = {{
-              pathname:'/path/1A3'
-            }}>
-              <DoorUI className="door"></DoorUI>
-            </Link>
-        </div>
-        <center>
-              <button onClick={handleGoBack} className='room-back-three solid btn'>Go Back</button>
-              </center> */}
+        <div className="room">
+                <Fragment>
+                
               {questions && questions.map((ques) => {
                 console.log(ques.qID);
                 return (
-                    <div className="portthree">
-                    <Link to = {'/path/'+ques.qID} onClick={(e)=>{e.preventDefault();delay(ques.qID);}}>
+                    <div className="three-doors">
+                    <Link to = {'/path/'+ques.qID} >
                         <DoorUI/></Link>
                     </div>
 
@@ -114,36 +72,27 @@ const Room = ({auth, getQuestionsByRoom, checkPoint,back, match}) => {
             <center>
             <button onClick={handleGoBack} className='room-back solid btn'>Go Back</button>
             </center>
+            </Fragment>
       </div>
       </Fragment>
         :''}
 
         {match.params.roomId === '0' ?
         <Fragment>
-            <div className="body">
-      {/* <center>Hello</center>
-      <center>
-        <div className="singledoor">
-          <Link to = {{
-            pathname:'/'
-          }}>
-            <DoorUI className="door"></DoorUI>
-          </Link>
-        </div>
-      </center> */}
+            <div className="room">
+
       {questions && questions.map((ques) => {
                 console.log(ques.qID);
                 return (
-                    <div className="singledoor">
-                    <Link to = {'/path/'+ques.qID} onClick={(e)=>{e.preventDefault();delay(ques.qID);}}>
-                        <DoorUI/></Link>
+
+                    <div className="one-door" >    
+                      <Link  to = {'/path/'+ques.qID}>
+                        <DoorUI className='one-door-main'/></Link>
                     </div>
 
                 )
             })}
-            <center>
-            <button onClick={handleGoBack} className='room-back solid btn'>Go Back</button>
-            </center>
+
     </div>
         </Fragment>
        :"" }

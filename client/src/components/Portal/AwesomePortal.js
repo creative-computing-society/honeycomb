@@ -4,7 +4,7 @@ const AwesomePortal = () => {
   return (
     <Fragment>
     <div style={{ flex: 0 }} className="spinner-portal-container">
-    <div style={{ width: 150, height: 150 }} className="symbol">
+    <div className="symbol">
       <svg viewBox="0 0 94.31 95.69">
         <g data-name="Layer 2">
           <g fill="#99ccff;" data-name="Layer 1">

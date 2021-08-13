@@ -1,19 +1,10 @@
-.spinner-portal-container {
-  /* display: flex; */
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  align-content: center;
-  align-items: center;
-  justify-content: center;
-  /* background: black; */
-}
+
 
 .symbol {
   animation: rotate 6s infinite linear;
-  fill: #be1414;
+  fill: #830000;
+  width: 225px;
+  height: 225px;
   animation-play-state: paused;
 }
 .symbol:hover {
@@ -65,7 +56,7 @@
   0% {
     transform: scale(1);
     opacity: 1;
-    fill: #af0404;
+    fill: #630000;
   }
   12.5% {
     transform: scale(0.25);
