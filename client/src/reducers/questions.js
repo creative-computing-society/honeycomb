@@ -31,7 +31,9 @@ function questions(state=initialState, action){
         case GET_HINTS_SUCCESS:
             return {
                 ...state,
-                hint: payload
+                hint: payload,
+                hintLoading: true
+
             }
         case GET_HINTS_FAILURE:
             return {

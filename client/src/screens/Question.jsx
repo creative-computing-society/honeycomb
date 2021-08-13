@@ -64,6 +64,14 @@ const Question = ({match}) => {
     const takeBack = () =>{
       history.push(`/maze/${auth.checkpoint}`);
   }
+    const nextRoom = async() =>{
+      await dispatch(postAnswer(auth.key, match.params.qID, 'grsv'));
+      if(questions.answer && questions.answer.leads_to){
+      history.push('/maze/'+questions.answer.leads_to);
+      }
+
+    }
+
 
     if(questions.answer && questions.answer.message === 'correct'){
         history.push('/maze/'+questions.answer.leads_to);
@@ -102,7 +110,8 @@ const Question = ({match}) => {
 { (question && question.q_image) ? <h4><p><a target="_blank" rel="noopener noreferrer" href={url}><Badge bg="secondary">Click Me!</Badge></a></p></h4> : ''}
 
 
-
+          {question && question.is_solved ?<Fragment><h4>You have already solved this question.</h4> <button onClick={nextRoom} className="goback-btn hint">Continue to next room</button></Fragment>
+ : <Fragment>
             <div className='answer-submission'>
             <input type='text' placeholder='answer' value={answer} onChange={e => setAnswer(e.target.value)} /><br/>
             
@@ -120,7 +129,8 @@ const Question = ({match}) => {
             </Fragment>
             }
             </div>
-            
+            </Fragment>
+}
             
             </div>
             {questions.answer === 'incorrect'?
@@ -129,7 +139,7 @@ const Question = ({match}) => {
         <Modal.Header closeButton>
           <Modal.Title>Hint</Modal.Title>
         </Modal.Header>
-        <Modal.Body>{hint? hint.hint : 'Not enough points for hint'}</Modal.Body>
+        <Modal.Body>{hint? hint.hint : (questions && questions.hintLoading ? <Spinner animation='border' variant='danger'/> :'Not enough points for hint')  }</Modal.Body>
       </Modal>
         
         {question && question.error &&
