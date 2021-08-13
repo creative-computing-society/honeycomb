@@ -689,7 +689,6 @@ label {
   padding: 10px;
   text-align: justify;
   overflow-wrap: break-word;
-
 }
 
 .question-div {
@@ -718,7 +717,6 @@ label {
   color: white;
   width: 15%;
   margin: 20px;
- 
 }
 .hint {
   background-color: #000000 !important;
@@ -754,16 +752,16 @@ label {
 .port {
   width: 40%;
   padding: 0%;
-
 }
+
 .port:nth-child(2) {
-  margin-top: 17%;
-  margin-left: 12%;
+  margin-top: 25%;
+  margin-left: 22%;
   position: absolute;
 }
 .port:nth-child(1) {
-  margin-top: -3%;
-  margin-left: -4%;
+  margin-top: 5%;
+  margin-left: 10%;
   position: absolute;
 }
 /* .port:nth-child(3) {
@@ -772,18 +770,39 @@ label {
   position: absolute;
 } */
 .port:nth-child(3) {
-  margin-top: 17%;
-  margin-left: 50%;
-  position: absolute;
-}
-.port:nth-child(4) {
-  margin-top: -3%;
+  margin-top: 25%;
   margin-left: 65%;
   position: absolute;
 }
+.port:nth-child(4) {
+  margin-top: 5%;
+  margin-left: 75%;
+  position: absolute;
+}
 .port:nth-child(5) {
-  margin-top: -2%;
-  margin-left: 30%;
+  margin-top: 5%;
+  margin-left: 43%;
+  position: absolute;
+}
+
+.three-doors:nth-child(1) {
+  margin-left: 43%;
+  margin-top: 5%;
+  position: absolute;
+}
+.three-doors:nth-child(2) {
+  position: absolute;
+  margin-top: 20%;
+  margin-left: 20%;
+}
+.three-doors:nth-child(3) {
+  position: absolute;
+  margin-left: 70%;
+  margin-top: 20%;
+}
+.one-door:nth-child(1) {
+  margin-top: 15%;
+  margin-left: 40%;
   position: absolute;
 }
 
@@ -882,30 +901,101 @@ label {
   }
 }
 
-
-.room-back{
+.room-back {
   margin-top: 30%;
   margin-left: -4%;
   position: fixed;
   z-index: 999;
 }
 
-.room-back-three{
+.room-back-three {
   margin-top: -20%;
 }
 
-.refresh-btn{
+.refresh-btn {
   background: none;
-	color: inherit;
-	border: none !important;
+  color: inherit;
+  border: none !important;
   border-style: none;
   border-width: 0;
-	padding: 0;
+  padding: 0;
 
   margin: 0%;
   margin-left: 10px;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
   display: inline;
+}
+
+.question-spinner {
+  margin-top: 30vh;
+}
+
+.answer-spinner {
+  margin-top: 5vh;
+}
+
+.skeleton-loader {
+  padding-top: 30vh;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+  text-align: center;
+}
+.MuiSkeleton-root {
+  background-color: rgb(239 229 229 / 39%) !important;
+}
+
+.loader-centered {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #000;
+  filter: blur(10px) contrast(20);
+}
+.blob-1,
+.blob-2 {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.blob-1 {
+  left: 20%;
+  animation: osc-l 2.5s ease infinite;
+}
+.blob-2 {
+  left: 80%;
+  animation: osc-r 2.5s ease infinite;
+  background: rgb(253, 8, 8);
+}
+@keyframes osc-l {
+  0% {
+    left: 20%;
+  }
+  50% {
+    left: 50%;
+  }
+  100% {
+    left: 20%;
+  }
+}
+@keyframes osc-r {
+  0% {
+    left: 80%;
+  }
+  50% {
+    left: 50%;
+  }
+  100% {
+    left: 80%;
+  }
 }

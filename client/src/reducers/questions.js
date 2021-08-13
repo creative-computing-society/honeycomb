@@ -2,9 +2,10 @@ import {QUESTIONS_BY_LEVEL_REQUEST, GET_QUESTIONS_BY_LEVEL, GET_QUESTIONS_BY_LEV
     POST_ANSWER_FAILURE, POST_ANSWER_REQUEST, POST_ANSWER_SUCCESS, GET_HINTS_REQUEST, GET_HINTS_SUCCESS, GET_HINTS_FAILURE} from '../actions/types'
     
 const initialState = {
-    loading: null,
+    loading: false,
     questionsByLevel: [],
     isSolved: false,
+    answerLoading: false
 }
 
 function questions(state=initialState, action){
@@ -19,7 +20,8 @@ function questions(state=initialState, action){
         case POST_ANSWER_REQUEST:
             return {
                 ...state,
-                answer: null
+                answer: null,
+                answerLoading: true
             }
         case GET_HINTS_REQUEST:
             return {
@@ -52,12 +54,14 @@ function questions(state=initialState, action){
         case POST_ANSWER_SUCCESS:
             return{
                 ...state,
-                answer: payload
+                answer: payload,
+                answerLoading: false
             }
         case POST_ANSWER_FAILURE:
             return{
                 ...state,
-                answer: payload
+                answer: payload,
+                answerLoading: false
             }
         case GET_QUESTIONS_BY_LEVEL_FAILURE:
         case GET_QUESTIONS_BY_ID_FAILURE:

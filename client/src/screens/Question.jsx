@@ -3,19 +3,21 @@ import { useEffect, useState } from 'react'
 import { getQuestionsById, postAnswer } from '../actions/questions'
 import {useDispatch, useSelector} from 'react-redux'
 import {useHistory} from 'react-router-dom'
-import Typewriter from 'typewriter-effect';
 import image1 from '../images/image_1.jpg'
-import image2 from '../images/image_2.jpg'
-import image3 from '../images/image_3.jpg'
+import image2 from '../images/image_2.png'
+import image3 from '../images/image_3.png'
 import image4 from '../images/imag4.jpeg'
-import image5 from '../images/image5.jpeg'
+import image5 from '../images/image5.png'
 import image6 from '../images/image6.jpg'
-import image7 from '../images/image7.jpg'
+import image7 from '../images/image7.png'
 import image8 from '../images/image8.jpg'
 import Notif from '../components/Toast/NewToast'
 import { getHints } from '../actions/questions'
-import {Badge, Modal} from 'react-bootstrap'
+import {Badge, Modal, Spinner} from 'react-bootstrap'
+import { Fragment } from 'react'
+// import {Spinner} from 'react-bootstrap'
 import LockIcon from '@material-ui/icons/Lock';
+import Skeleton from '@material-ui/lab/Skeleton';
 
 const Question = ({match}) => {
     const [show, setShow] = useState(false);
@@ -69,8 +71,19 @@ const Question = ({match}) => {
         history.push('/maze/'+questions.answer.leads_to);
     }
     return (
+      <Fragment>
+        { questions && questions.loading ?
+        <div className='skeleton-loader'>
+          <div class = "loader-centered">
+	<div class = "blob-1"></div>
+	<div class = "blob-2"></div>
+</div>
+        </div> :
         <div className='question-page' style={{backgroundImage: `url(${image[imageNumber]})`}}>
-         
+        
+                <Fragment>
+
+
             <div className='question-div'>
             <h4>
               <p className = "question-text">
@@ -93,15 +106,21 @@ const Question = ({match}) => {
             <div className='answer-submission'>
             <input type='text' placeholder='answer' value={answer} onChange={e => setAnswer(e.target.value)} /><br/>
             
-            {hint?
+            {questions.answerLoading ? <Spinner animation="border" variant="danger" className='answer-spinner'/>
+            : <Fragment>{hint?
             <button onClick={handleShow} className='hint'>Hint</button> 
             :
-            <button onClick={clickHandler} className='hint'><LockIcon/>Hint:{hintPoints}</button>
+            <button onClick={clickHandler} className='hint'>
+              <LockIcon/>
+              Hint:{hintPoints}</button>
             }
             
             <button onClick={answerHandler}>Submit</button>
             <button onClick={takeBack} className="goback-btn hint">Go Back</button>
+            </Fragment>
+            }
             </div>
+            
             
             </div>
             {questions.answer === 'incorrect'?
@@ -116,7 +135,12 @@ const Question = ({match}) => {
         {question && question.error &&
           <Notif text={question.error} color='danger'/>
         }
+        </Fragment>
+
+      
         </div>
+}
+      </Fragment>
     )
 }
 
