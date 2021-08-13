@@ -3,14 +3,13 @@ import { useEffect, useState } from 'react'
 import { getQuestionsById, postAnswer } from '../actions/questions'
 import {useDispatch, useSelector} from 'react-redux'
 import {useHistory} from 'react-router-dom'
-import Typewriter from 'typewriter-effect';
 import image1 from '../images/image_1.jpg'
-import image2 from '../images/image_2.jpg'
-import image3 from '../images/image_3.jpg'
+import image2 from '../images/image_2.png'
+import image3 from '../images/image_3.png'
 import image4 from '../images/imag4.jpeg'
-import image5 from '../images/image5.jpeg'
+import image5 from '../images/image5.png'
 import image6 from '../images/image6.jpg'
-import image7 from '../images/image7.jpg'
+import image7 from '../images/image7.png'
 import image8 from '../images/image8.jpg'
 import Notif from '../components/Toast/NewToast'
 import { getHints } from '../actions/questions'
@@ -75,10 +74,10 @@ const Question = ({match}) => {
       <Fragment>
         { questions && questions.loading ?
         <div className='skeleton-loader'>
-          <center>
-          <Skeleton  variant="text" width={950}/>
-          <Skeleton  variant="rect" width={950} height={218} className='x-skeleton'/>
-          </center>
+          <div class = "loader-centered">
+	<div class = "blob-1"></div>
+	<div class = "blob-2"></div>
+</div>
         </div> :
         <div className='question-page' style={{backgroundImage: `url(${image[imageNumber]})`}}>
         
