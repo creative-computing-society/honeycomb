@@ -35,7 +35,7 @@ function App() {
 
     {/* <PrivateRoute exact path = '/maze/0' component = {OneDoor}/> */}
     {/* <PrivateRoute path = '/maze/1' component = {ThreeDoors}/> */}
-    <PrivateRoute path = '/team-registration' component = {Team}/>
+    <Route path = '/team-registration' component = {Team}/>
     <PrivateRoute exact path='/maze/game_over' component = {gameOver}/>
     <PrivateRoute exact path = '/maze/dead_end' component={Deadend}/>
     <PrivateRoute exact path = '/maze/NA' component={Deadend}/>
