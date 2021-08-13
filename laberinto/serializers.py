@@ -22,9 +22,15 @@ class RoomSerializer(serializers.ModelSerializer):
 
 class QuestionSerializer(serializers.ModelSerializer):
 	room = RoomSerializer()
+	is_solved = serializers.SerializerMethodField('get_is_solved')
+
+	def get_is_solved(self, obj):
+		user = self.context['request'].user
+		return Submission.objects.filter(question=obj, participant=user).exists()
+
 	class Meta:
 		model = Question
-		fields =('qID', 'room', 'q_text', 'q_image', 'hint_points')
+		fields =('qID', 'room', 'q_text', 'q_image', 'hint_points', 'is_solved')
 
 class SubmissionSerializer(serializers.ModelSerializer):
 	class Meta:
