@@ -203,7 +203,7 @@ class Leaderboard(APIView):
 
         # Participant of each team who is farthest from finish point
         result = []
-        for team in Team.objects.all():
+        for team in Team.objects.filter(score__gt=0):
             blackSheep = Participant.objects.filter(level__gt=0, team=team).order_by(
                 "level"
             )
@@ -218,15 +218,16 @@ class Leaderboard(APIView):
                     .order_by("time_when_submitted")
                     .first()
                 )
-                result.append(
-                    {
-                        "team": team.teamName,
-                        "participant": ans.participant.name,
-                        "level": ans.participant.level,
-                        "question": ans.question.qID,
-                        "timestamp": ans.time_when_submitted.strftime("%H:%M:%S %Z"),
-                    }
-                )
+                if ans:
+                    result.append(
+                        {
+                            "team": team.teamName,
+                            "participant": ans.participant.name,
+                            "level": ans.participant.level,
+                            "question": ans.question.qID,
+                            "timestamp": ans.time_when_submitted.strftime("%H:%M:%S %Z"),
+                        }
+                    )
         result = sorted(result, key=lambda k: k["level"], reverse=True)
 
         # Group participants by level
