@@ -1,0 +1,79 @@
+.container {
+  /* display: flex; */
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  /* background: black; */
+}
+
+.symbol {
+  animation: rotate 6s infinite linear;
+  fill: #be1414;
+  animation-play-state: paused;
+}
+.symbol:hover {
+  animation-play-state: running;
+}
+
+.symbol1,
+.symbol2,
+.symbol3,
+.symbol4,
+.symbol5,
+.symbol6 {
+  animation: scale 6s infinite ease-in-out;
+  transform-origin: center center;
+}
+
+.symbol1 {
+  animation-delay: 0;
+}
+.symbol2 {
+  animation-delay: 0.25s;
+}
+.symbol3 {
+  animation-delay: 0.5s;
+}
+.symbol4 {
+  animation-delay: 0.75s;
+}
+.symbol5 {
+  animation-delay: 1s;
+}
+.symbol6 {
+  animation-delay: 1.25s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(720deg);
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    fill: #af0404;
+  }
+  12.5% {
+    transform: scale(0.25);
+    opacity: 0.5;
+    fill: #810000;
+  }
+  25% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

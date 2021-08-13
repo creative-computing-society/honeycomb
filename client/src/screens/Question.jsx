@@ -14,7 +14,9 @@ import image7 from '../images/image7.jpg'
 import image8 from '../images/image8.jpg'
 import Notif from '../components/Toast/NewToast'
 import { getHints } from '../actions/questions'
-import {Badge, Modal} from 'react-bootstrap'
+import {Badge, Modal, Spinner} from 'react-bootstrap'
+import { Fragment } from 'react'
+// import {Spinner} from 'react-bootstrap'
 import LockIcon from '@material-ui/icons/Lock';
 
 const Question = ({match}) => {
@@ -69,6 +71,9 @@ const Question = ({match}) => {
         history.push('/maze/'+questions.answer.leads_to);
     }
     return (
+      <Fragment>
+      {questions && questions.loading ? <Spinner animation="border" variant="danger" className='question-spinner'/> :
+        <Fragment>
         <div className='question-page' style={{backgroundImage: `url(${image[imageNumber]})`}}>
          
             <div className='question-div'>
@@ -93,15 +98,21 @@ const Question = ({match}) => {
             <div className='answer-submission'>
             <input type='text' placeholder='answer' value={answer} onChange={e => setAnswer(e.target.value)} /><br/>
             
-            {hint?
+            {questions.answerLoading ? <Spinner animation="border" variant="danger" className='answer-spinner'/>
+            : <Fragment>{hint?
             <button onClick={handleShow} className='hint'>Hint</button> 
             :
-            <button onClick={clickHandler} className='hint'><LockIcon/>Hint:{hintPoints}</button>
+            <button onClick={clickHandler} className='hint'>
+              <LockIcon/>
+              Hint:{hintPoints}</button>
             }
             
             <button onClick={answerHandler}>Submit</button>
             <button onClick={takeBack} className="goback-btn hint">Go Back</button>
+            </Fragment>
+            }
             </div>
+            
             
             </div>
             {questions.answer === 'incorrect'?
@@ -117,6 +128,9 @@ const Question = ({match}) => {
           <Notif text={question.error} color='danger'/>
         }
         </div>
+        </Fragment>
+      }
+      </Fragment>
     )
 }
 

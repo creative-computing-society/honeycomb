@@ -20,7 +20,7 @@ import Grid from './screens/grid-page/Grid';
 import Rules from './screens/rulebook';
 import gameOver from './components/win/gameover';
 import notFound from './components/notfound/404';
-import Mainport from './components/Portal/mainport';
+// import Mainport from './components/Portal/mainport';
 function App() {
   return (
     <div className="App">

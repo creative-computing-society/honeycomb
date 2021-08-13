@@ -3,7 +3,7 @@ import { getQuestionsByRoom } from '../actions/questions'
 import { connect, useDispatch, useSelector } from 'react-redux'
 import {Link, useHistory} from 'react-router-dom'
 import PropTypes from 'prop-types';
-import DoorUI from "../components/Portal/portal";
+import DoorUI from "../components/Portal/AwesomePortal";
 import { Fragment } from 'react';
 import Notif from '../components/Toast/MidErrorToast' 
 import {back, checkPoint} from '../actions/auth'
