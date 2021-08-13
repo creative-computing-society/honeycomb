@@ -750,7 +750,7 @@ label {
   position: relative;
 }
 .port {
-  width: 40%;
+  /* width: 40%; */
   padding: 0%;
 }
 
@@ -999,3 +999,7 @@ label {
     left: 80%;
   }
 }
+.special-btn {
+  margin-top: 75vh !important;
+}
+

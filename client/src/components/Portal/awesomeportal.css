@@ -1,4 +1,6 @@
-
+.spinner-portal-container {
+  width: 50% !important;
+}
 
 .symbol {
   animation: rotate 6s infinite linear;
@@ -67,4 +69,53 @@
     transform: scale(1);
     opacity: 1;
   }
+}
+
+@keyframes scale2 {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    fill: #078124;
+  }
+  12.5% {
+    transform: scale(0.25);
+    opacity: 0.5;
+    fill: #078124;
+  }
+  25% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.isSolved .symbol {
+  fill: #11a834;
+}
+.isSolved .symbol1,
+.isSolved .symbol2,
+.isSolved .symbol3,
+.isSolved .symbol4,
+.isSolved .symbol5,
+.isSolved .symbol6 {
+  animation: scale2 6s infinite ease-in-out;
+  transform-origin: center center;
+}
+
+.isSolved .symbol1 {
+  animation-delay: 0;
+}
+.isSolved .symbol2 {
+  animation-delay: 0.25s;
+}
+.isSolved .symbol3 {
+  animation-delay: 0.5s;
+}
+.isSolved .symbol4 {
+  animation-delay: 0.75s;
+}
+.isSolved .symbol5 {
+  animation-delay: 1s;
+}
+.isSolved .symbol6 {
+  animation-delay: 1.25s;
 }

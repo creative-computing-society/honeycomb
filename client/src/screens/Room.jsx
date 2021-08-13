@@ -28,7 +28,7 @@ const Room = ({auth, getQuestionsByRoom, checkPoint,back, match}) => {
     return (
         <Fragment>
 
-        {match.params.roomId !== '0' && match.params.roomId !== '1' ?
+        {match.params.roomId !== '0' && match.params.roomId !== '1' && match.params.roomId !== '8'  && match.params.roomId !== '7B' ?
         <Fragment>
         <div className='room'>
 
@@ -38,9 +38,10 @@ const Room = ({auth, getQuestionsByRoom, checkPoint,back, match}) => {
             {questions && questions.map((ques) => {
                 console.log(ques.qID);
                 return (
-                    <div className="port">
-                    <Link to = {'/path/'+ques.qID} >
-                        <DoorUI/></Link>
+                    <div className={"port " + (ques.is_solved ? 'isSolved' : '')}>
+                    {/* <Link to = {'/path/'+ques.qID} > */}
+                        <DoorUI id={ques.qID}/>
+                        {/* </Link> */}
                     </div>
 
                 )
@@ -54,7 +55,7 @@ const Room = ({auth, getQuestionsByRoom, checkPoint,back, match}) => {
         </Fragment>
         : " " }
 
-        {match.params.roomId === '1' ? 
+        {match.params.roomId === '1' || match.params.roomId === '7B' ? 
         <Fragment>
         <div className="room">
                 <Fragment>
@@ -62,9 +63,10 @@ const Room = ({auth, getQuestionsByRoom, checkPoint,back, match}) => {
               {questions && questions.map((ques) => {
                 console.log(ques.qID);
                 return (
-                    <div className="three-doors">
-                    <Link to = {'/path/'+ques.qID} >
-                        <DoorUI/></Link>
+                    <div className={"three-doors " + (ques.is_solved ? 'isSolved' : '')}>
+                    {/* <Link to = {'/path/'+ques.qID} > */}
+                    <DoorUI id={ques.qID}/>
+                        {/* </Link> */}
                     </div>
 
                 )
@@ -85,13 +87,41 @@ const Room = ({auth, getQuestionsByRoom, checkPoint,back, match}) => {
                 console.log(ques.qID);
                 return (
 
-                    <div className="one-door" >    
-                      <Link  to = {'/path/'+ques.qID}>
-                        <DoorUI className='one-door-main'/></Link>
+                    <div className={"one-door " + (ques.is_solved ? 'isSolved' : '')} >    
+                      {/* <Link  to = {'/path/'+ques.qID}> */}
+                        <DoorUI id={ques.qID} className="one-door-main" />
+                        {/* </Link> */}
                     </div>
 
                 )
             })}
+
+            
+
+    </div>
+        </Fragment>
+       :"" }
+
+{match.params.roomId === '8' ?
+        <Fragment>
+            <div className="room">
+
+      {questions && questions.map((ques) => {
+                console.log(ques.qID);
+                return (
+
+                    <div className={"one-door " + (ques.is_solved ? 'isSolved' : '')}>    
+                      {/* <Link  to = {'/path/'+ques.qID}> */}
+                        <DoorUI id={ques.qID} className='one-door-main '/>
+                        {/* </Link> */}
+                    </div>
+
+                )
+            })}
+
+<center>
+            <button onClick={handleGoBack} className=' solid btn special-btn'>Go Back</button>
+            </center>
 
     </div>
         </Fragment>

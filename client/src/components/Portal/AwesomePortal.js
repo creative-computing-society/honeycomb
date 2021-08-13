@@ -1,9 +1,11 @@
 import React, {Fragment} from 'react'
 import './awesomeportal.css'
-const AwesomePortal = () => {
+import {Link} from 'react-router-dom'
+const AwesomePortal = ({id}) => {
   return (
     <Fragment>
     <div style={{ flex: 0 }} className="spinner-portal-container">
+      <Link to = {'/path/'+id} >
     <div className="symbol">
       <svg viewBox="0 0 94.31 95.69">
         <g data-name="Layer 2">
@@ -36,6 +38,7 @@ const AwesomePortal = () => {
         </g>
       </svg>
     </div>
+    </Link>
   </div>
   </Fragment>
 );
