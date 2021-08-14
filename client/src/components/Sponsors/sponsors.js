@@ -144,7 +144,7 @@ const Sponsors =()=>{
                   <div className="back">
                   <div className="inner">
                       <p className='title'>GeeksforGeeks</p>
-                      <span>Power Sponsor</span>
+                      <span>Title Sponsor</span>
                     </div>
                   </div>
                 </div>
