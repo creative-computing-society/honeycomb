@@ -55,6 +55,7 @@ const Login = () => {
                 type="text"
                 placeholder="Team Name"
                 required
+                disabled
                 value={teamName}
                 onChange={(e) => setTeamName(e.target.value)}
                 className='team-name team-lead-deets'
@@ -64,6 +65,7 @@ const Login = () => {
                 type="text"
                 placeholder="Team Leader"
                 required
+                disabled
                 value={name1}
                 onChange={(e) => setName1(e.target.value)}
                 className='team-leader team-lead-deets'
@@ -72,6 +74,7 @@ const Login = () => {
               <input
                 type="email"
                 required
+                disabled
                 placeholder="example@thapar.edu"
                 value={email1}
                 className = "team-lead-deets"
@@ -82,6 +85,7 @@ const Login = () => {
                 type="text"
                 placeholder="Discord ID (name#xxxx)"
                 required
+                disabled
                 value={mobile1}
                 className="team-lead-deets"
                 onChange={(e) => setMobile1(e.target.value)}
@@ -111,20 +115,19 @@ const Login = () => {
         <div className="panels-container1">
           <div className="panel left-panel">
           <div className="content">
-              <h3 className="hide">New here ?</h3>
+              <h3 className="hide">The event has started.</h3>
               <p className="hide">
                 “A journey of a thousand miles begins with a single step.”{" "}
-                <br />
-                Sign up, to get lost in the maze.
+                
               </p>
               <button
                 className="btn transparent"
                 id="sign-up-btn"
-                onClick={() =>
-                  document
-                    .querySelector(".container1")
-                    .classList.add("sign-up-mode")
-                }
+                //  onClick={() =>
+                //    document
+                //      .querySelector(".container1")
+                //      .classList.add("sign-up-mode")
+                //  }
               >
                 Sign up
               </button>
