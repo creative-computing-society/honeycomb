@@ -29,4 +29,4 @@ export const CHECKPOINT = 'CHECKPOINT';
 export const BACK = 'BACK'
 
 
-export const proxy = 'https://ccs-laberinto.herokuapp.com'
+export const proxy = 'https://api.ccstiet.com'

@@ -27,7 +27,7 @@ const Room = ({auth, getQuestionsByRoom, checkPoint,back, match}) => {
     return (
         <Fragment>
 
-        {match.params.roomId !== '0' && match.params.roomId !== '1' && match.params.roomId !== '8'  && match.params.roomId !== '7B' ?
+        {match.params.roomId !== '0' && match.params.roomId !== 'just-started' && match.params.roomId !== 'start-afresh'  && match.params.roomId !== 'are-you-sure-this-is-where-you-wanted-to-come' ?
         <Fragment>
         <div className='room'>
 
@@ -53,7 +53,7 @@ const Room = ({auth, getQuestionsByRoom, checkPoint,back, match}) => {
         </Fragment>
         : " " }
 
-        {match.params.roomId === '1' || match.params.roomId === '7B' ? 
+        {match.params.roomId === 'just-started' || match.params.roomId === 'are-you-sure-this-is-where-you-wanted-to-come' ? 
         <Fragment>
         <div className="room">
                 <Fragment>
@@ -98,7 +98,7 @@ const Room = ({auth, getQuestionsByRoom, checkPoint,back, match}) => {
         </Fragment>
        :"" }
 
-{match.params.roomId === '8' ?
+{match.params.roomId === 'start-afresh' ?
         <Fragment>
             <div className="room">
 
