@@ -25,15 +25,15 @@ const ThankYou = () => {
                     <InstagramIcon fontSize='large'/>
 
                 </a >
-                <a href='' className="social-icons-thanks">
+                <a href='https://www.linkedin.com/company/ccs-tiet/mycompany/' className="social-icons-thanks">
                 <LinkedInIcon fontSize='large'/>
                     
                 </a >
-                <a href='' className="social-icons-thanks">
+                <a href='https://www.youtube.com/channel/UCc-F6rlsDdHAKfSiPJEnDLg' className="social-icons-thanks">
                 <YouTubeIcon fontSize='large'/>
                     
                 </a >
-                <a href='' className="social-icons-thanks">
+                <a href='https://github.com/creative-computing-society' className="social-icons-thanks">
                 <GitHubIcon fontSize='large'/>
                 </a>
             </center>
