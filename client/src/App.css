@@ -1012,3 +1012,29 @@ label {
 .get-lost {
   color: rgb(253, 8, 8);
 }
+.thankyou-main{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.social-icons-thanks{
+  color: white;
+  font-size: 2rem;
+  margin: 10px;
+
+}
+.social-icons-thanks:hover{
+  text-decoration: none;
+  color: white;
+}
+.ty-title{
+  font-size: 3rem;
+  margin-top: 30% ;
+}
+.ty-title2{
+  margin-top: -20%;
+}
+.icons{
+  margin-top: -25%;
+}
