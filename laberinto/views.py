@@ -238,7 +238,7 @@ class Leaderboard(APIView):
                             "participant": participant.name,
                             "level": participant.level,
                             "question": ans.question.qID,
-                            "timestamp": ans.time_when_submitted.strftime("%H:%M:%S %Z"),
+                            "timestamp": ans.time_when_submitted.strftime("%d %H:%M:%S %Z"),
                         }
                     )
         result = sorted(result, key=lambda k: k["level"], reverse=True)
